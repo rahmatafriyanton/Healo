@@ -1,0 +1,6 @@
+framework module Pods_Healo {
+  umbrella header "Pods-Healo-umbrella.h"
+
+  export *
+  module * { export * }
+}
