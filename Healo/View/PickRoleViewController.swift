@@ -10,7 +10,7 @@ import SnapKit
 
 class PickRoleViewController: UIViewController {
     
-    private var role: String = ""
+    private var role: Int = 0
     
     private let seekerDesc: NSMutableAttributedString = {
         let boldText = "Seeker"
@@ -72,6 +72,7 @@ class PickRoleViewController: UIViewController {
        let view = UIButton()
         view.isEnabled = false
         view.setTitle("Berikutnya", for: .normal)
+        view.titleLabel?.font = UIFont(name: "Poppins-Bold", size: 16)
         view.addTarget(self, action: #selector(clickNext), for: .touchUpInside)
         view.backgroundColor = .darkPurple
         view.layer.cornerRadius = 15
@@ -152,7 +153,7 @@ class PickRoleViewController: UIViewController {
     }
     
     @objc func setSeeker() {
-        role = "seeker"
+        role = 1
         
         seekerButton.backgroundColor = .darkPurple
         seekerImage.tintColor = .white
@@ -168,7 +169,7 @@ class PickRoleViewController: UIViewController {
     }
     
     @objc func setHealer() {
-        role = "healer"
+        role = 2
         
         healerButton.backgroundColor = .darkPurple
         healerImage.tintColor = .white
@@ -184,7 +185,10 @@ class PickRoleViewController: UIViewController {
     }
     
     @objc func clickNext() {
-        print("next")
+        print(role)
+        
+        // insert navigation code here
+//        navigationController?.pushViewController(UserConditionsViewController(), animated: true)
     }
     
     func setup(){
