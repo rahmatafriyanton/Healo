@@ -90,7 +90,6 @@ class PickRoleViewController: UIViewController {
     
     private lazy var seekerImage: UIImageView = {
        let view = UIImageView()
-//        view.image = UIImage(systemName: "person")
         view.image = UIImage(named: "seeker")?.withRenderingMode(.alwaysTemplate)
         view.tintColor = .blackPurple
         return view
@@ -196,7 +195,7 @@ class PickRoleViewController: UIViewController {
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(32)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(81)
+            make.top.equalToSuperview().offset(128)
         }
         
         view.addSubview(subTitleLabel)
