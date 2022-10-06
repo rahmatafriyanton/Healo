@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class PickRoleViewController: UIViewController {
+class PickRoleVC: UIViewController {
     
     private var role: Int = 0
     
@@ -90,7 +90,6 @@ class PickRoleViewController: UIViewController {
     
     private lazy var seekerImage: UIImageView = {
        let view = UIImageView()
-//        view.image = UIImage(systemName: "person")
         view.image = UIImage(named: "seeker")?.withRenderingMode(.alwaysTemplate)
         view.tintColor = .blackPurple
         return view
@@ -188,7 +187,7 @@ class PickRoleViewController: UIViewController {
     @objc func clickNext() {
         UserProfile.shared.userRole = role
         // insert navigation code here
-        navigationController?.pushViewController(UserConditionsViewController(), animated: true)
+        navigationController?.pushViewController(UserConditionsVC(), animated: true)
     }
     
     func setup(){
@@ -196,7 +195,7 @@ class PickRoleViewController: UIViewController {
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(32)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(81)
+            make.top.equalToSuperview().offset(128)
         }
         
         view.addSubview(subTitleLabel)

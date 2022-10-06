@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserConditionsViewController: UIViewController {
+class UserConditionsVC: UIViewController {
     var accepted: Int = 0
     var agreementTime: String = "no time"
     let dateFormatter = DateFormatter()
@@ -108,7 +108,7 @@ class UserConditionsViewController: UIViewController {
     func setupConstraints() {
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(80)
+            make.top.equalToSuperview().offset(128)
             make.left.right.equalToSuperview().inset(38)
         }
         
