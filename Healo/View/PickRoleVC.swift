@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class PickRoleViewController: UIViewController {
+class PickRoleVC: UIViewController {
     
     private var role: Int = 0
     
@@ -187,7 +187,7 @@ class PickRoleViewController: UIViewController {
     @objc func clickNext() {
         UserProfile.shared.userRole = role
         // insert navigation code here
-        navigationController?.pushViewController(UserConditionsViewController(), animated: true)
+        navigationController?.pushViewController(UserConditionsVC(), animated: true)
     }
     
     func setup(){

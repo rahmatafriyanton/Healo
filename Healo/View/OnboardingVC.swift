@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OnboardingViewController: UIViewController {
+class OnboardingVC: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
@@ -59,7 +59,7 @@ class OnboardingViewController: UIViewController {
     }
     
     @objc func tapRegister(){
-        navigationController?.pushViewController(PickRoleViewController(), animated: true)
+        navigationController?.pushViewController(PickRoleVC(), animated: true)
     }
     
     @objc func tapLogin(){

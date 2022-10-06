@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserConditionsViewController: UIViewController {
+class UserConditionsVC: UIViewController {
     var accepted: Int = 0
     var agreementTime: String = "no time"
     let dateFormatter = DateFormatter()

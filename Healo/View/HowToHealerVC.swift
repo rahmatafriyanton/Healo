@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HowToHealerViewController: UIViewController {
+class HowToHealerVC: UIViewController {
     
     private lazy var titleLabel: ReusableLabel = {
         let view = ReusableLabel(labelText: "Bagaimana cara menjadi seorang Healer?", type: .title)
