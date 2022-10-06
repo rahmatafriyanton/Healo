@@ -919,7 +919,7 @@
 		9CA11E68A8B8D297C7BC76F658898EE5 /* Queue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Queue.swift; path = Platform/DataStructures/Queue.swift; sourceTree = "<group>"; };
 		9D35FBAB90524DBBCA8E9E367BD242E8 /* RxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RxSwift.debug.xcconfig; sourceTree = "<group>"; };
 		9D4A9938C95F62658391E541FE5A60EA /* ReplayRelay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplayRelay.swift; path = RxRelay/ReplayRelay.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E8F8197C7C0D5E178BEF16183802F0E /* Platform.Linux.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Platform.Linux.swift; path = Platform/Platform.Linux.swift; sourceTree = "<group>"; };
 		A11882DF7C2873DEA0E501B26C3E390D /* HorizontalEdgeInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HorizontalEdgeInsets.swift; path = Sources/Models/HorizontalEdgeInsets.swift; sourceTree = "<group>"; };
 		A145EEC76DEF5AE8CC5FD8BD66CF479E /* SingleAssignmentDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SingleAssignmentDisposable.swift; path = RxSwift/Disposables/SingleAssignmentDisposable.swift; sourceTree = "<group>"; };
@@ -1289,7 +1289,6 @@
 				5707E37138FF12C63635B214B52101C1 /* Resources */,
 				9DB1447FCBD0D97A74FEA1989D50F5DA /* Support Files */,
 			);
-			name = MessageKit;
 			path = MessageKit;
 			sourceTree = "<group>";
 		};
@@ -1330,7 +1329,6 @@
 				04FC9EF5155DE6514D9FC8C192AE2AF9 /* ViewTransition.swift */,
 				9209A05E5FF058DEC940592FEF12ECC6 /* Support Files */,
 			);
-			name = RxDataSources;
 			path = RxDataSources;
 			sourceTree = "<group>";
 		};
@@ -1499,7 +1497,6 @@
 				AEC34DE33BE42B88A85E0F274F0351F7 /* Zip+Collection.swift */,
 				6236629EAA85D252F5563BCE4F69D493 /* Support Files */,
 			);
-			name = RxSwift;
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
@@ -1520,7 +1517,6 @@
 				1D9AAC8F31A6F6A46EF72B553EDDBA6B /* Utilities.swift */,
 				977508A6BB4B73AB283AE8A1A95560B8 /* Support Files */,
 			);
-			name = Differentiator;
 			path = Differentiator;
 			sourceTree = "<group>";
 		};
@@ -1545,7 +1541,6 @@
 				85D5FF50059B9EA445C3A48F43F94007 /* Core */,
 				EFBCA3C6A324466242C44CFACAA44477 /* Support Files */,
 			);
-			name = InputBarAccessoryView;
 			path = InputBarAccessoryView;
 			sourceTree = "<group>";
 		};
@@ -1694,7 +1689,6 @@
 				7615C4544D425A5D3596B62D433FF886 /* Utils.swift */,
 				B1023F06DD16777AF1CBB185E395428B /* Support Files */,
 			);
-			name = RxRelay;
 			path = RxRelay;
 			sourceTree = "<group>";
 		};
@@ -1843,7 +1837,6 @@
 				D02A7DDE2B25C477DEB856C347274313 /* WKWebView+Rx.swift */,
 				116D50A7FDB3327330425DC45884CC98 /* Support Files */,
 			);
-			name = RxCocoa;
 			path = RxCocoa;
 			sourceTree = "<group>";
 		};
@@ -1907,7 +1900,6 @@
 				755C199A22074F9203BB26009E1A905F /* UILayoutSupport+Extensions.swift */,
 				8E8F6CA39B6DCC4A8ED4832FD71E5F12 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
