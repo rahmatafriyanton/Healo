@@ -29,6 +29,9 @@
 		3C2D592D28ED294F005D7C27 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C2D591B28ED294F005D7C27 /* Poppins-Bold.ttf */; };
 		3C2D592E28ED294F005D7C27 /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C2D591C28ED294F005D7C27 /* Poppins-SemiBoldItalic.ttf */; };
 		3C2D592F28ED294F005D7C27 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C2D591D28ED294F005D7C27 /* Poppins-Italic.ttf */; };
+		3C2D593328ED6DB7005D7C27 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D593228ED6DB7005D7C27 /* UserProfile.swift */; };
+		3C2D593528EDB1B1005D7C27 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D593428EDB1B1005D7C27 /* RegisterViewModel.swift */; };
+		3C2D593D28EDBAF8005D7C27 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D593C28EDBAF8005D7C27 /* Response.swift */; };
 		485FEA827949B88AD9E664A9 /* Pods_Healo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C94F26B84BE355A54DD03EF /* Pods_Healo.framework */; };
 		68C8763628EB277100069DAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C8763528EB277100069DAA /* AppDelegate.swift */; };
 		68C8763828EB277100069DAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C8763728EB277100069DAA /* SceneDelegate.swift */; };
@@ -60,6 +63,9 @@
 		3C2D591B28ED294F005D7C27 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		3C2D591C28ED294F005D7C27 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		3C2D591D28ED294F005D7C27 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
+		3C2D593228ED6DB7005D7C27 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		3C2D593428EDB1B1005D7C27 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegisterViewModel.swift; path = Healo/Utils/RegisterViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3C2D593C28EDBAF8005D7C27 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Healo/Response.swift; sourceTree = SOURCE_ROOT; };
 		5D7A5D340B8EE6125DAF5B44 /* Pods-Healo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healo.debug.xcconfig"; path = "Target Support Files/Pods-Healo/Pods-Healo.debug.xcconfig"; sourceTree = "<group>"; };
 		68C8763228EB277100069DAA /* Healo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Healo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68C8763528EB277100069DAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 				68C8763728EB277100069DAA /* SceneDelegate.swift */,
 				3C2D58CC28EC15AA005D7C27 /* UIColor.swift */,
 				3C2D58CE28EC15ED005D7C27 /* UIFont.swift */,
+				3C2D593228ED6DB7005D7C27 /* UserProfile.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -154,6 +161,7 @@
 		6847814A28EB2D5300255D01 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3C2D593428EDB1B1005D7C27 /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -161,6 +169,7 @@
 		6847814B28EB2DD100255D01 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3C2D593C28EDBAF8005D7C27 /* Response.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -338,8 +347,11 @@
 				68C8763628EB277100069DAA /* AppDelegate.swift in Sources */,
 				3C2D58CF28EC15ED005D7C27 /* UIFont.swift in Sources */,
 				3C2D58D128EC1AC0005D7C27 /* UserConditionsViewController.swift in Sources */,
+				3C2D593D28EDBAF8005D7C27 /* Response.swift in Sources */,
+				3C2D593328ED6DB7005D7C27 /* UserProfile.swift in Sources */,
 				68C8763828EB277100069DAA /* SceneDelegate.swift in Sources */,
 				3C2D58CB28EC1543005D7C27 /* PickRoleViewController.swift in Sources */,
+				3C2D593528EDB1B1005D7C27 /* RegisterViewModel.swift in Sources */,
 				3C2D58CD28EC15AA005D7C27 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

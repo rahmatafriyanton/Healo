@@ -149,7 +149,8 @@ class PickRoleViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setup()
-        // Do any additional setup after loading the view.
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 14) ?? "", NSAttributedString.Key.foregroundColor: UIColor.darkPurple], for: .normal)
     }
     
     @objc func setSeeker() {
@@ -185,10 +186,9 @@ class PickRoleViewController: UIViewController {
     }
     
     @objc func clickNext() {
-        print(role)
-        
+        UserProfile.shared.userRole = role
         // insert navigation code here
-//        navigationController?.pushViewController(UserConditionsViewController(), animated: true)
+        navigationController?.pushViewController(UserConditionsViewController(), animated: true)
     }
     
     func setup(){
