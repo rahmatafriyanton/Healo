@@ -7,12 +7,9 @@
 
 import Foundation
 
-struct Response: Codable {
+struct Response<T: Decodable> : Decodable {
     let status: String
     let message: String
-    let data: Token
+    let data: T
 }
 
-struct Token: Codable {
-    let token: String
-}
