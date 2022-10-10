@@ -362,7 +362,6 @@ class VerifyEmailVC : UIViewController {
     }
     
     private func startSendAgainTimer() {
-        self.totalTime = 5
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateSendAgainTimer), userInfo: nil, repeats: true)
     }
         
