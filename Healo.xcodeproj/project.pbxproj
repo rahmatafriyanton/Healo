@@ -42,6 +42,7 @@
 		68C8763A28EB277100069DAA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C8763928EB277100069DAA /* MainViewController.swift */; };
 		68C8763F28EB277200069DAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68C8763E28EB277200069DAA /* Assets.xcassets */; };
 		68C8764228EB277200069DAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68C8764028EB277200069DAA /* LaunchScreen.storyboard */; };
+		C59E0BEF28F3B6AD0094CF73 /* VerifyEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59E0BEE28F3B6AD0094CF73 /* VerifyEmailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		68C8764128EB277200069DAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68C8764328EB277200069DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C94F26B84BE355A54DD03EF /* Pods_Healo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Healo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C59E0BEE28F3B6AD0094CF73 /* VerifyEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailVC.swift; sourceTree = "<group>"; };
 		F57D014619D3C93F77BA8088 /* Pods-Healo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healo.release.xcconfig"; path = "Target Support Files/Pods-Healo/Pods-Healo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +188,7 @@
 				68C8763E28EB277200069DAA /* Assets.xcassets */,
 				68C8764028EB277200069DAA /* LaunchScreen.storyboard */,
 				68C8763928EB277100069DAA /* MainViewController.swift */,
+				C59E0BEE28F3B6AD0094CF73 /* VerifyEmailVC.swift */,
 				3C2D58CA28EC1542005D7C27 /* PickRoleVC.swift */,
 				3C2D58D028EC1AC0005D7C27 /* UserConditionsVC.swift */,
 				3C2D594028EEC86D005D7C27 /* OnboardingVC.swift */,
@@ -383,6 +386,7 @@
 				3C2D594B28EEDEAD005D7C27 /* ReusableLabel.swift in Sources */,
 				68C8763628EB277100069DAA /* AppDelegate.swift in Sources */,
 				3C2D58CF28EC15ED005D7C27 /* UIFont.swift in Sources */,
+				C59E0BEF28F3B6AD0094CF73 /* VerifyEmailVC.swift in Sources */,
 				3C2D58D128EC1AC0005D7C27 /* UserConditionsVC.swift in Sources */,
 				3C2D593D28EDBAF8005D7C27 /* Response.swift in Sources */,
 				3C2D594728EECB8B005D7C27 /* ReusableNextButton.swift in Sources */,
