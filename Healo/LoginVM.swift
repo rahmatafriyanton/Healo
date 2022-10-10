@@ -1,17 +1,18 @@
 //
-//  RegisterViewModel.swift
+//  LoginVM.swift
 //  Healo
 //
-//  Created by Vincentius Ian Widi Nugroho on 05/10/22.
+//  Created by Vincentius Ian Widi Nugroho on 08/10/22.
 //
 
 import Foundation
 
-class RegisterViewModel {
-    static let shared = RegisterViewModel()
+class LoginVM {
+    static let shared = LoginVM()
     
-    func register() {
-        let url = URL(string: "http://localhost:3000/api/auth/signup")
+    func login<T: Decodable>(myStruct: T.Type) {
+        let url = URL(string: GlobalVariable.url + "api/auth/login")
+        print(url)
         
         guard url != nil else{
             print("url error")
@@ -23,16 +24,10 @@ class RegisterViewModel {
         let header = ["Content-Type":"application/json"]
         request.allHTTPHeaderFields = header
         
-        let body = ["username": UserProfile.shared.username,
-                    "email": UserProfile.shared.email,
+        let body = ["user_email": UserProfile.shared.email,
                     "password": UserProfile.shared.password,
-                    "is_accept_agreement": UserProfile.shared.isAcceptAgreement,
-                    "agreement_time": UserProfile.shared.agreementTime,
-                    "user_role": UserProfile.shared.userRole,
-                    "user_gender": UserProfile.shared.userGender,
-                    "user_year_born": UserProfile.shared.userYearBorn,
-                    "user_profile_pict": UserProfile.shared.userProfilePict,
         ] as [String:Any]
+
         
         do {
             let requestBody = try JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
@@ -49,8 +44,14 @@ class RegisterViewModel {
                 return
             }
             do {
-                let result = try JSONDecoder().decode(Response.self, from: data!)
-                UserProfile.shared.token = result.data.token
+                print("decoding")
+                let result = try JSONDecoder().decode(Response<T>.self, from: data!)
+                guard let token = result.data as? Token else {
+                    print("not a token")
+                    return
+                }
+                print(token.token)
+                UserProfile.shared.token = token.token
             } catch {
                 print(error)
             }

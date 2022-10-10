@@ -19,23 +19,33 @@ class UserProfile {
     private var _userYearBorn: Int
     private var _userProfilePict: String
     
+    private var _userIsAvailable: Int
+    private var _userGoal: String
+    private var _userDesc: String
+    private var _userAvailHour: String
+    
     private var _token: String
     
     static let shared = UserProfile()
     
     private init() {
-        self._username = UserDefaults.standard.string(forKey: "username") ?? "no username"
-        self._email = UserDefaults.standard.string(forKey: "email") ?? "no email"
-        self._password = UserDefaults.standard.string(forKey: "password") ?? "no password"
+        self._username = UserDefaults.standard.string(forKey: "username") ?? "ian_healo"
+        self._email = UserDefaults.standard.string(forKey: "email") ?? "vincentiannugroho@gmail.com"
+        self._password = UserDefaults.standard.string(forKey: "password") ?? "Password"
         self._isAcceptAgreement = UserDefaults.standard.integer(forKey: "isAcceptAgreement")
         self._agreementTime = UserDefaults.standard.string(forKey: "agreementTime") ?? "no time"
         self._userRole = UserDefaults.standard.integer(forKey: "userRole")
         
-        self._userGender = UserDefaults.standard.string(forKey: "userGender") ?? "no gender"
+        self._userGender = UserDefaults.standard.string(forKey: "userGender") ?? "M"
         self._userYearBorn = UserDefaults.standard.integer(forKey: "userYearBorn")
-        self._userProfilePict = UserDefaults.standard.string(forKey: "userProfilePict") ?? "no profile pict"
+        self._userProfilePict = UserDefaults.standard.string(forKey: "userProfilePict") ?? "http://fhdjdfd.com/img"
         
         self._token = UserDefaults.standard.string(forKey: "token") ?? "no token"
+        
+        self._userIsAvailable = UserDefaults.standard.integer(forKey: "userIsAvailable")
+        self._userGoal = UserDefaults.standard.string(forKey: "userGoal") ?? "no goal"
+        self._userDesc = UserDefaults.standard.string(forKey: "userDesc") ?? "no desc"
+        self._userAvailHour = UserDefaults.standard.string(forKey: "userAvailHour") ?? "no avail"
     }
     
     var username: String {
@@ -135,6 +145,46 @@ class UserProfile {
         set(newValue) {
             self._token = newValue
             UserDefaults.standard.set(newValue, forKey: "token")
+        }
+    }
+    
+    var userIsAvailable: Int {
+        get {
+            return self._userIsAvailable
+        }
+        set(newValue) {
+            self._userIsAvailable = newValue
+            UserDefaults.standard.set(newValue, forKey: "userIsAvailable")
+        }
+    }
+    
+    var userGoal: String {
+        get {
+            return self._userGoal
+        }
+        set(newValue) {
+            self._userGoal = newValue
+            UserDefaults.standard.set(newValue, forKey: "userGoal")
+        }
+    }
+    
+    var userDesc: String {
+        get {
+            return self._userDesc
+        }
+        set(newValue) {
+            self._userDesc = newValue
+            UserDefaults.standard.set(newValue, forKey: "userDesc")
+        }
+    }
+    
+    var userAvailHour: String {
+        get {
+            return self._userAvailHour
+        }
+        set(newValue) {
+            self._userAvailHour = newValue
+            UserDefaults.standard.set(newValue, forKey: "userAvailHour")
         }
     }
 }

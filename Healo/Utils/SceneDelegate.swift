@@ -19,20 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 		guard let scene = (scene as? UIWindowScene) else { return }
 		window = UIWindow(windowScene: scene)
-//        window?.rootViewController = UINavigationController(rootViewController: HowToHealerVC())
-        window?.rootViewController = UINavigationController(rootViewController: SetProfileVC())
-//        window?.rootViewController = OnboardingViewController()
+    window?.rootViewController = OnboardingViewController()
+        //window?.rootViewController = UINavigationController(rootViewController: HowToHealerVC())
 		window?.makeKeyAndVisible()
-        
-//        guard let windowScene = (scene as? UIWindowScene) else { return }
-//        let window = UIWindow(windowScene: windowScene)
-//       // window.rootViewController = TabBarController() // Your initial view controller.
-//
-//        window.rootViewController = SetProfileVC() // Test View Controller.
-//
-//        window.makeKeyAndVisible()
-//        self.window = window
-
 	}
 
 	func sceneDidDisconnect(_ scene: UIScene) {
