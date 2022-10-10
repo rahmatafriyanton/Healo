@@ -37,6 +37,7 @@ class HowToHealerVC: UIViewController {
     
     @objc func tapNext() {
         // insert navigation here
+        LoginVM.shared.login(myStruct: Token.self)
     }
     
     func setupConstraints(){

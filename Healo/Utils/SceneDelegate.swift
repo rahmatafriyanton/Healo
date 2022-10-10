@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		window = UIWindow(windowScene: scene)
         window?.rootViewController = UINavigationController(rootViewController: LoginVC())
 //        window?.rootViewController = OnboardingViewController()
+        //window?.rootViewController = UINavigationController(rootViewController: HowToHealerVC())
 		window?.makeKeyAndVisible()
 
 	}
