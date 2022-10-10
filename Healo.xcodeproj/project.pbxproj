@@ -46,6 +46,8 @@
 		68C8763A28EB277100069DAA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C8763928EB277100069DAA /* MainViewController.swift */; };
 		68C8763F28EB277200069DAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68C8763E28EB277200069DAA /* Assets.xcassets */; };
 		68C8764228EB277200069DAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68C8764028EB277200069DAA /* LaunchScreen.storyboard */; };
+		C5BDC0B128F3052F00781461 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDC0B028F3052F00781461 /* LoginVC.swift */; };
+		C5BDC0B328F30B8D00781461 /* UITapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDC0B228F30B8D00781461 /* UITapGesture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +93,9 @@
 		68C8764128EB277200069DAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68C8764328EB277200069DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C94F26B84BE355A54DD03EF /* Pods_Healo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Healo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5BDC0B028F3052F00781461 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = Healo/View/LoginVC.swift; sourceTree = SOURCE_ROOT; };
+		C5BDC0B228F30B8D00781461 /* UITapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGesture.swift; sourceTree = "<group>"; };
+		C5BDC0B428F3115600781461 /* Healo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Healo.entitlements; sourceTree = "<group>"; };
 		F57D014619D3C93F77BA8088 /* Pods-Healo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healo.release.xcconfig"; path = "Target Support Files/Pods-Healo/Pods-Healo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +199,8 @@
 				3C2D590B28ED2929005D7C27 /* Fonts */,
 				68C8763E28EB277200069DAA /* Assets.xcassets */,
 				68C8764028EB277200069DAA /* LaunchScreen.storyboard */,
+				C5BDC0B028F3052F00781461 /* LoginVC.swift */,
+				C5BDC0B228F30B8D00781461 /* UITapGesture.swift */,
 				68C8763928EB277100069DAA /* MainViewController.swift */,
 				3C2D58CA28EC1542005D7C27 /* PickRoleVC.swift */,
 				3C2D58D028EC1AC0005D7C27 /* UserConditionsVC.swift */,
@@ -250,6 +257,7 @@
 		68C8763428EB277100069DAA /* Healo */ = {
 			isa = PBXGroup;
 			children = (
+				C5BDC0B428F3115600781461 /* Healo.entitlements */,
 				6847814C28EB2DDE00255D01 /* Helper */,
 				6847814B28EB2DD100255D01 /* Model */,
 				6847814A28EB2D5300255D01 /* ViewModel */,
@@ -409,6 +417,8 @@
 				3C2D594128EEC86D005D7C27 /* OnboardingVC.swift in Sources */,
 				3C2D595428F1D983005D7C27 /* Token.swift in Sources */,
 				3C2D58CD28EC15AA005D7C27 /* UIColor.swift in Sources */,
+				C5BDC0B128F3052F00781461 /* LoginVC.swift in Sources */,
+				C5BDC0B328F30B8D00781461 /* UITapGesture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,9 +556,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Healo/Healo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C77567662R;
+				DEVELOPMENT_TEAM = Y8686RJS9V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Healo/Utils/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -575,9 +586,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Healo/Healo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C77567662R;
+				DEVELOPMENT_TEAM = Y8686RJS9V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Healo/Utils/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
