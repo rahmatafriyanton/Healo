@@ -31,7 +31,7 @@ class SetProfileViewModel {
     }
     
     func setupGenderPicker(){
-        genderList = ["Gender", "Male", "Female"]
+        genderList = ["Jenis Kelamin", "Pria", "Wanita"]
     }
     
 

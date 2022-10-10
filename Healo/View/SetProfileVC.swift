@@ -109,7 +109,7 @@ class SetProfileVC: UIViewController, updateIconImage{
         field.backgroundColor = .lightPurple
         field.layer.cornerRadius = 10
         field.textColor = .greyPurple
-        field.text = ("    "+"Gender")
+        field.text = ("    "+"Jenis Kelamin")
         field.textAlignment = .left
         field.font = .poppinsRegular(size: 14)
         field.tintColor = .greyPurple
@@ -263,7 +263,7 @@ class SetProfileVC: UIViewController, updateIconImage{
 
     func setDroplistLayout(){
         genderField.snp.makeConstraints { make in
-            make.width.equalTo(147)
+            make.width.equalTo(174)
             make.height.equalTo(45)
         }
 
@@ -323,7 +323,7 @@ class SetProfileVC: UIViewController, updateIconImage{
     
              if(self.selectedGender == self.viewModel.genderList[0]){
                  self.selectedGender = ""
-                 self.genderField.text =  "    "+"Gender"
+                 self.genderField.text = "    "+"Jenis Kelamin"
              } else {
                  self.genderField.text = "    " + "\(self.selectedGender)"
              }
