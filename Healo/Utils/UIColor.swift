@@ -20,6 +20,10 @@ extension UIColor {
     static var redNotif = UIColor(red: 1.00, green: 0.22, blue: 0.19, alpha: 1.00)
 
 
-    static var pickerToolColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.00)
+    static var pickerToolColor = UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.00)
     static var pickerBack = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.00)
+    static var pickerBorder = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.00)
+    static var blurryBack = UIColor(red: 0.21, green: 0.21, blue: 0.21, alpha: 0.7)
+    static let greyHide = UIColor(red: 0.45, green: 0.45, blue: 0.45, alpha: 1.00)
+    static let redError = UIColor(red: 1.00, green: 0.22, blue: 0.19, alpha: 1.00)
 }
