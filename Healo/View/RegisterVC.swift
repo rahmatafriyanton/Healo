@@ -446,7 +446,6 @@ class RegisterVC : UIViewController {
         guard let text = self.tncLabel.text else { return }
         let termsNConditions = (text as NSString).range(of: "Terms & Conditions")
         let privacyPolicy = (text as NSString).range(of: "Privacy Policy.")
-        
         if gesture.didTapAttributedTextInLabel(label: self.tncLabel, inRange: termsNConditions) {
 //            navigationController?.pushViewController(TermsnConditions(), animated: true)
         } else if gesture.didTapAttributedTextInLabel(label: self.tncLabel, inRange: privacyPolicy){

@@ -21,7 +21,9 @@ class SetProfileVC: UIViewController, updateIconImage{
 
         self.iconButton.setImages(from: selectedIcon)
         self.iconButton.imageView?.layer.cornerRadius = radius
+        self.iconButton.contentMode = .scaleToFill
         self.iconButton.imageView?.clipsToBounds = true
+        self.iconButton.setTitle(.none, for: .normal)
 
         self.validateAll()
     }
@@ -179,6 +181,8 @@ class SetProfileVC: UIViewController, updateIconImage{
         button.setTitleColor(.greyPurple, for: .normal)
         button.titleLabel?.font = .poppinsRegular(size: 18)
         button.tintColor = .greyPurple
+        button.contentHorizontalAlignment = .center
+        button.contentVerticalAlignment = .center
         button.addTarget(self, action: #selector(tapIconAction), for: .touchUpInside)
         return button
     }()
