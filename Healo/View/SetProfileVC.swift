@@ -335,9 +335,7 @@ class SetProfileVC: UIViewController, updateIconImage{
              } else {
                  self.genderField.text = "    " + "\(self.selectedGender)"
              }
-          
-            print(self.selectedGender)
-             
+                       
              self.validateAll()
 
           }).disposed(by: disposeBag)
@@ -356,9 +354,7 @@ class SetProfileVC: UIViewController, updateIconImage{
             self.tahunLahirField.text = "    " + "\(self.selectedTahun)"
           }
           
-          print(self.selectedTahun)
           self.selectTahun = Int(self.selectedTahun) ?? 0
-          print(self.selectTahun)
              
           self.validateAll()
     
@@ -386,16 +382,14 @@ class SetProfileVC: UIViewController, updateIconImage{
     }
  
     @objc func tapMasukAction(){
-        print(selectedGender.prefix(1))
-        print(selectTahun)
-        print(selectedIcon)
-         
-        //MARK: SET TO USER DEFAULT
-        //UserProfile.shared.userGender(selectedGender.prefix(1))
-        //UserProfile.shared.userYearBorn(selectTahun)
-        //UserProfile.shared.userProfilePict()
-        
-        print("Berhasil MASUK")
+         let gender = selectedGender.prefix(1)
+        if(gender == "P"){
+            UserProfile.shared.userGender = "M"
+        } else if(gender == "W"){
+            UserProfile.shared.userGender = "F"
+        }
+        UserProfile.shared.userYearBorn = selectTahun
+        UserProfile.shared.userProfilePict = selectedIcon
 
         let avc = SuccessAlertVC()
         avc.modalPresentationStyle = .custom
