@@ -299,7 +299,7 @@ class LoginVC : UIViewController {
         let label = (text as NSString).range(of: "Belum ada akun? Buat akun baru")
         
 //        if gesture.didTapAttributedTextInLabel(label: self.toRegisterLabel, inRange: label) {
-////            navigationController?.pushViewController(RegisterVC(), animated: true)
+//            navigationController?.pushViewController(RegisterVC(), animated: true)
 //        }
     }
     
