@@ -21,7 +21,9 @@ class SetProfileVC: UIViewController, updateIconImage{
 
         self.iconButton.setImages(from: selectedIcon)
         self.iconButton.imageView?.layer.cornerRadius = radius
+        self.iconButton.contentMode = .scaleToFill
         self.iconButton.imageView?.clipsToBounds = true
+        self.iconButton.setTitle(.none, for: .normal)
 
         self.validateAll()
     }
@@ -179,6 +181,8 @@ class SetProfileVC: UIViewController, updateIconImage{
         button.setTitleColor(.greyPurple, for: .normal)
         button.titleLabel?.font = .poppinsRegular(size: 18)
         button.tintColor = .greyPurple
+        button.contentHorizontalAlignment = .center
+        button.contentVerticalAlignment = .center
         button.addTarget(self, action: #selector(tapIconAction), for: .touchUpInside)
         return button
     }()
@@ -201,6 +205,10 @@ class SetProfileVC: UIViewController, updateIconImage{
         iconSize = self.view.frame.height > 735 ? 156 : 140
         radius =  CGFloat(iconSize/2)
         configureUI()
+        
+        // get icons
+//        LoginVM.shared.login(myStruct: Token.self)
+        ProfileIconVM.shared.getIcons(myStruct: [Icon].self)
     }
     
     func configureUI(){
@@ -327,9 +335,7 @@ class SetProfileVC: UIViewController, updateIconImage{
              } else {
                  self.genderField.text = "    " + "\(self.selectedGender)"
              }
-          
-            print(self.selectedGender)
-             
+                       
              self.validateAll()
 
           }).disposed(by: disposeBag)
@@ -348,9 +354,7 @@ class SetProfileVC: UIViewController, updateIconImage{
             self.tahunLahirField.text = "    " + "\(self.selectedTahun)"
           }
           
-          print(self.selectedTahun)
           self.selectTahun = Int(self.selectedTahun) ?? 0
-          print(self.selectTahun)
              
           self.validateAll()
     
@@ -378,16 +382,14 @@ class SetProfileVC: UIViewController, updateIconImage{
     }
  
     @objc func tapMasukAction(){
-        print(selectedGender.prefix(1))
-        print(selectTahun)
-        print(selectedIcon)
-         
-        //MARK: SET TO USER DEFAULT
-        //UserProfile.shared.userGender(selectedGender.prefix(1))
-        //UserProfile.shared.userYearBorn(selectTahun)
-        //UserProfile.shared.userProfilePict()
-        
-        print("Berhasil MASUK")
+         let gender = selectedGender.prefix(1)
+        if(gender == "P"){
+            UserProfile.shared.userGender = "M"
+        } else if(gender == "W"){
+            UserProfile.shared.userGender = "F"
+        }
+        UserProfile.shared.userYearBorn = selectTahun
+        UserProfile.shared.userProfilePict = selectedIcon
 
         let avc = SuccessAlertVC()
         avc.modalPresentationStyle = .custom

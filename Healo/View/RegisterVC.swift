@@ -453,7 +453,6 @@ class RegisterVC : UIViewController {
 ////            navigationController?.pushViewController(PrivacyPolicy(), animated: true)
 //        }
     }
-    
     //MARK: - Login
     
     func toLoginTapped() {
