@@ -11,7 +11,7 @@ class SetUserVM {
     static let shared = SetUserVM()
     
     func setUser<T: Decodable>(myStruct: T.Type) {
-        let url = URL(string: GlobalVariable.url + "api/user")
+        let url = URL(string: GlobalVariable.url + "/api/user")
         print(url)
         
         guard url != nil else{

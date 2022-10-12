@@ -205,6 +205,10 @@ class SetProfileVC: UIViewController, updateIconImage{
         iconSize = self.view.frame.height > 735 ? 156 : 140
         radius =  CGFloat(iconSize/2)
         configureUI()
+        
+        // get icons
+//        LoginVM.shared.login(myStruct: Token.self)
+        ProfileIconVM.shared.getIcons(myStruct: [Icon].self)
     }
     
     func configureUI(){

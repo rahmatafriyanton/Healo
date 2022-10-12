@@ -11,7 +11,7 @@ class RegisterVM {
     static let shared = RegisterVM()
     
     func register<T: Decodable>(myStruct: T.Type) {
-        let url = URL(string: GlobalVariable.url + "api/auth/register")
+        let url = URL(string: GlobalVariable.url + "/api/auth/register")
         print(url)
         
         guard url != nil else{

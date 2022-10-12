@@ -7,19 +7,22 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class PickIconVC: UIViewController {
     
     let screenSize: CGRect = UIScreen.main.bounds
     var iconSize = 0
     var radius : CGFloat = 0
+    let dispose = DisposeBag()
     
-    let imageUrl1 = GlobalVariable.url + "images/profile/user-1.png"
-    let imageUrl2 = GlobalVariable.url + "images/profile/user-2.png"
-    let imageUrl3 = GlobalVariable.url + "images/profile/user-3.png"
-    let imageUrl4 = GlobalVariable.url + "images/profile/user-4.png"
-    let imageUrl5 = GlobalVariable.url + "images/profile/user-5.png"
-    let imageUrl6 = GlobalVariable.url + "images/profile/user-6.png"
+    var imageUrl1 = ""
+    var imageUrl2 = ""
+    var imageUrl3 = ""
+    var imageUrl4 = ""
+    var imageUrl5 = ""
+    var imageUrl6 = ""
     
     
     var selectedImage = ""
@@ -55,42 +58,36 @@ class PickIconVC: UIViewController {
     
     private lazy var imageView1 : UIImageView = {
         let imageView = UIImageView()
-        imageView.setImage(from: imageUrl1)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private lazy var imageView2 : UIImageView = {
         let imageView = UIImageView()
-        imageView.setImage(from: imageUrl2)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private lazy var imageView3 : UIImageView = {
         let imageView = UIImageView()
-        imageView.setImage(from: imageUrl3)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private lazy var imageView4 : UIImageView = {
         let imageView = UIImageView()
-        imageView.setImage(from: imageUrl4)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
 
     private lazy var imageView5 : UIImageView = {
         let imageView = UIImageView()
-        imageView.setImage(from: imageUrl5)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
 
     private lazy var imageView6 : UIImageView = {
         let imageView = UIImageView()
-        imageView.setImage(from: imageUrl6)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -186,6 +183,25 @@ class PickIconVC: UIViewController {
         iconSize = self.view.frame.height > 735 ? 120 : 100
         radius =  CGFloat(iconSize/2)
         configureUI()
+        subscribeIcons()
+    }
+    
+    func subscribeIcons(){
+        // get icons from subject
+        ProfileIconVM.shared.icons.subscribe(onNext: { event in
+            self.imageUrl1 = GlobalVariable.url + event[0].image_path
+            self.imageView1.setImage(from: self.imageUrl1)
+            self.imageUrl2 = GlobalVariable.url + event[1].image_path
+            self.imageView2.setImage(from: self.imageUrl2)
+            self.imageUrl3 = GlobalVariable.url + event[2].image_path
+            self.imageView3.setImage(from: self.imageUrl3)
+            self.imageUrl4 = GlobalVariable.url + event[3].image_path
+            self.imageView4.setImage(from: self.imageUrl4)
+            self.imageUrl5 = GlobalVariable.url + event[4].image_path
+            self.imageView5.setImage(from: self.imageUrl5)
+            self.imageUrl6 = GlobalVariable.url + event[5].image_path
+            self.imageView6.setImage(from: self.imageUrl6)
+        })
     }
     
 

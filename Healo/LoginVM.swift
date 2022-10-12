@@ -11,7 +11,7 @@ class LoginVM {
     static let shared = LoginVM()
     
     func login<T: Decodable>(myStruct: T.Type) {
-        let url = URL(string: GlobalVariable.url + "api/auth/login")
+        let url = URL(string: GlobalVariable.url + "/api/auth/login")
         print(url)
         
         guard url != nil else{

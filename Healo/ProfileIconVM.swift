@@ -1,0 +1,50 @@
+//
+//  ProfileIconVM.swift
+//  Healo
+//
+//  Created by Vincentius Ian Widi Nugroho on 11/10/22.
+//
+
+import Foundation
+import RxSwift
+import RxCocoa
+
+class ProfileIconVM {
+    static let shared = ProfileIconVM()
+    var icons = BehaviorSubject(value: [Icon]())
+    
+    func getIcons<T: Decodable>(myStruct: T.Type) {
+        let url = URL(string: GlobalVariable.url + "/api/user/profile_images")
+
+        guard url != nil else{
+            print("url error")
+            return
+        }
+        
+        var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        
+        let header = ["Content-Type":"application/json",
+                      "x-access-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX25hbWUiOiJpYW5faGVhbG8iLCJ1c2VyX2VtYWlsIjoidmluY2VudGlhbm51Z3JvaG9AZ21haWwuY29tIiwicm9sZV9pZCI6MSwiaWF0IjoxNjY1NTUyNzQyLCJleHAiOjE2NjU2MzkxNDJ9._iqfEmUDvbPhbqIebZOX5yBLAymgZv_2jeWxFgXmBSA"]
+        request.allHTTPHeaderFields = header
+        
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
+            
+            guard data != nil, error == nil else {
+                print("api request failed")
+                return
+            }
+            do {
+                let result = try JSONDecoder().decode(Response<T>.self, from: data!)
+                guard let ikons = result.data as? [Icon] else {
+                    print("not icons")
+                    return
+                }
+                self.icons.on(.next(ikons))
+            }
+            catch {
+                print(error)
+            }
+        })
+        task.resume()
+    }
+}
