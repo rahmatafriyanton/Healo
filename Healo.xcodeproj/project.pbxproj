@@ -55,6 +55,7 @@
 		A472A00A28F280E6009EC57A /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00928F280E6009EC57A /* UITextField.swift */; };
 		A472A00C28F2810E009EC57A /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00B28F2810E009EC57A /* UIImageView.swift */; };
 		A472A00E28F28129009EC57A /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00D28F28129009EC57A /* UIButton.swift */; };
+		A4F8F72C28F7C06400526EBC /* TestExplanationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F8F72B28F7C06400526EBC /* TestExplanationVC.swift */; };
 		C59E0BEF28F3B6AD0094CF73 /* VerifyEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59E0BEE28F3B6AD0094CF73 /* VerifyEmailVC.swift */; };
 		C5BDC0B128F3052F00781461 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDC0B028F3052F00781461 /* LoginVC.swift */; };
 		C5BDC0B628F3185900781461 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDC0B528F3185900781461 /* RegisterVC.swift */; };
@@ -112,6 +113,7 @@
 		A472A00928F280E6009EC57A /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		A472A00B28F2810E009EC57A /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		A472A00D28F28129009EC57A /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		A4F8F72B28F7C06400526EBC /* TestExplanationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExplanationVC.swift; sourceTree = "<group>"; };
 		C59E0BEE28F3B6AD0094CF73 /* VerifyEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailVC.swift; sourceTree = "<group>"; };
 		C5BDC0B028F3052F00781461 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = Healo/View/LoginVC.swift; sourceTree = SOURCE_ROOT; };
 		C5BDC0B228F30B8D00781461 /* UITapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGesture.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				A472A00128F27DD9009EC57A /* SetProfileVC.swift */,
 				A472A00528F27FE6009EC57A /* PickIconVC.swift */,
 				A472A00728F2808A009EC57A /* SuccessAlertVC.swift */,
+				A4F8F72B28F7C06400526EBC /* TestExplanationVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				3C2D595428F1D983005D7C27 /* Token.swift in Sources */,
 				3C2D58CD28EC15AA005D7C27 /* UIColor.swift in Sources */,
 				C5BDC0B128F3052F00781461 /* LoginVC.swift in Sources */,
+				A4F8F72C28F7C06400526EBC /* TestExplanationVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
