@@ -25,7 +25,7 @@ class UserProfile {
     private var _userAvailHour: String
     
     private var _token: String
-    
+        
     static let shared = UserProfile()
     
     private init() {

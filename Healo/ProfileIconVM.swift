@@ -24,7 +24,7 @@ class ProfileIconVM {
         var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
         let header = ["Content-Type":"application/json",
-                      "x-access-token":UserProfile.shared.token]
+                      "x-access-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VyX25hbWUiOiJpYW5nYW50ZW5nIiwidXNlcl9lbWFpbCI6InZpbmNlbnRpYW5udWdyb2hvQGdtYWlsLmNvbSIsInJvbGVfaWQiOjEsImlhdCI6MTY2NTY1OTEwNSwiZXhwIjoxNjY1NzQ1NTA1fQ.EBsAGusP-ReO62g9278nzarpYsKdtCYYW6-iA2KLOpc"]
         request.allHTTPHeaderFields = header
         
         let task = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
