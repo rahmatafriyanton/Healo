@@ -13,7 +13,6 @@ class UserConditionsVC: UIViewController {
     var accepted: Int = 0
     var agreementTime: String = "no time"
     let dateFormatter = DateFormatter()
-    var assRes: AssResult?
         
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
@@ -93,28 +92,9 @@ class UserConditionsVC: UIViewController {
     @objc func clickNext() {
         UserProfile.shared.agreementTime = agreementTime
         UserProfile.shared.isAcceptAgreement = accepted
-        
-        
-        let answer1 = QuestionAnswer(question_id: 1, answer_id: 2)
-        let answer2 = QuestionAnswer(question_id: 2, answer_id: 4)
-        
-        AssessmentResultVM.shared.makeAssessment(myStruct: AssResult.self, answers: [answer1,answer2])
-        print("now subscribing")
-        AssessmentResultVM.shared.assResult.subscribe(onNext: { [self] event in
-            print("subscribed event: \(event)")
-            self.assRes = event
-        })
-        
-        while (true){
-            if(assRes?.status == "success" || assRes?.status == "fail"){
-                print("yg dioper: \(assRes)")
-                navigationController?.pushViewController(HasilAssessVC(), animated: true)
-                break
-            }
-        }
 
         // insert navigation code here
-//        navigationController?.pushViewController(HasilAssessVC(), animated: true)
+        navigationController?.pushViewController(RegisterVC(), animated: true)
         
     }
 

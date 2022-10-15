@@ -129,9 +129,15 @@ class SuccessAlertVC : UIViewController{
         
         print("Masuk ke Tabbar Seeker / Healer")
         //MARK: HABIS PENCET OK DRI ALERT
-//        let tvc = TabBarController()
-//        tvc.modalPresentationStyle = .fullScreen
-//        present(tvc, animated: true, completion: nil)
+        if(UserProfile.shared.userRole == 1){
+//            let tvc = TabBarController()
+//            tvc.modalPresentationStyle = .fullScreen
+//            present(tvc, animated: true, completion: nil)
+        } else if (UserProfile.shared.userRole == 2){
+            let tvc = TestExplanationVC()
+            tvc.modalPresentationStyle = .fullScreen
+            present(tvc, animated: true, completion: nil)
+        }
     }
     
     

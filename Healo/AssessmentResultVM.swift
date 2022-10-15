@@ -17,6 +17,7 @@ class AssessmentResultVM {
     var fetchStatus = false
     
     func makeAssessment<T: Decodable>(myStruct: T.Type, answers: [QuestionAnswer]) {
+        let sem = DispatchSemaphore.init(value: 0)
         let url = URL(string: GlobalVariable.url + "/api/assessment/")
         
         guard url != nil else{
@@ -26,7 +27,7 @@ class AssessmentResultVM {
         
         var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
-        let header = ["Content-Type":"application/json","x-access-token":UserProfile.shared.token]
+        let header = ["Content-Type":"application/json","x-access-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX25hbWUiOiJpYW5nYW50ZW5nIiwidXNlcl9lbWFpbCI6InZpbmNlbnRpYW5udWdyb2hvQGdtYWlsLmNvbSIsInJvbGVfaWQiOjEsImlhdCI6MTY2NTg0NzU2NywiZXhwIjoxNjY1OTMzOTY3fQ.MfpsBnz89aGnotASSWwzCBpO-c8e7dEa2yPYVYFQAB4"]
         request.allHTTPHeaderFields = header
         
         let body = answers
@@ -42,7 +43,7 @@ class AssessmentResultVM {
         
         request.httpMethod = "POST"
         
-        let task = URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error in
+        let task = URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error in defer { sem.signal() }
             guard data != nil && error == nil else {
                 print("error creating url session")
                 return
@@ -63,6 +64,7 @@ class AssessmentResultVM {
             }
         })
         task.resume()
+        sem.wait()
     }
     
     public func getAssResult() {

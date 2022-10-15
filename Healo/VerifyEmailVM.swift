@@ -14,6 +14,7 @@ class VerifyEmailVM {
     var statusVerifyEmail = BehaviorSubject<String>(value: "initial value")
     
     func verifyEmail<T: Decodable>(myStruct: T.Type) {
+        let sem = DispatchSemaphore.init(value: 0)
         let url = URL(string: GlobalVariable.url + "api/auth/validate_email")
         print(url)
         
@@ -39,7 +40,7 @@ class VerifyEmailVM {
         
         request.httpMethod = "POST"
         
-        let task = URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error in
+        let task = URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error in defer { sem.signal() }
             guard data != nil && error == nil else {
                 print("error creating url session")
                 return
@@ -53,6 +54,7 @@ class VerifyEmailVM {
             }
         })
         task.resume()
+        sem.wait()
     }
 }
 
