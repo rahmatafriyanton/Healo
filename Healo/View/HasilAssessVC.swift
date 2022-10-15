@@ -53,6 +53,7 @@ class HasilAssessVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         setupConfiguration()
         subscribe()
     }
@@ -60,16 +61,20 @@ class HasilAssessVC: UIViewController {
     @objc func tapIfSuccess(){
         print("successsss")
         // insert navigation to main page
+        //            let tvc = TabBarController()
+        //            tvc.modalPresentationStyle = .fullScreen
+        //            present(tvc, animated: true, completion: nil)
     }
     
     @objc func tapIfFail(){
         print("failll")
         // insert navigation to assessment intro
+        navigationController?.pushViewController(TestExplanationVC(), animated: true)
     }
     
     func subscribe() {
         AssessmentResultVM.shared.assResult.subscribe(onNext: { [self] event in
-            print("yang sudah diuoper: \(event)")
+            print("yang sudah dioper: \(event)")
             poinLabel.text = "Poin: \(event.score)/\(event.total_score)"
             if(event.status == "success") {
                 titleLabel.text = "Selamat!"

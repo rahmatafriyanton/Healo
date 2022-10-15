@@ -297,7 +297,8 @@ class TestExplanationVC: UIViewController {
         //MARK: CALL COUNTDOWN
         setupCountDownHidden()
         setupCountDownNum()
-       
+        AssessQuestionsVM.shared.getQuestions(myStruct: [AssQuestion].self)
+        navigationController?.pushViewController(AssessQuestionsVC(), animated: true)
     }
     
     func setupCountDownHidden(){
