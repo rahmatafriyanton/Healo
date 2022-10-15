@@ -95,7 +95,7 @@ class UserConditionsVC: UIViewController {
         print(UserProfile.shared.agreementTime)
         print(UserProfile.shared.isAcceptAgreement)
         // insert navigation code here
-//        navigationController?.pushViewController(MainViewController(), animated: true)
+        navigationController?.pushViewController(RegisterVC(), animated: true)
     }
 
     override func viewDidLoad() {

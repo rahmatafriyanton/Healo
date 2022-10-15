@@ -2,7 +2,7 @@
 //  UITapGesture.swift
 //  Healo
 //
-//  Created by Hana Salsabila on 09/10/22.
+//  Created by Hana Salsabila on 11/10/22.
 //
 
 import UIKit
