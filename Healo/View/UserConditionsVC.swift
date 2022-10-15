@@ -97,24 +97,12 @@ class UserConditionsVC: UIViewController {
         
         let answer1 = QuestionAnswer(question_id: 1, answer_id: 2)
         let answer2 = QuestionAnswer(question_id: 2, answer_id: 4)
-        
         AssessmentResultVM.shared.makeAssessment(myStruct: AssResult.self, answers: [answer1,answer2])
-        print("now subscribing")
         AssessmentResultVM.shared.assResult.subscribe(onNext: { [self] event in
             print("subscribed event: \(event)")
             self.assRes = event
         })
-        
-        while (true){
-            if(assRes?.status == "success" || assRes?.status == "fail"){
-                print("yg dioper: \(assRes)")
-                navigationController?.pushViewController(HasilAssessVC(), animated: true)
-                break
-            }
-        }
-
-        // insert navigation code here
-//        navigationController?.pushViewController(HasilAssessVC(), animated: true)
+        navigationController?.pushViewController(HasilAssessVC(), animated: true)
         
     }
 
