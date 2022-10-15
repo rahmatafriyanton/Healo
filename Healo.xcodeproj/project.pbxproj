@@ -42,6 +42,10 @@
 		3C2D595628F1DFCE005D7C27 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D595528F1DFCE005D7C27 /* LoginVM.swift */; };
 		3C2D595828F5B475005D7C27 /* ProfileIconVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D595728F5B475005D7C27 /* ProfileIconVM.swift */; };
 		3C2D595E28F5B793005D7C27 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D595D28F5B793005D7C27 /* Icon.swift */; };
+		3C2D596228F6ECE9005D7C27 /* AssessmentResultVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D596128F6ECE9005D7C27 /* AssessmentResultVM.swift */; };
+		3C2D596428F6ED51005D7C27 /* AssResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D596328F6ED51005D7C27 /* AssResult.swift */; };
+		3C2D596628F6F18B005D7C27 /* QuestionAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D596528F6F18B005D7C27 /* QuestionAnswer.swift */; };
+		3C2D596828F70F0E005D7C27 /* HasilAssessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D596728F70F0E005D7C27 /* HasilAssessVC.swift */; };
 		485FEA827949B88AD9E664A9 /* Pods_Healo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C94F26B84BE355A54DD03EF /* Pods_Healo.framework */; };
 		68C8763628EB277100069DAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C8763528EB277100069DAA /* AppDelegate.swift */; };
 		68C8763828EB277100069DAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C8763728EB277100069DAA /* SceneDelegate.swift */; };
@@ -97,6 +101,10 @@
 		3C2D595528F1DFCE005D7C27 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		3C2D595728F5B475005D7C27 /* ProfileIconVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIconVM.swift; sourceTree = "<group>"; };
 		3C2D595D28F5B793005D7C27 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = SOURCE_ROOT; };
+		3C2D596128F6ECE9005D7C27 /* AssessmentResultVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentResultVM.swift; sourceTree = "<group>"; };
+		3C2D596328F6ED51005D7C27 /* AssResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AssResult.swift; path = Healo/AssResult.swift; sourceTree = SOURCE_ROOT; };
+		3C2D596528F6F18B005D7C27 /* QuestionAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionAnswer.swift; path = Healo/QuestionAnswer.swift; sourceTree = SOURCE_ROOT; };
+		3C2D596728F70F0E005D7C27 /* HasilAssessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasilAssessVC.swift; sourceTree = "<group>"; };
 		5D7A5D340B8EE6125DAF5B44 /* Pods-Healo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healo.debug.xcconfig"; path = "Target Support Files/Pods-Healo/Pods-Healo.debug.xcconfig"; sourceTree = "<group>"; };
 		68C8763228EB277100069DAA /* Healo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Healo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68C8763528EB277100069DAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +245,7 @@
 				A472A00528F27FE6009EC57A /* PickIconVC.swift */,
 				A472A00728F2808A009EC57A /* SuccessAlertVC.swift */,
 				A4F8F72B28F7C06400526EBC /* TestExplanationVC.swift */,
+				3C2D596728F70F0E005D7C27 /* HasilAssessVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -249,6 +258,7 @@
 				3C2D595128F14F0D005D7C27 /* SetUserVM.swift */,
 				3C2D595528F1DFCE005D7C27 /* LoginVM.swift */,
 				3C2D595728F5B475005D7C27 /* ProfileIconVM.swift */,
+				3C2D596128F6ECE9005D7C27 /* AssessmentResultVM.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -259,6 +269,8 @@
 				3C2D593C28EDBAF8005D7C27 /* Response.swift */,
 				3C2D595328F1D983005D7C27 /* Token.swift */,
 				3C2D595D28F5B793005D7C27 /* Icon.swift */,
+				3C2D596328F6ED51005D7C27 /* AssResult.swift */,
+				3C2D596528F6F18B005D7C27 /* QuestionAnswer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -438,8 +450,10 @@
 				3C2D594B28EEDEAD005D7C27 /* ReusableLabel.swift in Sources */,
 				68C8763628EB277100069DAA /* AppDelegate.swift in Sources */,
 				3C2D58CF28EC15ED005D7C27 /* UIFont.swift in Sources */,
+				3C2D596828F70F0E005D7C27 /* HasilAssessVC.swift in Sources */,
 				C59E0BEF28F3B6AD0094CF73 /* VerifyEmailVC.swift in Sources */,
 				3C2D58D128EC1AC0005D7C27 /* UserConditionsVC.swift in Sources */,
+				3C2D596228F6ECE9005D7C27 /* AssessmentResultVM.swift in Sources */,
 				3C2D593D28EDBAF8005D7C27 /* Response.swift in Sources */,
 				3C2D594728EECB8B005D7C27 /* ReusableNextButton.swift in Sources */,
 				3C2D595E28F5B793005D7C27 /* Icon.swift in Sources */,
@@ -449,6 +463,7 @@
 				A472A00228F27DD9009EC57A /* SetProfileVC.swift in Sources */,
 				A472A00A28F280E6009EC57A /* UITextField.swift in Sources */,
 				A472A00E28F28129009EC57A /* UIButton.swift in Sources */,
+				3C2D596428F6ED51005D7C27 /* AssResult.swift in Sources */,
 				C5BDC0B628F3185900781461 /* RegisterVC.swift in Sources */,
 				3C2D594928EEDA6F005D7C27 /* HowToHealerVC.swift in Sources */,
 				A472A00828F2808A009EC57A /* SuccessAlertVC.swift in Sources */,
@@ -456,6 +471,7 @@
 				A472A00628F27FE6009EC57A /* PickIconVC.swift in Sources */,
 				A472A00C28F2810E009EC57A /* UIImageView.swift in Sources */,
 				A472A00428F27FA4009EC57A /* SetProfileViewModel.swift in Sources */,
+				3C2D596628F6F18B005D7C27 /* QuestionAnswer.swift in Sources */,
 				3C2D595028F143DA005D7C27 /* GlobalVariable.swift in Sources */,
 				3C2D593528EDB1B1005D7C27 /* RegisterVM.swift in Sources */,
 				3C2D595628F1DFCE005D7C27 /* LoginVM.swift in Sources */,

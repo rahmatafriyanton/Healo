@@ -15,7 +15,7 @@ class PickIconVC: UIViewController {
     let screenSize: CGRect = UIScreen.main.bounds
     var iconSize = 0
     var radius : CGFloat = 0
-    let dispose = DisposeBag()
+    let disposeBag = DisposeBag()
     
     var imageUrl1 = ""
     var imageUrl2 = ""
@@ -201,7 +201,8 @@ class PickIconVC: UIViewController {
             self.imageView5.setImage(from: self.imageUrl5)
             self.imageUrl6 = GlobalVariable.url + event[5].image_path
             self.imageView6.setImage(from: self.imageUrl6)
-        })
+        }).disposed(by: disposeBag)
+        print(imageUrl1)
     }
     
 
