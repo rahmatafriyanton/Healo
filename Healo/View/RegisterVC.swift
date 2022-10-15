@@ -416,7 +416,7 @@ class RegisterVC : UIViewController {
     }
     
     @objc func onTapRegister() {
-//        navigationController?.pushViewController(VerifyEmailVC(), animated: true)
+        navigationController?.pushViewController(VerifyEmailVC(), animated: true)
     }
     
     //MARK: - TNC
@@ -447,11 +447,11 @@ class RegisterVC : UIViewController {
         let termsNConditions = (text as NSString).range(of: "Terms & Conditions")
         let privacyPolicy = (text as NSString).range(of: "Privacy Policy.")
         
-//        if gesture.didTapAttributedTextInLabel(label: self.tncLabel, inRange: termsNConditions) {
-////            navigationController?.pushViewController(TermsnConditions(), animated: true)
-//        } else if gesture.didTapAttributedTextInLabel(label: self.tncLabel, inRange: privacyPolicy){
-////            navigationController?.pushViewController(PrivacyPolicy(), animated: true)
-//        }
+        if gesture.didTapAttributedTextInLabel(label: self.tncLabel, inRange: termsNConditions) {
+//            navigationController?.pushViewController(TermsnConditions(), animated: true)
+        } else if gesture.didTapAttributedTextInLabel(label: self.tncLabel, inRange: privacyPolicy){
+//            navigationController?.pushViewController(PrivacyPolicy(), animated: true)
+        }
     }
     //MARK: - Login
     
@@ -472,9 +472,9 @@ class RegisterVC : UIViewController {
         guard let text = self.toLoginLabel.text else { return }
         let label = (text as NSString).range(of: "Sudah ada akun? Masuk disini!")
         
-//        if gesture.didTapAttributedTextInLabel(label: self.toLoginLabel, inRange: label) {
-////            navigationController?.pushViewController(LoginVC(), animated: true)
-//        }
+        if gesture.didTapAttributedTextInLabel(label: self.toLoginLabel, inRange: label) {
+            navigationController?.pushViewController(LoginVC(), animated: true)
+        }
     }
     
     //MARK: - Username
@@ -574,8 +574,6 @@ class RegisterVC : UIViewController {
         if usernameTextField.text != "" && usernameError.isHidden == true && emailTextField.text != "" && emailError.isHidden == true && passwordError.isHidden == true && passwordTextField.text == confirmPasswordTextField.text && passwordTextField.text != "" {
             registerBtn.isEnabled = true
             registerBtn.backgroundColor = .darkPurple
-            
-            resetForm()
             
         } else {
             registerBtn.isEnabled = false

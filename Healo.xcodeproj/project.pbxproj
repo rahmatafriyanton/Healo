@@ -59,6 +59,8 @@
 		A472A00A28F280E6009EC57A /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00928F280E6009EC57A /* UITextField.swift */; };
 		A472A00C28F2810E009EC57A /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00B28F2810E009EC57A /* UIImageView.swift */; };
 		A472A00E28F28129009EC57A /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00D28F28129009EC57A /* UIButton.swift */; };
+		C59B456328F5079D00B4B8D7 /* VerifyEmailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */; };
+		C59B456528F5B8BB00B4B8D7 /* UITapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */; };
 		A4F8F72C28F7C06400526EBC /* TestExplanationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F8F72B28F7C06400526EBC /* TestExplanationVC.swift */; };
 		C59E0BEF28F3B6AD0094CF73 /* VerifyEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59E0BEE28F3B6AD0094CF73 /* VerifyEmailVC.swift */; };
 		C5BDC0B128F3052F00781461 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDC0B028F3052F00781461 /* LoginVC.swift */; };
@@ -121,10 +123,11 @@
 		A472A00928F280E6009EC57A /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		A472A00B28F2810E009EC57A /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		A472A00D28F28129009EC57A /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailVM.swift; sourceTree = "<group>"; };
+		C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGesture.swift; sourceTree = "<group>"; };
 		A4F8F72B28F7C06400526EBC /* TestExplanationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExplanationVC.swift; sourceTree = "<group>"; };
 		C59E0BEE28F3B6AD0094CF73 /* VerifyEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailVC.swift; sourceTree = "<group>"; };
 		C5BDC0B028F3052F00781461 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = Healo/View/LoginVC.swift; sourceTree = SOURCE_ROOT; };
-		C5BDC0B228F30B8D00781461 /* UITapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGesture.swift; sourceTree = "<group>"; };
 		C5BDC0B428F3115600781461 /* Healo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Healo.entitlements; sourceTree = "<group>"; };
 		C5BDC0B528F3185900781461 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		F57D014619D3C93F77BA8088 /* Pods-Healo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healo.release.xcconfig"; path = "Target Support Files/Pods-Healo/Pods-Healo.release.xcconfig"; sourceTree = "<group>"; };
@@ -233,7 +236,7 @@
 				68C8763E28EB277200069DAA /* Assets.xcassets */,
 				68C8764028EB277200069DAA /* LaunchScreen.storyboard */,
 				C5BDC0B028F3052F00781461 /* LoginVC.swift */,
-				C5BDC0B228F30B8D00781461 /* UITapGesture.swift */,
+				C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */,
 				68C8763928EB277100069DAA /* MainViewController.swift */,
 				C59E0BEE28F3B6AD0094CF73 /* VerifyEmailVC.swift */,
 				3C2D58CA28EC1542005D7C27 /* PickRoleVC.swift */,
@@ -256,6 +259,7 @@
 				A472A00328F27FA4009EC57A /* SetProfileViewModel.swift */,
 				3C2D593428EDB1B1005D7C27 /* RegisterVM.swift */,
 				3C2D595128F14F0D005D7C27 /* SetUserVM.swift */,
+				C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */,
 				3C2D595528F1DFCE005D7C27 /* LoginVM.swift */,
 				3C2D595728F5B475005D7C27 /* ProfileIconVM.swift */,
 				3C2D596128F6ECE9005D7C27 /* AssessmentResultVM.swift */,
@@ -456,9 +460,11 @@
 				3C2D596228F6ECE9005D7C27 /* AssessmentResultVM.swift in Sources */,
 				3C2D593D28EDBAF8005D7C27 /* Response.swift in Sources */,
 				3C2D594728EECB8B005D7C27 /* ReusableNextButton.swift in Sources */,
+				C59B456328F5079D00B4B8D7 /* VerifyEmailVM.swift in Sources */,
 				3C2D595E28F5B793005D7C27 /* Icon.swift in Sources */,
 				3C2D593328ED6DB7005D7C27 /* UserProfile.swift in Sources */,
 				3C2D595228F14F0D005D7C27 /* SetUserVM.swift in Sources */,
+				C59B456528F5B8BB00B4B8D7 /* UITapGesture.swift in Sources */,
 				68C8763828EB277100069DAA /* SceneDelegate.swift in Sources */,
 				A472A00228F27DD9009EC57A /* SetProfileVC.swift in Sources */,
 				A472A00A28F280E6009EC57A /* UITextField.swift in Sources */,

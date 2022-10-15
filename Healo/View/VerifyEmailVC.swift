@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class VerifyEmailVC : UIViewController {
+    
+    private var statusVerifyEmailVC : String = ""
+    private var bag = DisposeBag()
     
     private lazy var titleLabel : UILabel = {
         let label = UILabel()
@@ -45,7 +50,8 @@ class VerifyEmailVC : UIViewController {
         textField.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
         textField.becomeFirstResponder()
         textField.font = .poppinsMedium(size: 25)
-        textField.keyboardType = .phonePad
+        textField.keyboardType = .numberPad
+        textField.text = ""
         textField.textAlignment = .center
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -65,6 +71,8 @@ class VerifyEmailVC : UIViewController {
         let textField = UITextField()
         textField.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
         textField.font = .poppinsMedium(size: 25)
+        textField.keyboardType = .numberPad
+        textField.text = ""
         textField.textAlignment = .center
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -84,6 +92,8 @@ class VerifyEmailVC : UIViewController {
         let textField = UITextField()
         textField.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
         textField.font = .poppinsMedium(size: 25)
+        textField.keyboardType = .numberPad
+        textField.text = ""
         textField.textAlignment = .center
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -104,6 +114,8 @@ class VerifyEmailVC : UIViewController {
         textField.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
         textField.addTarget(self, action: #selector(toSetProfile), for: .editingChanged)
         textField.font = .poppinsMedium(size: 25)
+        textField.keyboardType = .numberPad
+        textField.text = ""
         textField.textAlignment = .center
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -153,6 +165,9 @@ class VerifyEmailVC : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        if digit4TextField.text != "" {
+            toSetProfile()
+        }
     }
     
     private func setupNavBar() {
@@ -285,7 +300,7 @@ class VerifyEmailVC : UIViewController {
     
     @objc func textFieldDidChange(textField: UITextField) {
         let text = textField.text
-        if text?.count == 1 {
+        if text?.count == 1 && text?.count != 2 {
             switch textField {
             case digit1TextField :
                 digit2TextField.becomeFirstResponder()
@@ -322,13 +337,37 @@ class VerifyEmailVC : UIViewController {
     }
     
     @objc func toSetProfile() {
-        var digit1 = "1"
-        var digit2 = "2"
-        var digit3 = "3"
-        var digit4 = "4"
-        if digit1TextField.text == digit1 && digit2TextField.text == digit2 && digit3TextField.text == digit3 && digit4TextField.text == digit4 {
-//            navigationController?.pushViewController(SetProfile(), animated: true)
+        
+        var digit1 = digit1TextField.text!
+        print("ini digit1:\(digit1)")
+        var digit2 = digit2TextField.text!
+        var digit3 = digit3TextField.text!
+        var digit4 = digit4TextField.text!
+        
+        let allDigits = Int("\(digit1)\(digit2)\(digit3)\(digit4)")
+        UserProfile.shared.userEmailValidationKey = allDigits!
+        print(allDigits!)
+        VerifyEmailVM.shared.verifyEmail(myStruct: [String].self)
+        subscribe()
+        while(true){
+            if(statusVerifyEmailVC == "Failed") {
+//                navigationController?.pushViewController(SetProfileVC(), animated: true)
+                print("ini gagal:\(statusVerifyEmailVC)")
+                break
+                
+            } else if(statusVerifyEmailVC == "Success" && digit1 != "" && digit2 != "" && digit3 != "" && digit4 != "") {
+                navigationController?.pushViewController(SetProfileVC(), animated: true)
+                print("ini status:\(statusVerifyEmailVC)")
+                break
+            }
         }
+    }
+    
+    func subscribe() {
+        VerifyEmailVM.shared.statusVerifyEmail.subscribe(onNext: { event in
+            self.statusVerifyEmailVC = event
+            print("ini event subscribe: \(self.statusVerifyEmailVC)")
+        }).disposed(by: bag)
     }
     
     private func startOtpTimer() {

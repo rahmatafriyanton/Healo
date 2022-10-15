@@ -63,7 +63,7 @@ class OnboardingVC: UIViewController {
     }
     
     @objc func tapLogin(){
-        // insert navigation to login page
+        navigationController?.pushViewController(LoginVC(), animated: true)
     }
     
     func setupConfiguration() {

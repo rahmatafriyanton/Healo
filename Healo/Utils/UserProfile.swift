@@ -25,7 +25,9 @@ class UserProfile {
     private var _userAvailHour: String
     
     private var _token: String
-        
+    
+    private var _userEmailValidationKey: Int
+    
     static let shared = UserProfile()
     
     private init() {
@@ -46,6 +48,8 @@ class UserProfile {
         self._userGoal = UserDefaults.standard.string(forKey: "userGoal") ?? "no goal"
         self._userDesc = UserDefaults.standard.string(forKey: "userDesc") ?? "no desc"
         self._userAvailHour = UserDefaults.standard.string(forKey: "userAvailHour") ?? "no avail"
+        
+        self._userEmailValidationKey = UserDefaults.standard.integer(forKey: "userEmailValidationKey")
     }
     
     var username: String {
@@ -185,6 +189,16 @@ class UserProfile {
         set(newValue) {
             self._userAvailHour = newValue
             UserDefaults.standard.set(newValue, forKey: "userAvailHour")
+        }
+    }
+    
+    var userEmailValidationKey: Int {
+        get {
+            return self._userEmailValidationKey
+        }
+        set(newValue) {
+            self._userEmailValidationKey = newValue
+            UserDefaults.standard.set(newValue, forKey: "userEmailValidationKey")
         }
     }
 }

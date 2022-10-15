@@ -267,7 +267,7 @@ class LoginVC : UIViewController {
     }
     
     @objc func onTapLogin() {
-//        navigationController?.pushViewController(SetProfileVC(), animated: true)
+        navigationController?.pushViewController(SetProfileVC(), animated: true)
     }
     
     @objc func onTapSignInApple() {
@@ -297,10 +297,10 @@ class LoginVC : UIViewController {
     @objc func onTapToRegisterLabel(_ gesture: UITapGestureRecognizer) {
         guard let text = self.toRegisterLabel.text else { return }
         let label = (text as NSString).range(of: "Belum ada akun? Buat akun baru")
-        
-//        if gesture.didTapAttributedTextInLabel(label: self.toRegisterLabel, inRange: label) {
-//            navigationController?.pushViewController(RegisterVC(), animated: true)
-//        }
+
+        if gesture.didTapAttributedTextInLabel(label: self.toRegisterLabel, inRange: label) {
+            navigationController?.pushViewController(RegisterVC(), animated: true)
+        }
     }
     
     //MARK:- getAttributedString
