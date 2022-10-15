@@ -6,12 +6,15 @@
 //
 
 import UIKit
+//import RxSwift
+//import RxCocoa
 
 class UserConditionsVC: UIViewController {
     var accepted: Int = 0
     var agreementTime: String = "no time"
     let dateFormatter = DateFormatter()
-    
+    var assRes: AssResult?
+        
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.text = "Aplikasi ini bukan untuk Anda jika Anda..."
@@ -72,7 +75,6 @@ class UserConditionsVC: UIViewController {
     }()
     
     @objc func toggleCheck() {
-        print("button pressed")
         if(checkBox.isSelected) {
             checkBox.isSelected = false
             accepted = 0
@@ -85,17 +87,35 @@ class UserConditionsVC: UIViewController {
             nextButton.layer.opacity = 1
             let dateNow = Date()
             agreementTime = dateFormatter.string(from: dateNow)
-            print(dateFormatter.string(from: dateNow))
         }
     }
     
     @objc func clickNext() {
         UserProfile.shared.agreementTime = agreementTime
         UserProfile.shared.isAcceptAgreement = accepted
-        print(UserProfile.shared.agreementTime)
-        print(UserProfile.shared.isAcceptAgreement)
+        
+        
+        let answer1 = QuestionAnswer(question_id: 1, answer_id: 2)
+        let answer2 = QuestionAnswer(question_id: 2, answer_id: 4)
+        
+        AssessmentResultVM.shared.makeAssessment(myStruct: AssResult.self, answers: [answer1,answer2])
+        print("now subscribing")
+        AssessmentResultVM.shared.assResult.subscribe(onNext: { [self] event in
+            print("subscribed event: \(event)")
+            self.assRes = event
+        })
+        
+        while (true){
+            if(assRes?.status == "success" || assRes?.status == "fail"){
+                print("yg dioper: \(assRes)")
+                navigationController?.pushViewController(HasilAssessVC(), animated: true)
+                break
+            }
+        }
+
         // insert navigation code here
-        navigationController?.pushViewController(RegisterVC(), animated: true)
+//        navigationController?.pushViewController(HasilAssessVC(), animated: true)
+        
     }
 
     override func viewDidLoad() {
@@ -103,6 +123,7 @@ class UserConditionsVC: UIViewController {
         view.backgroundColor = .white
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         setupConstraints()
+        
     }
     
     func setupConstraints() {

@@ -7,24 +7,23 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class PickIconVC: UIViewController {
     
     let screenSize: CGRect = UIScreen.main.bounds
     var iconSize = 0
     var radius : CGFloat = 0
+    let disposeBag = DisposeBag()
     
-    let imageUrl1 = "https://images.unsplash.com/photo-1639202293330-5f8437183fd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG9@by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-
-    let imageUrl2 = "https://images.unsplash.com/photo-1639202293330-5f8437183fd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG9@by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    var imageUrl1 = ""
+    var imageUrl2 = ""
+    var imageUrl3 = ""
+    var imageUrl4 = ""
+    var imageUrl5 = ""
+    var imageUrl6 = ""
     
-    let imageUrl3 = "https://images.unsplash.com/photo-1639202293330-5f8437183fd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG9@by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-    
-    let imageUrl4 = "https://images.unsplash.com/photo-1639202293330-5f8437183fd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG9@by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-    
-    let imageUrl5 = "https://images.unsplash.com/photo-1639202293330-5f8437183fd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG9@by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-    
-    let imageUrl6 = "https://images.unsplash.com/photo-1639202293330-5f8437183fd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG9@by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
     
     var selectedImage = ""
     
@@ -59,43 +58,37 @@ class PickIconVC: UIViewController {
     
     private lazy var imageView1 : UIImageView = {
         let imageView = UIImageView()
-        imageView.setImage(from: imageUrl1)
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private lazy var imageView2 : UIImageView = {
         let imageView = UIImageView()
-        imageView.setImage(from: imageUrl2)
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private lazy var imageView3 : UIImageView = {
         let imageView = UIImageView()
-        imageView.setImage(from: imageUrl3)
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private lazy var imageView4 : UIImageView = {
         let imageView = UIImageView()
-        imageView.setImage(from: imageUrl4)
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
 
     private lazy var imageView5 : UIImageView = {
         let imageView = UIImageView()
-        imageView.setImage(from: imageUrl5)
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
 
     private lazy var imageView6 : UIImageView = {
         let imageView = UIImageView()
-        imageView.setImage(from: imageUrl6)
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -190,6 +183,26 @@ class PickIconVC: UIViewController {
         iconSize = self.view.frame.height > 735 ? 120 : 100
         radius =  CGFloat(iconSize/2)
         configureUI()
+        subscribeIcons()
+    }
+    
+    func subscribeIcons(){
+        // get icons from subject
+        ProfileIconVM.shared.icons.subscribe(onNext: { event in
+            self.imageUrl1 = GlobalVariable.url + event[0].image_path
+            self.imageView1.setImage(from: self.imageUrl1)
+            self.imageUrl2 = GlobalVariable.url + event[1].image_path
+            self.imageView2.setImage(from: self.imageUrl2)
+            self.imageUrl3 = GlobalVariable.url + event[2].image_path
+            self.imageView3.setImage(from: self.imageUrl3)
+            self.imageUrl4 = GlobalVariable.url + event[3].image_path
+            self.imageView4.setImage(from: self.imageUrl4)
+            self.imageUrl5 = GlobalVariable.url + event[4].image_path
+            self.imageView5.setImage(from: self.imageUrl5)
+            self.imageUrl6 = GlobalVariable.url + event[5].image_path
+            self.imageView6.setImage(from: self.imageUrl6)
+        }).disposed(by: disposeBag)
+        print(imageUrl1)
     }
     
 
