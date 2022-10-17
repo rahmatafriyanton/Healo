@@ -54,7 +54,7 @@ class RegisterVM {
             do {
                 print("decoding")
                 let result = try JSONDecoder().decode(Response<T>.self, from: data!)
-                print(result.status)
+                print(result)
                 self.statusRegister.on(.next(result.status))
                 
                 guard let token = result.data as? Token else {

@@ -27,9 +27,9 @@ class AssessmentResultVM {
         
         var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
-        let header = ["Content-Type":"application/json","x-access-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX25hbWUiOiJpYW5nYW50ZW5nIiwidXNlcl9lbWFpbCI6InZpbmNlbnRpYW5udWdyb2hvQGdtYWlsLmNvbSIsInJvbGVfaWQiOjEsImlhdCI6MTY2NTg0NzU2NywiZXhwIjoxNjY1OTMzOTY3fQ.MfpsBnz89aGnotASSWwzCBpO-c8e7dEa2yPYVYFQAB4"]
+        let header = ["Content-Type":"application/json","x-access-token":UserProfile.shared.token]
         request.allHTTPHeaderFields = header
-        
+        print(UserProfile.shared.token)
         let body = answers
         
         do {
@@ -50,6 +50,8 @@ class AssessmentResultVM {
             }
             do {
                 print("decoding")
+                let sBody = NSString(data: data!, encoding: NSASCIIStringEncoding)
+                print(sBody)
                 let result = try JSONDecoder().decode(Response<T>.self, from: data!)
                 print(result)
                 guard let resultData = result.data as? AssResult else {

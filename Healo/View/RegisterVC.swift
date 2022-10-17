@@ -424,9 +424,9 @@ class RegisterVC : UIViewController {
         UserProfile.shared.username = usernameTextField.text ?? ""
         UserProfile.shared.email = emailTextField.text ?? ""
         UserProfile.shared.password = passwordTextField.text ?? ""
-        RegisterVM.shared.register(myStruct: [String].self)
+        RegisterVM.shared.register(myStruct: Token.self)
         subscribe()
-        if(statusRegisterVC == "Success") {
+        if(statusRegisterVC == "success") {
             navigationController?.pushViewController(VerifyEmailVC(), animated: true)
             print("Status: \(statusRegisterVC)")
         } else {

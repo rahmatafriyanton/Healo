@@ -390,6 +390,8 @@ class SetProfileVC: UIViewController, updateIconImage{
         }
         UserProfile.shared.userYearBorn = selectTahun
         UserProfile.shared.userProfilePict = selectedIcon
+        
+        SetUserVM.shared.setUser(myStruct: [String].self)
 
         let avc = SuccessAlertVC()
         avc.modalPresentationStyle = .custom

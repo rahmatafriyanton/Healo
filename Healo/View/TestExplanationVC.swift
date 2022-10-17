@@ -295,10 +295,15 @@ class TestExplanationVC: UIViewController {
     
     @objc func tapMulaiAction(){
         //MARK: CALL COUNTDOWN
-        setupCountDownHidden()
+//        setupCountDownHidden()
         setupCountDownNum()
         AssessQuestionsVM.shared.getQuestions(myStruct: [AssQuestion].self)
-        navigationController?.pushViewController(AssessQuestionsVC(), animated: true)
+//        navigationController?.pushViewController(AssessQuestionsVC(), animated: true)
+        let avc = AssessQuestionsVC()
+        avc.modalPresentationStyle = .custom
+        avc.modalTransitionStyle = .crossDissolve
+
+        present(avc, animated: false, completion: nil)
     }
     
     func setupCountDownHidden(){

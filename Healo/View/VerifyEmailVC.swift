@@ -349,18 +349,25 @@ class VerifyEmailVC : UIViewController {
         print(allDigits!)
         VerifyEmailVM.shared.verifyEmail(myStruct: [String].self)
         subscribe()
-        while(true){
-            if(statusVerifyEmailVC == "Failed") {
+        if(statusVerifyEmailVC == "failed") {
 //                navigationController?.pushViewController(SetProfileVC(), animated: true)
-                print("ini gagal:\(statusVerifyEmailVC)")
-                break
-                
-            } else if(statusVerifyEmailVC == "Success" && digit1 != "" && digit2 != "" && digit3 != "" && digit4 != "") {
-                navigationController?.pushViewController(SetProfileVC(), animated: true)
-                print("ini status:\(statusVerifyEmailVC)")
-                break
-            }
+            print("ini gagal:\(statusVerifyEmailVC)")
+        } else if(statusVerifyEmailVC == "success" && digit1 != "" && digit2 != "" && digit3 != "" && digit4 != "") {
+            navigationController?.pushViewController(SetProfileVC(), animated: true)
+            print("ini status:\(statusVerifyEmailVC)")
         }
+//        while(true){
+//            if(statusVerifyEmailVC == "failed") {
+////                navigationController?.pushViewController(SetProfileVC(), animated: true)
+//                print("ini gagal:\(statusVerifyEmailVC)")
+//                break
+//
+//            } else if(statusVerifyEmailVC == "success" && digit1 != "" && digit2 != "" && digit3 != "" && digit4 != "") {
+//                navigationController?.pushViewController(SetProfileVC(), animated: true)
+//                print("ini status:\(statusVerifyEmailVC)")
+//                break
+//            }
+//        }
     }
     
     func subscribe() {

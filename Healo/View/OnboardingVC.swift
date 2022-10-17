@@ -54,6 +54,7 @@ class OnboardingVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: nil, action: nil)
+        navigationItem.leftBarButtonItem?.tintColor = .darkPurple
         navigationItem.backBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 14) ?? "", NSAttributedString.Key.foregroundColor: UIColor.darkPurple], for: .normal)
         setupConfiguration()
     }

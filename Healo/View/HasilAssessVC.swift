@@ -69,7 +69,9 @@ class HasilAssessVC: UIViewController {
     @objc func tapIfFail(){
         print("failll")
         // insert navigation to assessment intro
-        navigationController?.pushViewController(TestExplanationVC(), animated: true)
+        let tvc = TestExplanationVC()
+        tvc.modalPresentationStyle = .fullScreen
+        present(tvc, animated: true, completion: nil)
     }
     
     func subscribe() {

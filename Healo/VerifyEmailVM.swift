@@ -15,7 +15,7 @@ class VerifyEmailVM {
     
     func verifyEmail<T: Decodable>(myStruct: T.Type) {
         let sem = DispatchSemaphore.init(value: 0)
-        let url = URL(string: GlobalVariable.url + "api/auth/validate_email")
+        let url = URL(string: GlobalVariable.url + "/api/auth/validate_email")
         print(url)
         
         guard url != nil else {
@@ -27,18 +27,23 @@ class VerifyEmailVM {
         
         let header = ["Content-Type":"application/json", "x-access-token": UserProfile.shared.token]
         request.allHTTPHeaderFields = header
+        print("token yg dipake buat verify email:\(UserProfile.shared.token)")
         
         let body = ["email_validation_key": UserProfile.shared.userEmailValidationKey
-        ] as [String:Any]
+        ] as [String:Int]
+        print("user key: \(UserProfile.shared.userEmailValidationKey)")
         
         do {
             let requestBody = try JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+            print("requestbody: \(requestBody)")
             request.httpBody = requestBody
         } catch {
             print(error)
         }
         
         request.httpMethod = "POST"
+        let sBody = NSString(data: request.httpBody!, encoding: NSASCIIStringEncoding)
+        print(sBody)
         
         let task = URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error in defer { sem.signal() }
             guard data != nil && error == nil else {
@@ -48,6 +53,7 @@ class VerifyEmailVM {
             do {
                 let result = try JSONDecoder().decode(Response<T>.self, from: data!)
                 print(result.status)
+                print(result.message)
                 self.statusVerifyEmail.on(.next(result.status))
             } catch {
                 print(error)

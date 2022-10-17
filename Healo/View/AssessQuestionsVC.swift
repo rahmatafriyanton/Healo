@@ -341,6 +341,12 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
         if initialLoad == true {
             questionNum = 1
             initialLoad = false
+            AssessQuestionsVM.shared.assQuestions.subscribe(onNext: { event in
+                assessQuestions = event
+            }).disposed(by: disposeBag)
+            AssessQuestionsVM.shared.currassQuestions.subscribe(onNext: { event in
+                currentQuestion = event
+            }).disposed(by: disposeBag)
         }
         
         questNum.text = String(questionNum)
@@ -859,12 +865,12 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
         
         currentQuestionNum += 1
         var answer = QuestionAnswer(question_id: currentQuestionNum, answer_id: 3*(currentQuestionNum-1)+chosenAnswer)
-                selectedAnswers.append(answer)
-        
+        selectedAnswers.append(answer)
+        print(selectedAnswers)
         
         if questionNum <= 14 {
             AssessQuestionsVM.shared.currassQuestions.onNext(assessQuestions[currentQuestionNum])
-            
+
             let aqc = AssessQuestionsVC()
             aqc.modalPresentationStyle = .custom
             aqc.modalTransitionStyle = .crossDissolve
@@ -882,6 +888,8 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
             
             print("SUDAH SELESAI 14 NOMOR")
         }
+        print("questionNum")
+        print(questionNum)
     }
     
     func validateBerikutnya(){
