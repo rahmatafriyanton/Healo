@@ -12,6 +12,7 @@ class SetUserVM {
     
     func setUser<T: Decodable>(myStruct: T.Type) {
         let url = URL(string: GlobalVariable.url + "/api/user")
+        let sem = DispatchSemaphore.init(value: 0)
         print(url)
         
         guard url != nil else{
@@ -47,7 +48,7 @@ class SetUserVM {
         
         request.httpMethod = "POST"
         
-        let task = URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error in
+        let task = URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error in defer { sem.signal() }
             guard data != nil && error == nil else {
                 print("error creating url session")
                 return
@@ -61,5 +62,6 @@ class SetUserVM {
             }
         })
         task.resume()
+        sem.wait()
     }
 }

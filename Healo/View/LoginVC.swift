@@ -274,10 +274,11 @@ class LoginVC : UIViewController {
     @objc func onTapLogin() {
         UserProfile.shared.email = emailTextField.text ?? ""
         UserProfile.shared.password = passwordTextField.text ?? ""
-        LoginVM.shared.login(myStruct: [String].self)
+        LoginVM.shared.login(myStruct: Token.self)
         subscribe()
-        if(statusLoginVC == "Success") {
-            navigationController?.pushViewController(SetProfileVC(), animated: true)
+        if(statusLoginVC == "success") {
+            // navigate masuk tabbar sesuai role
+//            navigationController?.pushViewController(SetProfileVC(), animated: true)
         }
     }
     
