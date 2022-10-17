@@ -7,8 +7,13 @@
 
 import UIKit
 import AuthenticationServices
+import RxSwift
+import RxCocoa
 
 class LoginVC : UIViewController {
+    
+    private var statusLoginVC : String = ""
+    private var bag = DisposeBag()
     
     private lazy var titleLabel : UILabel = {
         let label = UILabel()
@@ -267,7 +272,20 @@ class LoginVC : UIViewController {
     }
     
     @objc func onTapLogin() {
-        navigationController?.pushViewController(SetProfileVC(), animated: true)
+        UserProfile.shared.email = emailTextField.text ?? ""
+        UserProfile.shared.password = passwordTextField.text ?? ""
+        LoginVM.shared.login(myStruct: [String].self)
+        subscribe()
+        if(statusLoginVC == "Success") {
+            navigationController?.pushViewController(SetProfileVC(), animated: true)
+        }
+    }
+    
+    func subscribe() {
+        LoginVM.shared.statusLogin.subscribe(onNext: { event in
+            self.statusLoginVC = event
+            print("ini event subscribe: \(self.statusLoginVC)")
+        }).disposed(by: bag)
     }
     
     @objc func onTapSignInApple() {

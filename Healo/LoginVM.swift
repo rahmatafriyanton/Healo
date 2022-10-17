@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class LoginVM {
     static let shared = LoginVM()
+    var statusLogin = BehaviorSubject<String>(value: "initial value")
     
     func login<T: Decodable>(myStruct: T.Type) {
+        let sem = DispatchSemaphore.init(value: 0)
         let url = URL(string: GlobalVariable.url + "/api/auth/login")
         print(url)
         
@@ -38,7 +42,7 @@ class LoginVM {
         
         request.httpMethod = "POST"
         
-        let task = URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error in
+        let task = URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error in defer { sem.signal() }
             guard data != nil && error == nil else {
                 print("error creating url session")
                 return
@@ -46,6 +50,9 @@ class LoginVM {
             do {
                 print("decoding")
                 let result = try JSONDecoder().decode(Response<T>.self, from: data!)
+                print(result.status)
+                self.statusLogin.on(.next(result.status))
+                
                 guard let token = result.data as? Token else {
                     print("not a token")
                     return
@@ -57,5 +64,6 @@ class LoginVM {
             }
         })
         task.resume()
+        sem.wait()
     }
 }

@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class RegisterVC : UIViewController {
+    
+    private var statusRegisterVC : String = ""
+    private var bag = DisposeBag()
     
     private lazy var titleLabel : UILabel = {
         let label = UILabel()
@@ -416,7 +421,24 @@ class RegisterVC : UIViewController {
     }
     
     @objc func onTapRegister() {
-        navigationController?.pushViewController(VerifyEmailVC(), animated: true)
+        UserProfile.shared.username = usernameTextField.text ?? ""
+        UserProfile.shared.email = emailTextField.text ?? ""
+        UserProfile.shared.password = passwordTextField.text ?? ""
+        RegisterVM.shared.register(myStruct: [String].self)
+        subscribe()
+        if(statusRegisterVC == "Success") {
+            navigationController?.pushViewController(VerifyEmailVC(), animated: true)
+            print("Status: \(statusRegisterVC)")
+        } else {
+            print("Status: \(statusRegisterVC)")
+        }
+    }
+    
+    func subscribe() {
+        RegisterVM.shared.statusRegister.subscribe(onNext: { event in
+            self.statusRegisterVC = event
+            print("ini event subscribe: \(self.statusRegisterVC)")
+        }).disposed(by: bag)
     }
     
     //MARK: - TNC
