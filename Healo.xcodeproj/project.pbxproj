@@ -66,6 +66,9 @@
 		C59B456328F5079D00B4B8D7 /* VerifyEmailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */; };
 		C59B456528F5B8BB00B4B8D7 /* UITapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */; };
 		C59E0BEF28F3B6AD0094CF73 /* VerifyEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59E0BEE28F3B6AD0094CF73 /* VerifyEmailVC.swift */; };
+		C5AAD9D328FE85A900D587B1 /* PairingFailedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAD9D228FE85A900D587B1 /* PairingFailedVC.swift */; };
+		C5AAD9D528FE85B700D587B1 /* PairingLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAD9D428FE85B700D587B1 /* PairingLoadingVC.swift */; };
+		C5AAD9D728FE85C700D587B1 /* PairingSuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAD9D628FE85C700D587B1 /* PairingSuccessVC.swift */; };
 		C5BDC0B128F3052F00781461 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDC0B028F3052F00781461 /* LoginVC.swift */; };
 		C5BDC0B628F3185900781461 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDC0B528F3185900781461 /* RegisterVC.swift */; };
 /* End PBXBuildFile section */
@@ -133,6 +136,9 @@
 		C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailVM.swift; sourceTree = "<group>"; };
 		C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGesture.swift; sourceTree = "<group>"; };
 		C59E0BEE28F3B6AD0094CF73 /* VerifyEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailVC.swift; sourceTree = "<group>"; };
+		C5AAD9D228FE85A900D587B1 /* PairingFailedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingFailedVC.swift; sourceTree = "<group>"; };
+		C5AAD9D428FE85B700D587B1 /* PairingLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingLoadingVC.swift; sourceTree = "<group>"; };
+		C5AAD9D628FE85C700D587B1 /* PairingSuccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingSuccessVC.swift; sourceTree = "<group>"; };
 		C5BDC0B028F3052F00781461 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = Healo/View/LoginVC.swift; sourceTree = SOURCE_ROOT; };
 		C5BDC0B428F3115600781461 /* Healo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Healo.entitlements; sourceTree = "<group>"; };
 		C5BDC0B528F3185900781461 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -241,6 +247,9 @@
 				3C2D590B28ED2929005D7C27 /* Fonts */,
 				68C8763E28EB277200069DAA /* Assets.xcassets */,
 				68C8764028EB277200069DAA /* LaunchScreen.storyboard */,
+				C5AAD9D228FE85A900D587B1 /* PairingFailedVC.swift */,
+				C5AAD9D428FE85B700D587B1 /* PairingLoadingVC.swift */,
+				C5AAD9D628FE85C700D587B1 /* PairingSuccessVC.swift */,
 				C5BDC0B028F3052F00781461 /* LoginVC.swift */,
 				C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */,
 				68C8763928EB277100069DAA /* MainViewController.swift */,
@@ -461,6 +470,7 @@
 			files = (
 				68C8763A28EB277100069DAA /* MainViewController.swift in Sources */,
 				3C2D594B28EEDEAD005D7C27 /* ReusableLabel.swift in Sources */,
+				C5AAD9D728FE85C700D587B1 /* PairingSuccessVC.swift in Sources */,
 				68C8763628EB277100069DAA /* AppDelegate.swift in Sources */,
 				3C2D58CF28EC15ED005D7C27 /* UIFont.swift in Sources */,
 				3C2D596828F70F0E005D7C27 /* HasilAssessVC.swift in Sources */,
@@ -487,11 +497,13 @@
 				A472A00628F27FE6009EC57A /* PickIconVC.swift in Sources */,
 				A472A00C28F2810E009EC57A /* UIImageView.swift in Sources */,
 				3C2D59B028FAC54A005D7C27 /* AssQuestion.swift in Sources */,
+				C5AAD9D328FE85A900D587B1 /* PairingFailedVC.swift in Sources */,
 				A472A00428F27FA4009EC57A /* SetProfileViewModel.swift in Sources */,
 				3C2D596628F6F18B005D7C27 /* QuestionAnswer.swift in Sources */,
 				3C2D59AC28FAC462005D7C27 /* AssessQuestionsVC.swift in Sources */,
 				3C2D595028F143DA005D7C27 /* GlobalVariable.swift in Sources */,
 				3C2D593528EDB1B1005D7C27 /* RegisterVM.swift in Sources */,
+				C5AAD9D528FE85B700D587B1 /* PairingLoadingVC.swift in Sources */,
 				3C2D595628F1DFCE005D7C27 /* LoginVM.swift in Sources */,
 				3C2D595828F5B475005D7C27 /* ProfileIconVM.swift in Sources */,
 				3C2D594128EEC86D005D7C27 /* OnboardingVC.swift in Sources */,
