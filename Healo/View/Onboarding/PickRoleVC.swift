@@ -153,7 +153,7 @@ class PickRoleVC: UIViewController {
     }
     
     @objc func setSeeker() {
-        role = 1
+        role = 2
         
         seekerButton.backgroundColor = .darkPurple
         seekerImage.tintColor = .white
@@ -169,7 +169,7 @@ class PickRoleVC: UIViewController {
     }
     
     @objc func setHealer() {
-        role = 2
+        role = 1
         
         healerButton.backgroundColor = .darkPurple
         healerImage.tintColor = .white
