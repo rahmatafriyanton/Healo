@@ -70,6 +70,9 @@
 		C59B456328F5079D00B4B8D7 /* VerifyEmailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */; };
 		C59B456528F5B8BB00B4B8D7 /* UITapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */; };
 		C59E0BEF28F3B6AD0094CF73 /* VerifyEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59E0BEE28F3B6AD0094CF73 /* VerifyEmailVC.swift */; };
+		C5AAD9D328FE85A900D587B1 /* PairingFailedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAD9D228FE85A900D587B1 /* PairingFailedVC.swift */; };
+		C5AAD9D528FE85B700D587B1 /* PairingLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAD9D428FE85B700D587B1 /* PairingLoadingVC.swift */; };
+		C5AAD9D728FE85C700D587B1 /* PairingSuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAD9D628FE85C700D587B1 /* PairingSuccessVC.swift */; };
 		C5BDC0B128F3052F00781461 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDC0B028F3052F00781461 /* LoginVC.swift */; };
 		C5BDC0B628F3185900781461 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BDC0B528F3185900781461 /* RegisterVC.swift */; };
 /* End PBXBuildFile section */
@@ -142,6 +145,10 @@
 		C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGesture.swift; sourceTree = "<group>"; };
 		C59E0BEE28F3B6AD0094CF73 /* VerifyEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailVC.swift; sourceTree = "<group>"; };
 		C5BDC0B028F3052F00781461 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = Healo/View/Onboarding/LoginVC.swift; sourceTree = SOURCE_ROOT; };
+		C5AAD9D228FE85A900D587B1 /* PairingFailedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingFailedVC.swift; sourceTree = "<group>"; };
+		C5AAD9D428FE85B700D587B1 /* PairingLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingLoadingVC.swift; sourceTree = "<group>"; };
+		C5AAD9D628FE85C700D587B1 /* PairingSuccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingSuccessVC.swift; sourceTree = "<group>"; };
+		C5BDC0B028F3052F00781461 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = Healo/View/LoginVC.swift; sourceTree = SOURCE_ROOT; };
 		C5BDC0B428F3115600781461 /* Healo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Healo.entitlements; sourceTree = "<group>"; };
 		C5BDC0B528F3185900781461 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		F57D014619D3C93F77BA8088 /* Pods-Healo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healo.release.xcconfig"; path = "Target Support Files/Pods-Healo/Pods-Healo.release.xcconfig"; sourceTree = "<group>"; };
@@ -284,6 +291,24 @@
 				3CA3F7AE28FD92E300922354 /* DidEndChatVC.swift */,
 				3CA3F7B228FE4B8C00922354 /* SuccessEndChatVC.swift */,
 				3CA3F7B428FE533C00922354 /* EndChatVC.swift */,
+				C5AAD9D228FE85A900D587B1 /* PairingFailedVC.swift */,
+				C5AAD9D428FE85B700D587B1 /* PairingLoadingVC.swift */,
+				C5AAD9D628FE85C700D587B1 /* PairingSuccessVC.swift */,
+				C5BDC0B028F3052F00781461 /* LoginVC.swift */,
+				C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */,
+				68C8763928EB277100069DAA /* MainViewController.swift */,
+				C59E0BEE28F3B6AD0094CF73 /* VerifyEmailVC.swift */,
+				3C2D58CA28EC1542005D7C27 /* PickRoleVC.swift */,
+				C5BDC0B528F3185900781461 /* RegisterVC.swift */,
+				3C2D58D028EC1AC0005D7C27 /* UserConditionsVC.swift */,
+				3C2D594028EEC86D005D7C27 /* OnboardingVC.swift */,
+				3C2D594828EEDA6F005D7C27 /* HowToHealerVC.swift */,
+				A472A00128F27DD9009EC57A /* SetProfileVC.swift */,
+				A472A00528F27FE6009EC57A /* PickIconVC.swift */,
+				A472A00728F2808A009EC57A /* SuccessAlertVC.swift */,
+				A4F8F72B28F7C06400526EBC /* TestExplanationVC.swift */,
+				3C2D596728F70F0E005D7C27 /* HasilAssessVC.swift */,
+				3C2D59AB28FAC462005D7C27 /* AssessQuestionsVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -489,6 +514,7 @@
 			files = (
 				68C8763A28EB277100069DAA /* MainViewController.swift in Sources */,
 				3C2D594B28EEDEAD005D7C27 /* ReusableLabel.swift in Sources */,
+				C5AAD9D728FE85C700D587B1 /* PairingSuccessVC.swift in Sources */,
 				68C8763628EB277100069DAA /* AppDelegate.swift in Sources */,
 				3C2D58CF28EC15ED005D7C27 /* UIFont.swift in Sources */,
 				3C2D596828F70F0E005D7C27 /* HasilAssessVC.swift in Sources */,
@@ -517,11 +543,13 @@
 				A472A00628F27FE6009EC57A /* PickIconVC.swift in Sources */,
 				A472A00C28F2810E009EC57A /* UIImageView.swift in Sources */,
 				3C2D59B028FAC54A005D7C27 /* AssQuestion.swift in Sources */,
+				C5AAD9D328FE85A900D587B1 /* PairingFailedVC.swift in Sources */,
 				A472A00428F27FA4009EC57A /* SetProfileViewModel.swift in Sources */,
 				3C2D596628F6F18B005D7C27 /* QuestionAnswer.swift in Sources */,
 				3C2D59AC28FAC462005D7C27 /* AssessQuestionsVC.swift in Sources */,
 				3C2D595028F143DA005D7C27 /* GlobalVariable.swift in Sources */,
 				3C2D593528EDB1B1005D7C27 /* RegisterVM.swift in Sources */,
+				C5AAD9D528FE85B700D587B1 /* PairingLoadingVC.swift in Sources */,
 				3C2D595628F1DFCE005D7C27 /* LoginVM.swift in Sources */,
 				3C2D595828F5B475005D7C27 /* ProfileIconVM.swift in Sources */,
 				3C2D594128EEC86D005D7C27 /* OnboardingVC.swift in Sources */,
