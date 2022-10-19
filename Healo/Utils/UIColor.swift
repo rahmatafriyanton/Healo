@@ -26,4 +26,5 @@ extension UIColor {
     static var blurryBack = UIColor(red: 0.21, green: 0.21, blue: 0.21, alpha: 0.7)
     static let greyHide = UIColor(red: 0.45, green: 0.45, blue: 0.45, alpha: 1.00)
     static let redError = UIColor(red: 1.00, green: 0.22, blue: 0.19, alpha: 1.00)
+    static let starYellow = UIColor(red: 0.98, green: 0.80, blue: 0.36, alpha: 1.00)
 }
