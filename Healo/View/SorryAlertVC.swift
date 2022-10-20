@@ -1,15 +1,14 @@
 //
-//  SuccessAlertVC.swift
+//  SorryAlertVC.swift
 //  Healo
 //
-//  Created by Elvina Jacia on 09/10/22.
+//  Created by Elvina Jacia on 19/10/22.
 //
 
 import UIKit
 import SnapKit
 
-
-class SuccessAlertVC : UIViewController{
+class SorryAlertVC : UIViewController{
 
     private let alertView: UIView = {
         let alert = UIView()
@@ -21,7 +20,7 @@ class SuccessAlertVC : UIViewController{
     
     private lazy var imageView : UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "congrats-illus")
+        imageView.image = UIImage(named: "sorry-alert")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -31,7 +30,7 @@ class SuccessAlertVC : UIViewController{
         label.font = .poppinsBold(size: 16)
         label.textColor = .blackPurple
         label.textAlignment = .center
-        label.text = "Selamat Datang di Healo!"
+        label.text = "Maaf!"
         return label
     }()
     
@@ -40,8 +39,8 @@ class SuccessAlertVC : UIViewController{
         label.font = .poppinsRegular(size: 14)
         label.textColor = .blackPurple
         label.textAlignment = .center
-        label.text = "Akun anda sudah berhasil \ndiverifikasi!"
-        label.numberOfLines = 2
+        label.text = "Anda harus mengakhiri chat \nyang sedang berlangsung \nterlebih dahulu sebelum dapat \nmencari Listener baru"
+        label.numberOfLines = 4
         label.lineBreakMode = .byWordWrapping
         return label
     }()
@@ -73,7 +72,6 @@ class SuccessAlertVC : UIViewController{
         setupAlertLayout()
     }
     
-
     func setupAlertView(){
         view.backgroundColor = .blurryBack
         
@@ -90,13 +88,12 @@ class SuccessAlertVC : UIViewController{
         alertView.addSubview(okStack)
 
         view.addSubview(alertView)
-        
     }
     
     func setupAlertLayout(){
         imageView.snp.makeConstraints { make in
-            make.width.equalTo(134)
-            make.height.equalTo(216)
+            make.width.equalTo(181)
+            make.height.equalTo(121)
             make.top.equalTo(alertView.snp.top).offset(16)
             make.centerX.equalTo(alertView.snp.centerX)
         }
@@ -119,25 +116,16 @@ class SuccessAlertVC : UIViewController{
 
         alertView.snp.makeConstraints { make in
             make.width.equalTo(270)
-            make.height.equalTo(375)
+            make.height.equalTo(315)
             make.centerY.centerX.equalToSuperview()
         }
 
     }
     
     @objc func tapOkAction(){
-        
-        print("Masuk ke Tabbar Seeker / Healer")
-        //MARK: HABIS PENCET OK DRI ALERT
-        if(UserProfile.shared.userRole == 2){
-            let svc = SeekerTabBarVC()
-            svc.modalPresentationStyle = .fullScreen
-            present(svc, animated: true, completion: nil)
-        } else if (UserProfile.shared.userRole == 1){
-            let tvc = TestExplanationVC()
-            tvc.modalPresentationStyle = .fullScreen
-            present(tvc, animated: true, completion: nil)
-        }
+        let svc = SeekerTabBarVC()
+        svc.modalPresentationStyle = .fullScreen
+        present(svc, animated: false, completion: nil)
     }
     
     

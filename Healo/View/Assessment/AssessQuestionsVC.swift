@@ -2,15 +2,13 @@
 //  AssessQuestionsVC.swift
 //  Healo
 //
-//  Created by Vincentius Ian Widi Nugroho on 15/10/22.
+//  Created by Elvina Jacia on 15/10/22.
 //
 
-
-
 import UIKit
-import SnapKit
 import RxSwift
 import RxCocoa
+import SnapKit
 
 var questionNum = 0
 var initialLoad = true
@@ -888,8 +886,6 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
             
             print("SUDAH SELESAI 14 NOMOR")
         }
-        print("questionNum")
-        print(questionNum)
     }
     
     func validateBerikutnya(){

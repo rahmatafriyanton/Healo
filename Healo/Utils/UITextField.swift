@@ -26,6 +26,25 @@ extension SetProfileVC : UITextFieldDelegate {
     }
 }
 
+extension CriteriaVC: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return false
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) -> Bool {
+        return false
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        textField.selectedTextRange = nil
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+}
+
+
 extension UITextField{
 
       func addDoneButtonOnKeyboard(){
