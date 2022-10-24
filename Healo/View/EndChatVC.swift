@@ -49,7 +49,7 @@ class EndChatVC: UIViewController {
         return view
     }()
     
-    private lazy var causeLabel: UIView = {
+    private lazy var causeLabel: UILabel = {
        let view = UILabel()
         view.text = "Silakan pilih alasan mengapa Anda ingin mengakhiri obrolan ini"
         view.textAlignment = .center
