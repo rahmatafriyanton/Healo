@@ -282,8 +282,11 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
         } else {
             //MARK: GO TO SORRY ALERT
             let svc = SorryAlertVC()
-            svc.modalPresentationStyle = .fullScreen
+            svc.modalPresentationStyle = .custom
+            svc.modalTransitionStyle = .crossDissolve
+
             present(svc, animated: false, completion: nil)
+            
         }
         
     }
