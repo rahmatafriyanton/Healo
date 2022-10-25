@@ -203,9 +203,11 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
         chatTableView.rx.itemSelected.subscribe(onNext: { indexPath in
     
             DispatchQueue.main.async {
-                let cvc = ChattingVC()
-                cvc.modalPresentationStyle = .fullScreen
-                self.present(cvc, animated: false, completion: nil)
+//                let cvc = ChattingVC()
+//                cvc.modalPresentationStyle = .fullScreen
+//                self.present(cvc, animated: false, completion: nil)
+                
+                self.navigationController?.pushViewController(ChatVC(), animated: true)
             }
         }).disposed(by: bag)
         
