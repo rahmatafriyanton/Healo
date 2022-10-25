@@ -21,6 +21,11 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
     var selfImage: UIImage? = nil
     var otherImage: UIImage? = nil
     
+    var imageUrl = ""
+    var receiverUsername = ""
+    var receiverAge = 0
+    var receiverGender = ""
+    
     public static let idDateFormatter: DateFormatter = {
         let formattre = DateFormatter()
         formattre.dateFormat = "y-MM-dd H:mm:ss.SSSS"
@@ -48,13 +53,72 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
         return view
     }()
     
+    private lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = .darkPurple
+        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        button.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var iconView : UIView = {
+        let iconView = UIView()
+        iconView.backgroundColor = .clear
+        return iconView
+    }()
+    
+    private lazy var iconImgView : UIImageView = {
+        let iconView = UIImageView()
+        iconView.clipsToBounds = true
+        iconView.layer.borderColor = UIColor.darkPurple.cgColor
+        iconView.layer.borderWidth = 1
+        iconView.contentMode = .scaleAspectFit
+        iconView.layer.cornerRadius = 23
+        iconView.backgroundColor = .clear
+        return iconView
+    }()
+    
+    private lazy var usernameLabel: UILabel = {
+        let label = UILabel()
+        label.font = .poppinsMedium(size: 21)
+        label.textColor = .blackPurple
+        label.textAlignment = .left
+        label.text = "\(receiverUsername)"
+        return label
+    }()
+    
+    private lazy var detailLabel: UILabel = {
+        let label = UILabel()
+        label.font = .poppinsRegular(size: 16)
+        label.textColor = .blackPurple
+        label.textAlignment = .left
+        label.text = "\(receiverAge) tahun, \(receiverGender)"
+        return label
+    }()
+    
+    private lazy var labelStack = UIStackView()
+   
+    private lazy var profileLabelStack = UIStackView()
+    
+    private lazy var tripleBtn: UIButton = {
+        let button = UIButton()
+        button.tintColor = .darkPurple
+        button.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+        button.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
+        button.contentMode = .scaleAspectFill
+        button.addTarget(self, action: #selector(tripleTapped), for: .touchUpInside)
+        return button
+    }()
+    
     // insert func socket async, isinya append si chat terakhir
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: .none)
+        
         view.backgroundColor = .red
         configureUI()
-        self.messagesCollectionView.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
+        self.messagesCollectionView.contentInset = UIEdgeInsets(top: self.view.frame.height > 735 ? 180 : 180, left: 0, bottom: 0, right: 0)
         
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -100,12 +164,89 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
             make.height.equalTo(162)
         }
         
+        setupProfileData()
+        setupProfileView()
+        setupProfileLayout()
+        
         view.addSubview(whiteView)
         whiteView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.centerY.equalTo(profileView.snp.bottom)
-            make.height.equalTo(58)
+            make.height.equalTo(40)
         }
+        
+        
+    }
+    
+    func setupProfileData(){
+        //Get Icon dri db
+        receiverUsername = "@johndoe"
+        receiverAge = 18
+        receiverGender = "pria"
+        
+    }
+    
+    func setupProfileView(){
+        profileView.addSubview(backButton)
+     
+        labelStack = UIStackView(arrangedSubviews: [usernameLabel, detailLabel])
+        labelStack.axis = .vertical
+        labelStack.spacing = 1
+        
+        iconView.addSubview(iconImgView)
+        
+        profileLabelStack = UIStackView(arrangedSubviews: [iconView, labelStack])
+        profileLabelStack.axis = .horizontal
+        profileLabelStack.spacing = 16
+        profileView.addSubview(profileLabelStack)
+        
+        profileView.addSubview(tripleBtn)
+    }
+    
+    func setupProfileLayout(){
+        backButton.snp.makeConstraints { make in
+            make.height.equalTo(21)
+            make.width.equalTo(14)
+            make.top.equalToSuperview().offset(83)
+            make.left.equalToSuperview().offset(24)
+        }
+        
+        iconView.snp.makeConstraints { make in
+            make.height.equalTo(labelStack)
+            make.width.equalTo(47)
+        }
+        
+        iconImgView.snp.makeConstraints { make in
+            make.height.width.equalTo(46)
+            make.centerX.centerY.equalTo(iconView)
+        }
+        
+        profileLabelStack.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(66)
+            make.left.equalTo(backButton).offset(28)
+        }
+        
+        tripleBtn.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(83)
+            make.right.equalToSuperview().offset(26)
+            make.height.equalTo(30)
+            make.width.equalTo(100)
+        }
+        
+    }
+    
+    @objc func backTapped(){
+        let svc = SeekerTabBarVC()
+        svc.modalPresentationStyle = .fullScreen
+        present(svc, animated: false, completion: nil)
+    }
+    
+    @objc func tripleTapped(){
+        let tvc = ToEndVC()
+        tvc.modalPresentationStyle = .custom
+        tvc.modalTransitionStyle = .crossDissolve
+
+        present(tvc, animated: false, completion: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -180,5 +321,7 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
     func messageBottomLabelHeight(for _: MessageType, at _: IndexPath, in _: MessagesCollectionView) -> CGFloat {
       16
     }
+    
+    
 
 }

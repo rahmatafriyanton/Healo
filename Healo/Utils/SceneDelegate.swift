@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 		guard let scene = (scene as? UIWindowScene) else { return }
 		window = UIWindow(windowScene: scene)
-        window?.rootViewController = UINavigationController(rootViewController: ChatVC())
+        window?.rootViewController = UINavigationController(rootViewController: SeekerTabBarVC())
         //window?.rootViewController = UINavigationController(rootViewController: HowToHealerVC())
 		window?.makeKeyAndVisible()
 	}

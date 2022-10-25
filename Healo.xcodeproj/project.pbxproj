@@ -86,6 +86,7 @@
 		A472A00A28F280E6009EC57A /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00928F280E6009EC57A /* UITextField.swift */; };
 		A472A00C28F2810E009EC57A /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00B28F2810E009EC57A /* UIImageView.swift */; };
 		A472A00E28F28129009EC57A /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00D28F28129009EC57A /* UIButton.swift */; };
+		A4AB7B682907784500F81122 /* ToEndVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AB7B672907784500F81122 /* ToEndVC.swift */; };
 		C59B456328F5079D00B4B8D7 /* VerifyEmailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */; };
 		C59B456528F5B8BB00B4B8D7 /* UITapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */; };
 		C5AAD9D328FE85A900D587B1 /* PairingFailedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAD9D228FE85A900D587B1 /* PairingFailedVC.swift */; };
@@ -176,6 +177,7 @@
 		A472A00928F280E6009EC57A /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		A472A00B28F2810E009EC57A /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		A472A00D28F28129009EC57A /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		A4AB7B672907784500F81122 /* ToEndVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToEndVC.swift; sourceTree = "<group>"; };
 		C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailVM.swift; sourceTree = "<group>"; };
 		C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGesture.swift; sourceTree = "<group>"; };
 		C5AAD9D228FE85A900D587B1 /* PairingFailedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingFailedVC.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				C5AAD9D428FE85B700D587B1 /* PairingLoadingVC.swift */,
 				C5AAD9D628FE85C700D587B1 /* PairingSuccessVC.swift */,
 				3C7B7DC329051A4100BB1A7A /* ChatVC.swift */,
+				A4AB7B672907784500F81122 /* ToEndVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				3C2D595E28F5B793005D7C27 /* Icon.swift in Sources */,
 				A45BD89428FFC543006D0072 /* VerifyEmailVC.swift in Sources */,
 				3C2D593328ED6DB7005D7C27 /* UserProfile.swift in Sources */,
+				A4AB7B682907784500F81122 /* ToEndVC.swift in Sources */,
 				3C2D595228F14F0D005D7C27 /* SetUserVM.swift in Sources */,
 				A45BD89A28FFC56B006D0072 /* SetProfileVC.swift in Sources */,
 				C59B456528F5B8BB00B4B8D7 /* UITapGesture.swift in Sources */,

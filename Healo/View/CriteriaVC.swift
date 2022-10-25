@@ -226,7 +226,7 @@ class CriteriaVC: UIViewController {
     func setNavBarLay(){
         navBar.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(15)
-            make.top.equalToSuperview().offset(60)
+            make.top.equalToSuperview().offset(self.view.frame.height > 735 ? 60 : 40)
             make.width.equalTo(screenSize.width)
             make.height.equalTo(44)
         }
@@ -234,7 +234,7 @@ class CriteriaVC: UIViewController {
     
     func setLabel1StackLay(){
         label1Stack.snp.makeConstraints { make in
-            make.top.equalTo(navBar.snp.bottom).offset(32)
+            make.top.equalTo(navBar.snp.bottom).offset(self.view.frame.height > 735 ? 32 : 10)
             make.left.equalToSuperview().offset(36)
         }
     }
@@ -257,7 +257,7 @@ class CriteriaVC: UIViewController {
         }
         
         rentangField.snp.makeConstraints { make in
-            make.top.equalTo(label1Stack.snp.bottom).offset(24)
+            make.top.equalTo(label1Stack.snp.bottom).offset(self.view.frame.height > 735 ? 24 : 10)
             make.centerX.equalToSuperview()
         }
         
@@ -270,14 +270,14 @@ class CriteriaVC: UIViewController {
     
     func setLabel2StackLay(){
         label2Stack.snp.makeConstraints { make in
-            make.top.equalTo(jenisKelaminStack.snp.bottom).offset(32)
+            make.top.equalTo(jenisKelaminStack.snp.bottom).offset(self.view.frame.height > 735 ? 32 : 10)
             make.left.equalToSuperview().offset(36)
         }
     }
     
     func setTopicFieldLay(){
         topicField.snp.makeConstraints { make in
-            make.top.equalTo(label2Stack.snp.bottom).offset(24)
+            make.top.equalTo(label2Stack.snp.bottom).offset(self.view.frame.height > 735 ? 24 : 10)
             make.centerX.equalToSuperview()
             make.height.equalTo(176)
             make.width.equalTo(323)
@@ -286,7 +286,7 @@ class CriteriaVC: UIViewController {
     
     func setCariBtnLay(){
         cariButton.snp.makeConstraints { make in
-            make.top.equalTo(topicField.snp.bottom).offset(57)
+            make.top.equalTo(topicField.snp.bottom).offset(self.view.frame.height > 735 ? 57 : 20)
             make.centerX.equalToSuperview()
             make.height.equalTo(52)
             make.width.equalTo(314)
