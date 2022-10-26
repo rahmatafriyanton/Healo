@@ -203,10 +203,6 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
         chatTableView.rx.itemSelected.subscribe(onNext: { indexPath in
     
             DispatchQueue.main.async {
-//                let cvc = ChattingVC()
-//                cvc.modalPresentationStyle = .fullScreen
-//                self.present(cvc, animated: false, completion: nil)
-                
                 self.navigationController?.pushViewController(ChatVC(), animated: true)
             }
         }).disposed(by: bag)
@@ -282,11 +278,9 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
             cvc.modalPresentationStyle = .fullScreen
             present(cvc, animated: false, completion: nil)
         } else {
-            //MARK: GO TO SORRY ALERT
             let svc = SorryAlertVC()
             svc.modalPresentationStyle = .custom
             svc.modalTransitionStyle = .crossDissolve
-
             present(svc, animated: false, completion: nil)
             
         }

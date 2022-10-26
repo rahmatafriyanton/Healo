@@ -356,36 +356,37 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
         ansLabel3.text =  assessQuestions[currentQuestionNum].answers[2].answer
         
     }
-    
+   
     func setupProgressBar(){
-        if questionNum == 1 {
+        switch questionNum{
+        case 1:
             stripe1.backgroundColor = .darkPurple
-        } else if questionNum == 2 {
+        case 2:
             stripe1.backgroundColor = .darkPurple
             stripe2.backgroundColor = .darkPurple
-        }  else if questionNum == 3 {
+        case 3:
             stripe1.backgroundColor = .darkPurple
             stripe2.backgroundColor = .darkPurple
             stripe3.backgroundColor = .darkPurple
-        }  else if questionNum == 4 {
+        case 4:
             stripe1.backgroundColor = .darkPurple
             stripe2.backgroundColor = .darkPurple
             stripe3.backgroundColor = .darkPurple
             stripe4.backgroundColor = .darkPurple
-        }  else if questionNum == 5 {
+        case 5:
             stripe1.backgroundColor = .darkPurple
             stripe2.backgroundColor = .darkPurple
             stripe3.backgroundColor = .darkPurple
             stripe4.backgroundColor = .darkPurple
             stripe5.backgroundColor = .darkPurple
-        }  else if questionNum == 6 {
+        case 6:
             stripe1.backgroundColor = .darkPurple
             stripe2.backgroundColor = .darkPurple
             stripe3.backgroundColor = .darkPurple
             stripe4.backgroundColor = .darkPurple
             stripe5.backgroundColor = .darkPurple
             stripe6.backgroundColor = .darkPurple
-        }  else if questionNum == 7 {
+        case 7:
             stripe1.backgroundColor = .darkPurple
             stripe2.backgroundColor = .darkPurple
             stripe3.backgroundColor = .darkPurple
@@ -393,7 +394,7 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
             stripe5.backgroundColor = .darkPurple
             stripe6.backgroundColor = .darkPurple
             stripe7.backgroundColor = .darkPurple
-        }  else if questionNum == 8 {
+        case 8:
             stripe1.backgroundColor = .darkPurple
             stripe2.backgroundColor = .darkPurple
             stripe3.backgroundColor = .darkPurple
@@ -402,7 +403,7 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
             stripe6.backgroundColor = .darkPurple
             stripe7.backgroundColor = .darkPurple
             stripe8.backgroundColor = .darkPurple
-        }  else if questionNum == 9 {
+        case 9:
             stripe1.backgroundColor = .darkPurple
             stripe2.backgroundColor = .darkPurple
             stripe3.backgroundColor = .darkPurple
@@ -412,7 +413,7 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
             stripe7.backgroundColor = .darkPurple
             stripe8.backgroundColor = .darkPurple
             stripe9.backgroundColor = .darkPurple
-        }  else if questionNum == 10 {
+        case 10:
             stripe1.backgroundColor = .darkPurple
             stripe2.backgroundColor = .darkPurple
             stripe3.backgroundColor = .darkPurple
@@ -423,7 +424,7 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
             stripe8.backgroundColor = .darkPurple
             stripe9.backgroundColor = .darkPurple
             stripe10.backgroundColor = .darkPurple
-        }  else if questionNum == 11 {
+        case 11:
             stripe1.backgroundColor = .darkPurple
             stripe2.backgroundColor = .darkPurple
             stripe3.backgroundColor = .darkPurple
@@ -435,7 +436,7 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
             stripe9.backgroundColor = .darkPurple
             stripe10.backgroundColor = .darkPurple
             stripe11.backgroundColor = .darkPurple
-        }  else if questionNum == 12 {
+        case 12:
             stripe1.backgroundColor = .darkPurple
             stripe2.backgroundColor = .darkPurple
             stripe3.backgroundColor = .darkPurple
@@ -448,7 +449,7 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
             stripe10.backgroundColor = .darkPurple
             stripe11.backgroundColor = .darkPurple
             stripe12.backgroundColor = .darkPurple
-        }  else if questionNum == 13 {
+        case 13:
             stripe1.backgroundColor = .darkPurple
             stripe2.backgroundColor = .darkPurple
             stripe3.backgroundColor = .darkPurple
@@ -462,7 +463,7 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
             stripe11.backgroundColor = .darkPurple
             stripe12.backgroundColor = .darkPurple
             stripe13.backgroundColor = .darkPurple
-        }  else if questionNum == 14 {
+        case 14:
             stripe1.backgroundColor = .darkPurple
             stripe2.backgroundColor = .darkPurple
             stripe3.backgroundColor = .darkPurple
@@ -477,6 +478,8 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
             stripe12.backgroundColor = .darkPurple
             stripe13.backgroundColor = .darkPurple
             stripe14.backgroundColor = .darkPurple
+        default:
+            ""
         }
         
     }
