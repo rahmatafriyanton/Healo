@@ -326,25 +326,27 @@ class CriteriaVC: UIViewController {
                 self.rentangField.text = "    " + "\(self.selectedUsia)"
                 self.rentangField.textColor = .blackPurple
             }
-           
-           if (self.selectedUsia == "17 Tahun - 22 Tahun"){
+        
+           switch self.selectedUsia {
+            case "17 Tahun - 22 Tahun":
                self.minUsia = 17
                self.maxUsia = 22
-           } else if (self.selectedUsia == "23 Tahun - 28 Tahun"){
+            case "23 Tahun - 28 Tahun":
                self.minUsia = 23
                self.maxUsia = 28
-           } else if (self.selectedUsia == "29 Tahun - 35 Tahun"){
+           case "29 Tahun - 35 Tahun":
                self.minUsia = 29
                self.maxUsia = 35
-           } else if (self.selectedUsia == "36 Tahun - 40 Tahun"){
+           case "36 Tahun - 40 Tahun":
                self.minUsia = 36
                self.maxUsia = 40
-           } else if (self.selectedUsia == "41 Tahun - 50 Tahun"){
-               self.minUsia = 41
-               self.maxUsia = 50
-           } else if (self.selectedUsia ==  ">50 tahun"){
+           case ">50 tahun":
                self.minUsia = 51
+               self.maxUsia = 0
+           default:
+               ""
            }
+           
             self.validateAll()
 
          }).disposed(by: disposeBag)
