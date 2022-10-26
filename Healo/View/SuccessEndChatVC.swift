@@ -87,7 +87,7 @@ class SuccessEndChatVC: UIViewController {
         whiteLabel.addSubview(subTitle)
         subTitle.snp.makeConstraints { make in
             make.top.equalTo(centerImage.snp.bottom).offset(24)
-            make.left.right.equalToSuperview().inset(145)
+            make.left.right.equalToSuperview().inset(self.view.frame.height > 735 ? 145 : 120)
         }
         
         whiteLabel.addSubview(descLabel)

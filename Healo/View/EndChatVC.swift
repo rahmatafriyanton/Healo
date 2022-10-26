@@ -49,7 +49,7 @@ class EndChatVC: UIViewController {
         return view
     }()
     
-    private lazy var causeLabel: UIView = {
+    private lazy var causeLabel: UILabel = {
        let view = UILabel()
         view.text = "Silakan pilih alasan mengapa Anda ingin mengakhiri obrolan ini"
         view.textAlignment = .center
@@ -103,6 +103,9 @@ class EndChatVC: UIViewController {
     
     @objc func cancel(){
         // insert cancel
+        let cvc = ChatVC()
+        cvc.modalPresentationStyle = .fullScreen
+        present(cvc, animated: false, completion: nil)
     }
     
     @objc func selesai(){
@@ -174,26 +177,26 @@ class EndChatVC: UIViewController {
         
         whiteLabel.addSubview(warningLabel)
         warningLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(64)
+            make.top.equalToSuperview().offset(self.view.frame.height > 735 ? 64 : 30)
             make.left.right.equalToSuperview().inset(48)
         }
         
         whiteLabel.addSubview(line)
         line.snp.makeConstraints { make in
-            make.top.equalTo(warningLabel.snp.bottom).offset(32)
+            make.top.equalTo(warningLabel.snp.bottom).offset(self.view.frame.height > 735 ? 32 : 10)
             make.left.right.equalToSuperview().inset(31)
             make.height.equalTo(1)
         }
         
         whiteLabel.addSubview(causeLabel)
         causeLabel.snp.makeConstraints { make in
-            make.top.equalTo(line.snp.bottom).offset(32)
+            make.top.equalTo(line.snp.bottom).offset(self.view.frame.height > 735 ? 32 : 10)
             make.left.right.equalToSuperview().inset(34)
         }
         
         whiteLabel.addSubview(selesaiButton)
         selesaiButton.snp.makeConstraints { make in
-            make.top.equalTo(causeLabel.snp.bottom).offset(24)
+            make.top.equalTo(causeLabel.snp.bottom).offset(self.view.frame.height > 735 ? 24 : 15)
             make.left.right.equalToSuperview().inset(34)
             make.height.equalTo(53)
         }
@@ -216,7 +219,7 @@ class EndChatVC: UIViewController {
         endButton.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-31)
             make.left.equalToSuperview().offset(206)
-            make.bottom.equalToSuperview().offset(-80)
+            make.bottom.equalToSuperview().offset(self.view.frame.height > 735 ? -80 : -40)
             make.height.equalTo(52)
             
         }
@@ -225,7 +228,7 @@ class EndChatVC: UIViewController {
         cancelButton.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-206)
             make.left.equalToSuperview().offset(31)
-            make.bottom.equalToSuperview().offset(-80)
+            make.bottom.equalToSuperview().offset(self.view.frame.height > 735 ? -80 : -40)
             make.height.equalTo(52)
             
         }

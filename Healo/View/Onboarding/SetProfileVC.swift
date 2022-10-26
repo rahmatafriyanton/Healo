@@ -332,8 +332,10 @@ class SetProfileVC: UIViewController, updateIconImage{
              if(self.selectedGender == self.viewModel.genderList[0]){
                  self.selectedGender = ""
                  self.genderField.text = "    "+"Jenis Kelamin"
+                 self.genderField.textColor = .greyPurple
              } else {
                  self.genderField.text = "    " + "\(self.selectedGender)"
+                 self.genderField.textColor = .blackPurple
              }
                        
              self.validateAll()
@@ -350,8 +352,10 @@ class SetProfileVC: UIViewController, updateIconImage{
           if(self.selectedTahun == self.viewModel.tahunList[0]){
             self.selectedTahun = ""
             self.tahunLahirField.text =  "    " + "Tahun Lahir"
+            self.tahunLahirField.textColor = .greyPurple
           } else {
             self.tahunLahirField.text = "    " + "\(self.selectedTahun)"
+            self.tahunLahirField.textColor = .blackPurple
           }
           
           self.selectTahun = Int(self.selectedTahun) ?? 0
