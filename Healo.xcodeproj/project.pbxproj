@@ -47,6 +47,11 @@
 		3C7B7DC429051A4100BB1A7A /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B7DC329051A4100BB1A7A /* ChatVC.swift */; };
 		3C7B7DC62905230200BB1A7A /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B7DC52905230200BB1A7A /* Sender.swift */; };
 		3C7B7DC82905232900BB1A7A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B7DC72905232900BB1A7A /* Message.swift */; };
+		3C7B7E1C2907E3B500BB1A7A /* GetUserVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B7E1B2907E3B500BB1A7A /* GetUserVM.swift */; };
+		3C7B7E1E2907E48B00BB1A7A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B7E1D2907E48B00BB1A7A /* User.swift */; };
+		3C7B7E202907EB8400BB1A7A /* SocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B7E1F2907EB8400BB1A7A /* SocketViewController.swift */; };
+		3C7B7E222907EBCE00BB1A7A /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B7E212907EBCE00BB1A7A /* SocketHandler.swift */; };
+		3C7B7E24290824EF00BB1A7A /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B7E23290824EF00BB1A7A /* Pair.swift */; };
 		3CA3F7AF28FD92E300922354 /* DidEndChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3F7AE28FD92E300922354 /* DidEndChatVC.swift */; };
 		3CA3F7B328FE4B8C00922354 /* SuccessEndChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3F7B228FE4B8C00922354 /* SuccessEndChatVC.swift */; };
 		3CA3F7B528FE533C00922354 /* EndChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3F7B428FE533C00922354 /* EndChatVC.swift */; };
@@ -146,6 +151,11 @@
 		3C7B7DC329051A4100BB1A7A /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		3C7B7DC52905230200BB1A7A /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sender.swift; path = Healo/View/Sender.swift; sourceTree = SOURCE_ROOT; };
 		3C7B7DC72905232900BB1A7A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Healo/View/Message.swift; sourceTree = SOURCE_ROOT; };
+		3C7B7E1B2907E3B500BB1A7A /* GetUserVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserVM.swift; sourceTree = "<group>"; };
+		3C7B7E1D2907E48B00BB1A7A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Healo/User.swift; sourceTree = SOURCE_ROOT; };
+		3C7B7E1F2907EB8400BB1A7A /* SocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketViewController.swift; sourceTree = "<group>"; };
+		3C7B7E212907EBCE00BB1A7A /* SocketHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
+		3C7B7E23290824EF00BB1A7A /* Pair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pair.swift; path = Healo/Utils/Pair.swift; sourceTree = SOURCE_ROOT; };
 		3CA3F7AE28FD92E300922354 /* DidEndChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidEndChatVC.swift; sourceTree = "<group>"; };
 		3CA3F7B228FE4B8C00922354 /* SuccessEndChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessEndChatVC.swift; sourceTree = "<group>"; };
 		3CA3F7B428FE533C00922354 /* EndChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndChatVC.swift; sourceTree = "<group>"; };
@@ -304,6 +314,7 @@
 				3C2D58CE28EC15ED005D7C27 /* UIFont.swift */,
 				A45BD8BE28FFD19D006D0072 /* UITableView.swift */,
 				3C2D593228ED6DB7005D7C27 /* UserProfile.swift */,
+				3C7B7E212907EBCE00BB1A7A /* SocketHandler.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -345,6 +356,9 @@
 				A4F8F72B28F7C06400526EBC /* TestExplanationVC.swift */,
 				3C2D596728F70F0E005D7C27 /* HasilAssessVC.swift */,
 				3C2D59AB28FAC462005D7C27 /* AssessQuestionsVC.swift */,
+				3C7B7DC329051A4100BB1A7A /* ChatVC.swift */,
+				A4AB7B672907784500F81122 /* ToEndVC.swift */,
+				3C7B7E1F2907EB8400BB1A7A /* SocketViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -355,6 +369,7 @@
 				A472A00328F27FA4009EC57A /* SetProfileViewModel.swift */,
 				3C2D593428EDB1B1005D7C27 /* RegisterVM.swift */,
 				3C2D595128F14F0D005D7C27 /* SetUserVM.swift */,
+				3C7B7E1B2907E3B500BB1A7A /* GetUserVM.swift */,
 				C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */,
 				3C2D595528F1DFCE005D7C27 /* LoginVM.swift */,
 				3C2D595728F5B475005D7C27 /* ProfileIconVM.swift */,
@@ -378,6 +393,8 @@
 				A45BD8AD28FFCB77006D0072 /* ChatUser.swift */,
 				3C7B7DC52905230200BB1A7A /* Sender.swift */,
 				3C7B7DC72905232900BB1A7A /* Message.swift */,
+				3C7B7E1D2907E48B00BB1A7A /* User.swift */,
+				3C7B7E23290824EF00BB1A7A /* Pair.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -578,6 +595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A45BD89228FFC53C006D0072 /* HowToHealerVC.swift in Sources */,
+				3C7B7E222907EBCE00BB1A7A /* SocketHandler.swift in Sources */,
 				3C2D594B28EEDEAD005D7C27 /* ReusableLabel.swift in Sources */,
 				C5AAD9D728FE85C700D587B1 /* PairingSuccessVC.swift in Sources */,
 				A45BD8AA28FFC8D5006D0072 /* SeekerTabBarVC.swift in Sources */,
@@ -591,6 +609,8 @@
 				A45BD8C528FFD312006D0072 /* SorryAlertVC.swift in Sources */,
 				A45BD8B528FFCE53006D0072 /* ChattingVC.swift in Sources */,
 				A45BD8A428FFC587006D0072 /* TestExplanationVC.swift in Sources */,
+				3C7B7E1C2907E3B500BB1A7A /* GetUserVM.swift in Sources */,
+				3C7B7E24290824EF00BB1A7A /* Pair.swift in Sources */,
 				A45BD89828FFC566006D0072 /* SuccessAlertVC.swift in Sources */,
 				A45BD8A828FFC591006D0072 /* AssessQuestionsVC.swift in Sources */,
 				3CA3F7B328FE4B8C00922354 /* SuccessEndChatVC.swift in Sources */,
@@ -611,6 +631,7 @@
 				3C2D595228F14F0D005D7C27 /* SetUserVM.swift in Sources */,
 				A45BD89A28FFC56B006D0072 /* SetProfileVC.swift in Sources */,
 				C59B456528F5B8BB00B4B8D7 /* UITapGesture.swift in Sources */,
+				3C7B7E1E2907E48B00BB1A7A /* User.swift in Sources */,
 				3C7B7DC62905230200BB1A7A /* Sender.swift in Sources */,
 				3C7B7DC429051A4100BB1A7A /* ChatVC.swift in Sources */,
 				C5AADA9B2904F2B100D587B1 /* SertifikatCollectionViewCell.swift in Sources */,
@@ -640,6 +661,7 @@
 				3C2D595828F5B475005D7C27 /* ProfileIconVM.swift in Sources */,
 				A45BD8A028FFC579006D0072 /* PickIconVC.swift in Sources */,
 				A45BD89028FFC537006D0072 /* MainViewController.swift in Sources */,
+				3C7B7E202907EB8400BB1A7A /* SocketViewController.swift in Sources */,
 				3C2D595428F1D983005D7C27 /* Token.swift in Sources */,
 				3C7B7D7228FEB52F00BB1A7A /* ReusableChoiceButton.swift in Sources */,
 				A45BD8BF28FFD19D006D0072 /* UITableView.swift in Sources */,
