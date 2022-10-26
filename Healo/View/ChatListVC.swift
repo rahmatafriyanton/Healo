@@ -14,6 +14,7 @@ import SnapKit
 class ChatListVC: UIViewController, UIScrollViewDelegate {
     private var viewModel = ChatListVM()
     private var bag = DisposeBag()
+    var timer = Timer()
    
     let screenSize: CGRect = UIScreen.main.bounds
     
@@ -99,6 +100,28 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SocketHandler.shared.establishConnection()
+        // nanti id diganti yg dari userProfile
+        SocketHandler.shared.mSocket.on(clientEvent: .connect){data, ack in
+            SocketHandler.shared.createConnection(id: 2)
+        }
+//        if (UserProfile.shared.userRole == 1){
+//            UserProfile.shared.userIsAvailable = 1
+//            // untuk nerima data
+//            SocketHandler.shared.listenGotPaired()
+//            SocketHandler.shared.mSocket.on("got_paired") { [] ( data, ack) -> Void in
+//                let rvc = RequestAlertVC()
+//                rvc.modalPresentationStyle = .custom
+//                rvc.modalTransitionStyle = .crossDissolve
+//                self.present(rvc, animated: false, completion: nil)
+//            }
+//            SocketHandler.shared.mSocket.on("chat_session_created") { ( data, ack) -> Void in
+//                self.navigationController?.pushViewController(ChatVC(), animated: false)
+//            }
+//            self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [] _ in
+//                SocketHandler.shared.addHealerToQueue(isAvailable: UserProfile.shared.userIsAvailable)
+//            })
+//        }
         configureUI()
     }
     
@@ -203,7 +226,7 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
         chatTableView.rx.itemSelected.subscribe(onNext: { indexPath in
     
             DispatchQueue.main.async {
-                self.navigationController?.pushViewController(ChatVC(), animated: true)
+                self.navigationController?.pushViewController(ChatVC(), animated: false)
             }
         }).disposed(by: bag)
         

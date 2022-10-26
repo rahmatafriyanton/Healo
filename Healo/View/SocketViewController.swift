@@ -22,20 +22,12 @@ class SocketViewController: UIViewController {
         // untuk nerima data
         SocketHandler.shared.listenGotPaired()
         SocketHandler.shared.listenChatSession()
-//        self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [self] _ in
-//            SocketHandler.shared.addHealerToQueue(isAvailable: 1)
-//        })
-//        mSocket.on("got_paired") { ( data, ack) -> Void in
-//            // apa yang dilakukan kalo dapet data baru
-////            let dataReceived = dataArray[0] as! Int
-//            print(data)
-//        }
-        
-//        mSocket.on("chat_session_created") { ( data, ack) -> Void in
-//            // apa yang dilakukan kalo dapet data baru
-//            let dataReceived = dataArray[0] as! Int
-//            print(dataReceived)
-//        }
+        SocketHandler.shared.mSocket.on(clientEvent: .connect){data, ack in
+            SocketHandler.shared.createConnection(id: 1)
+        }
+        self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [self] _ in
+            SocketHandler.shared.addHealerToQueue(isAvailable: 1)
+        })
     }
     
     private let nameLabel: UILabel = {
@@ -128,7 +120,7 @@ class SocketViewController: UIViewController {
     }
     
     @objc func configurePairing(){
-        SocketHandler.shared.configurePairing()
+        SocketHandler.shared.acceptPairing()
     }
     
     @objc func addToQueue(){
@@ -136,7 +128,7 @@ class SocketViewController: UIViewController {
     }
     
     @objc func findHealer(){
-        SocketHandler.shared.findHealer(myStruct: [String].self)
+//        SocketHandler.shared.findHealer(myStruct: [String].self)
     }
     
     func configureUI(){

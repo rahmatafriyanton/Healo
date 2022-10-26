@@ -64,6 +64,10 @@ class PairingLoadingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        SocketHandler.shared.mSocket.on("chat_session_created") { ( data, ack) -> Void in
+            let psvc = PairingSuccessVC()
+            psvc.modalPresentationStyle = .fullScreen
+            self.present(psvc, animated: false, completion: nil)        }
         // Do any additional setup after loading the view.
     }
     

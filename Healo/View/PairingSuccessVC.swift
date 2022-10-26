@@ -201,6 +201,7 @@ class PairingSuccessVC: UIViewController {
     }
     
     @objc private func onTapToChat() {
-//        navigationController?.pushViewController(PairingLoadingVC(), animated: true)
+        print("tap to chat")
+        navigationController?.pushViewController(ChatVC(), animated: false)
     }
 }
