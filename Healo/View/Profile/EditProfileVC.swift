@@ -15,13 +15,15 @@ protocol editIconImage {
 
 class EditProfileVC: UIViewController, editIconImage {
     func iconClicked(selectedIconView: String) {
-        self.profileImage.setImage(from: editedIcon)
+        editedIcon = selectedIconView
+        
+        self.profileImage.image = UIImage(named: editedIcon)
         self.profileImage.layer.cornerRadius = radius
         self.profileImage.contentMode = .scaleToFill
         self.profileImage.clipsToBounds = true
     }
     
-    let imageUrl1 = "https://images.unsplash.com/photo-1639202293330-5f8437183fd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG9@by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    let imageUrl = UserProfile.shared.userProfilePict
     
     let disposeBag = DisposeBag()
     
@@ -29,13 +31,13 @@ class EditProfileVC: UIViewController, editIconImage {
     var selectHide : Int = 0
     
     var editedIcon : String = ""
-    var editedUsername : String = ""
-    var editedEmail : String = ""
-    var editedPassword : String = ""
+//    var editedUsername : String = ""
+//    var editedEmail : String = ""
+//    var editedPassword : String = ""
     var editedGender : String = ""
-    var editedYear : String = ""
     
     var tahunList = [String]()
+    var selectedTahun : String = ""
     var selectTahun : Int = 0
     var tahunNow = Int(Calendar.current.component(.year, from: Date()))
     var tahunPast : Int {
@@ -51,7 +53,7 @@ class EditProfileVC: UIViewController, editIconImage {
         image.frame = CGRect(x: 0, y: 0, width: 107, height: 107)
         image.layer.masksToBounds = false
         image.layer.cornerRadius = image.frame.height/2
-        image.setImage(from: imageUrl1)
+        image.setImage(from: imageUrl)
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -85,11 +87,11 @@ class EditProfileVC: UIViewController, editIconImage {
         return view
     }()
     
-    private var usernameTextField : UIView = {
+    private var usernameTextField : UITextField = {
         let textField = UITextField()
-        let username = "janedoe"
+        let username = UserProfile.shared.username
         textField.font = .poppinsRegular(size: 14)
-        textField.text = "@\(username)"
+        textField.text = "\(username)"
         textField.textColor = .blackPurple
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -115,7 +117,7 @@ class EditProfileVC: UIViewController, editIconImage {
     
     private var emailTextField : UITextField = {
         let textField = UITextField()
-        let email = "janedoe@gmail.com"
+        let email = UserProfile.shared.email
         textField.font = .poppinsRegular(size: 14)
         textField.text = "\(email)"
         textField.textColor = .blackPurple
@@ -143,7 +145,7 @@ class EditProfileVC: UIViewController, editIconImage {
     
     private var passwordTextField : UITextField = {
         let textField = UITextField()
-        let password = "abcdefghijklm123"
+        let password = UserProfile.shared.password
         textField.font = .poppinsRegular(size: 14)
         textField.isSecureTextEntry = true
         textField.text = "\(password)"
@@ -224,10 +226,11 @@ class EditProfileVC: UIViewController, editIconImage {
     
     private var tahunLahirTextField : UITextField = {
         let textField = UITextField()
+        let tahunLahir = UserProfile.shared.userYearBorn
         textField.font = .poppinsRegular(size: 14)
         textField.isSelected = false
         textField.rightViewMode = .always
-        textField.text = (""+"Tahun Lahir")
+        textField.text = ("\(tahunLahir)")
         textField.textAlignment = .left
         textField.textColor = .blackPurple
         textField.tintColor = .greyPurple
@@ -265,6 +268,7 @@ class EditProfileVC: UIViewController, editIconImage {
     public func configureAll() {
         setupNavBar()
         setupUI()
+        selectedGender()
         tahunLahirPicker()
     }
     
@@ -438,11 +442,11 @@ class EditProfileVC: UIViewController, editIconImage {
     }
     
     @objc func onTapEditIconBtn(){
-        let vc = EditIconVC()
-        vc.modalPresentationStyle = .custom
-        vc.modalTransitionStyle = .crossDissolve
-        vc.delegates = self
-        present(vc, animated: false, completion: nil)
+        let eivc = EditIconVC()
+        eivc.modalPresentationStyle = .custom
+        eivc.modalTransitionStyle = .crossDissolve
+        eivc.delegates = self
+        present(eivc, animated: false, completion: nil)
     }
     
     @objc func onTapHidePassword() {
@@ -455,6 +459,28 @@ class EditProfileVC: UIViewController, editIconImage {
             passwordTextField.isSecureTextEntry = true
             selectHide -= 1
         }
+    }
+    
+    private func selectedGender() {
+        let gender = UserProfile.shared.userGender
+        if gender == "F" {
+            wanitaButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+            wanitaButton.setTitleColor(.white, for: .normal)
+            wanitaButton.tintColor = .white
+            wanitaButton.backgroundColor = .darkPurple
+            
+            selectWoman = 1
+            selectMan = 0
+        } else if gender == "M" {
+            priaButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+            priaButton.setTitleColor(.white, for: .normal)
+            priaButton.tintColor = .white
+            priaButton.backgroundColor = .darkPurple
+            
+            selectWoman = 0
+            selectMan = 1
+        }
+        editedGender = gender
     }
     
     @objc func onTapPickWoman() {
@@ -517,6 +543,7 @@ class EditProfileVC: UIViewController, editIconImage {
             tahunAdd += 1
             tahunList.append(String(tahunAdd))
         }
+        self.selectTahun = Int(self.selectedTahun) ?? 0
     }
     
     func tahunLahirPicker() {
@@ -527,12 +554,18 @@ class EditProfileVC: UIViewController, editIconImage {
     }
     
     @objc func onTapSave() {
-        UserProfile.shared.userProfilePict = editedIcon
-        UserProfile.shared.username = editedUsername
-        UserProfile.shared.email = editedEmail
-        UserProfile.shared.password = editedPassword
+        var editedIcon = profileImage
+        var editedUsername = usernameTextField.text
+        var editedEmail = emailTextField.text
+        var editedPassword = passwordTextField.text
+        var editedYear = Int(tahunLahirTextField.text!)
+        
+        UserProfile.shared.userProfilePict = imageUrl
+        UserProfile.shared.username = editedUsername!
+        UserProfile.shared.email = editedEmail!
+        UserProfile.shared.password = editedPassword!
         UserProfile.shared.userGender = editedGender
-        UserProfile.shared.userYearBorn = selectTahun
+        UserProfile.shared.userYearBorn = editedYear!
         
         SetUserVM.shared.setUser(myStruct: [String].self)
 

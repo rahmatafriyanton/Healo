@@ -187,7 +187,7 @@ class EditIconVC: UIViewController {
     
     func subscribeIcons(){
         // get icons from subject
-        ProfileIconVM.shared.icons.subscribe(onNext: { event in
+        EditIconVM.shared.icons.subscribe(onNext: { event in
             self.imageUrl1 = GlobalVariable.url + event[0].image_path
             self.imageView1.setImage(from: self.imageUrl1)
             self.imageUrl2 = GlobalVariable.url + event[1].image_path
@@ -500,7 +500,5 @@ class EditIconVC: UIViewController {
             
         }
     }
-    
-    
 }
 
