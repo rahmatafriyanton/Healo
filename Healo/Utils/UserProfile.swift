@@ -8,6 +8,7 @@
 import Foundation
 class UserProfile {
     
+    private var _userId: Int
     private var _username: String
     private var _email: String
     private var _password: String
@@ -31,6 +32,7 @@ class UserProfile {
     static let shared = UserProfile()
     
     private init() {
+        self._userId = UserDefaults.standard.integer(forKey: "userId")
         self._username = UserDefaults.standard.string(forKey: "username") ?? "ian_healo"
         self._email = UserDefaults.standard.string(forKey: "email") ?? "vincentiannugroho@gmail.com"
         self._password = UserDefaults.standard.string(forKey: "password") ?? "Password"
@@ -50,6 +52,16 @@ class UserProfile {
         self._userAvailHour = UserDefaults.standard.string(forKey: "userAvailHour") ?? "no avail"
         
         self._userEmailValidationKey = UserDefaults.standard.integer(forKey: "userEmailValidationKey")
+    }
+    
+    var userId: Int {
+        get {
+            return self._userId
+        }
+        set(newValue) {
+            self._userId = newValue
+            UserDefaults.standard.set(newValue, forKey: "userId")
+        }
     }
     
     var username: String {
