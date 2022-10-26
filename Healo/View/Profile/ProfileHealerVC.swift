@@ -328,9 +328,9 @@ extension ProfileHealerVC : UITableViewDelegate, UITableViewDataSource {
             vc.title = "Sertifikat"
             navigationController?.pushViewController(vc, animated: true)
         } else {
-            let vc = ReviewVC()
-            vc.title = "Ulasan"
-            navigationController?.pushViewController(vc, animated: true)
+//            let vc = ReviewVC()
+//            vc.title = "Ulasan"
+//            navigationController?.pushViewController(vc, animated: true)
         }
     }
     
