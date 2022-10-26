@@ -8,8 +8,13 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class RequestAlertVC : UIViewController{
+    public let preflek: String = ""
+    private var pair: Pair = Pair(id: "", seeker_id: 0, healer_id: 0, status: "", min_age: 0, max_age: 0, prefered_gender: "", seeker_preflection: "no pref")
+    private var bag = DisposeBag()
 
     private let alertView: UIView = {
         let alert = UIView()
@@ -109,13 +114,19 @@ class RequestAlertVC : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SocketHandler.shared.pairInfo.subscribe(onNext: { [self] event in
+            pair = event
+            setupData()
+        }).disposed(by: bag)
         setupData()
         setupAlertView()
         setupAlertLayout()
     }
     
     func setupData(){
-        messageLabel.text = "Aku pengen share tentang gimana perasaanku hari ini."
+//        messageLabel.text = "Aku pengen share tentang gimana perasaanku hari ini."
+        messageLabel.text = pair.seeker_preflection
+
     }
     
     func setupAlertView(){
@@ -209,6 +220,9 @@ class RequestAlertVC : UIViewController{
     @objc func tapTerimaAction(){
         //MARK: Ke chat vc sesuai seeker idnya
         print("Masuk ke halaman chat")
+        pair.status = "accept"
+        SocketHandler.shared.mSocket.emit("confirm_pairing",pair)
+        self.dismiss(animated: false)
 //        navigationController?.pushViewController(ChatVC(), animated: true)
     }
     
