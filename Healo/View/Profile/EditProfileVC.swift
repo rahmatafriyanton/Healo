@@ -279,7 +279,6 @@ class EditProfileVC: UIViewController, editIconImage {
         
     }
     
-    
     private func setupUI() {
         view.backgroundColor = .white
         
