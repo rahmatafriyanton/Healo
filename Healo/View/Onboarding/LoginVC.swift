@@ -182,21 +182,21 @@ class LoginVC : UIViewController {
             passwordView.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 16),
             passwordView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -37)
         ])
-        
-        self.view.addSubview(hidePasswordBtn)
-        NSLayoutConstraint.activate([
-            hidePasswordBtn.heightAnchor.constraint(equalToConstant: 17),
-            hidePasswordBtn.topAnchor.constraint(equalTo: passwordView.topAnchor, constant: 14),
-            hidePasswordBtn.trailingAnchor.constraint(equalTo: passwordView.trailingAnchor, constant: -14),
-            hidePasswordBtn.widthAnchor.constraint(equalToConstant: 25),
-        ])
 
         self.view.addSubview(passwordTextField)
         NSLayoutConstraint.activate([
             passwordTextField.heightAnchor.constraint(equalToConstant: 45),
             passwordTextField.leadingAnchor.constraint(equalTo: passwordView.leadingAnchor, constant: 14),
-            passwordTextField.topAnchor.constraint(equalTo: passwordView.topAnchor, constant: 0),
-            passwordTextField.trailingAnchor.constraint(equalTo: hidePasswordBtn.leadingAnchor, constant: -5)
+            passwordTextField.topAnchor.constraint(equalTo: passwordView.topAnchor, constant: 0)
+        ])
+        
+        self.view.addSubview(hidePasswordBtn)
+        NSLayoutConstraint.activate([
+            hidePasswordBtn.heightAnchor.constraint(equalToConstant: 17),
+            hidePasswordBtn.leadingAnchor.constraint(equalTo: passwordTextField.trailingAnchor, constant: 5),
+            hidePasswordBtn.topAnchor.constraint(equalTo: passwordView.topAnchor, constant: 14),
+            hidePasswordBtn.trailingAnchor.constraint(equalTo: passwordView.trailingAnchor, constant: -14),
+            hidePasswordBtn.widthAnchor.constraint(equalToConstant: 25),
         ])
 
         self.view.addSubview(forgotPasswordBtn)
@@ -278,7 +278,15 @@ class LoginVC : UIViewController {
         subscribe()
         if(statusLoginVC == "success") {
             // navigate masuk tabbar sesuai role
-//            navigationController?.pushViewController(SetProfileVC(), animated: true)
+            if(UserProfile.shared.userRole == 2){
+                let svc = SeekerTabBarVC()
+                svc.modalPresentationStyle = .fullScreen
+                present(svc, animated: true, completion: nil)
+            } else if (UserProfile.shared.userRole == 1){
+                let tvc = TestExplanationVC()
+                tvc.modalPresentationStyle = .fullScreen
+                present(tvc, animated: true, completion: nil)
+            }
         }
     }
     
@@ -355,7 +363,7 @@ extension LoginVC: ASAuthorizationControllerDelegate {
         default:
             break
         }
-//        navigationController?.pushViewController(SetProfileVC(), animated: true)
+        navigationController?.pushViewController(ChatListVC(), animated: true)
     }
 }
 

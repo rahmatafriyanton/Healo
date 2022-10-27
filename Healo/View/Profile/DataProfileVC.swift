@@ -9,7 +9,7 @@ import UIKit
 
 class DataProfileVC: UIViewController {
     
-    let imageUrl1 = "https://images.unsplash.com/photo-1639202293330-5f8437183fd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG9@by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    let imageUrl = UserProfile.shared.userProfilePict
     
     private let secondView : UIView = {
         let view = UIView()
@@ -26,7 +26,7 @@ class DataProfileVC: UIViewController {
         image.frame = CGRect(x: 0, y: 0, width: 111, height: 111)
         image.layer.masksToBounds = false
         image.layer.cornerRadius = image.frame.height/2
-        image.setImage(from: imageUrl1)
+        image.setImage(from: imageUrl)
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -56,7 +56,7 @@ class DataProfileVC: UIViewController {
     
     private var usernameDetailLabel : UILabel = {
         let label = UILabel()
-        let username = "janedoe"
+        let username = UserProfile.shared.username
         label.font = .poppinsMedium(size: 14)
         label.text = "@\(username)"
         label.textAlignment = .left
@@ -77,8 +77,9 @@ class DataProfileVC: UIViewController {
     
     private var emailDetailLabel: UILabel = {
         let label = UILabel()
-        let email = "janedoe@gmail.com"
+        let email = UserProfile.shared.email
         label.font = .poppinsMedium(size: 14)
+        label.numberOfLines = 0
         label.text = "\(email)"
         label.textAlignment = .left
         label.textColor = .blackPurple
@@ -98,9 +99,16 @@ class DataProfileVC: UIViewController {
     
     private var jkDetailLabel : UILabel = {
         let label = UILabel()
-        let jenisKelamin = "Wanita"
+        let jenisKelamin = UserProfile.shared.userGender
+        var gender = ""
+        if jenisKelamin == "F" {
+            gender = "Wanita"
+        } else if jenisKelamin == "M" {
+            gender = "Pria"
+        }
+        
         label.font = .poppinsMedium(size: 14)
-        label.text = "\(jenisKelamin)"
+        label.text = "\(gender)"
         label.textAlignment = .left
         label.textColor = .blackPurple
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -119,7 +127,7 @@ class DataProfileVC: UIViewController {
     
     private var tahunLahirDetailLabel : UILabel = {
         let label = UILabel()
-        let tahunLahir = "2004"
+        let tahunLahir = UserProfile.shared.userYearBorn
         label.font = .poppinsMedium(size: 14)
         label.text = "\(tahunLahir)"
         label.textAlignment = .left
@@ -198,7 +206,6 @@ class DataProfileVC: UIViewController {
             usernameLabel.heightAnchor.constraint(equalToConstant: 21),
             usernameLabel.leadingAnchor.constraint(equalTo: secondView.leadingAnchor, constant: 56),
             usernameLabel.topAnchor.constraint(equalTo: secondView.topAnchor, constant: 209),
-//            usernameLabel.trailingAnchor.constraint(equalTo: secondView.trailingAnchor)
             usernameLabel.widthAnchor.constraint(equalToConstant: 99)
         ])
         
@@ -224,8 +231,7 @@ class DataProfileVC: UIViewController {
             emailDetailLabel.heightAnchor.constraint(equalToConstant: 21),
             emailDetailLabel.leadingAnchor.constraint(equalTo: emailLabel.trailingAnchor, constant: 33),
             emailDetailLabel.topAnchor.constraint(equalTo: usernameDetailLabel.bottomAnchor, constant: 24),
-            emailDetailLabel.trailingAnchor.constraint(equalTo: secondView.trailingAnchor, constant: -54),
-//            emailDetailLabel.widthAnchor.constraint(equalToConstant: 99)
+            emailDetailLabel.trailingAnchor.constraint(equalTo: secondView.trailingAnchor, constant: -20),
         ])
         
         view.addSubview(jenisKelaminLabel)
@@ -266,7 +272,7 @@ class DataProfileVC: UIViewController {
             logOutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38),
             logOutButton.topAnchor.constraint(equalTo: tahunLahirDetailLabel.bottomAnchor, constant: 164),
             logOutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -38)
-        ])        
+        ])
     }
     
     private func hideLogOutBtn() {
