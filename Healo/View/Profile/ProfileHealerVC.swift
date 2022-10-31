@@ -11,7 +11,9 @@ import RxCocoa
 
 class ProfileHealerVC: UIViewController {
     
-    let imageUrl1 = "https://images.unsplash.com/photo-1639202293330-5f8437183fd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG9@by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    let imageUrl = UserProfile.shared.userProfilePict
+    var gender : String = ""
+    var age : Int = 0
     
     var dataProfils: [DataProfil] = []
     var availableStatus : Int = 0
@@ -31,7 +33,7 @@ class ProfileHealerVC: UIViewController {
         image.frame = CGRect(x: 0, y: 0, width: 111, height: 111)
         image.layer.masksToBounds = false
         image.layer.cornerRadius = image.frame.height/2
-        image.setImage(from: imageUrl1)
+        image.setImage(from: imageUrl)
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -39,7 +41,7 @@ class ProfileHealerVC: UIViewController {
     
     private var usernameLabel : UILabel = {
         let label = UILabel()
-        let username = "janedoe"
+        let username = UserProfile.shared.username
         label.font = .poppinsSemiBold(size: 21)
         label.text = "@\(username)"
         label.textColor = .blackPurple
@@ -50,10 +52,7 @@ class ProfileHealerVC: UIViewController {
     
     private var ageGenderLabel: UILabel = {
         let label = UILabel()
-        let jk = "Pria"
-        let age = "18"
         label.font = .poppinsRegular(size: 16)
-        label.text = "\(age) Tahun, \(jk)"
         label.textColor = .greyPurple
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -130,7 +129,7 @@ class ProfileHealerVC: UIViewController {
         return tableView
     }()
     
-    private var logOutButton : UIButton = {
+    private lazy var logOutButton : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = .darkPurple
         btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
@@ -154,6 +153,7 @@ class ProfileHealerVC: UIViewController {
         setupNavBar()
         setupUI()
         setupTableView()
+        ageGenderDetail()
     }
     
     private func setupNavBar() {
@@ -272,6 +272,21 @@ class ProfileHealerVC: UIViewController {
             logOutButton.topAnchor.constraint(equalTo: dataPribadiTV.bottomAnchor, constant: 47.5),
             logOutButton.trailingAnchor.constraint(equalTo: secondView.trailingAnchor, constant: -38)
         ])
+    }
+    
+    private func ageGenderDetail() {
+        let getAge = UserProfile.shared.userYearBorn
+        let getGender = UserProfile.shared.userGender
+        let year = Calendar(identifier: .gregorian).dateComponents([.year], from: Date()).year
+        
+        age = year! - getAge
+        
+        if getGender == "F" {
+            gender = "Wanita"
+        } else if getGender == "M" {
+            gender = "Pria"
+        }
+        ageGenderLabel.text = "\(age) Tahun, \(gender)"
     }
     
     @objc func onTapSwitch(_ sender: UISwitch) {
