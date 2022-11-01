@@ -202,6 +202,12 @@ class PairingSuccessVC: UIViewController {
     
     @objc private func onTapToChat() {
         print("tap to chat")
-        navigationController?.pushViewController(ChatVC(), animated: false)
+        
+        let cvc = UINavigationController(rootViewController:ChatVC())
+        cvc.isNavigationBarHidden = true
+        cvc.modalPresentationStyle = .fullScreen
+        cvc.modalTransitionStyle = .crossDissolve
+        present(cvc, animated: false, completion: nil)
+//        navigationController?.pushViewController(ChatVC(), animated: false)
     }
 }
