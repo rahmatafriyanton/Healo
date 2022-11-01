@@ -298,8 +298,10 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
     @objc fileprivate func tapSearchAction(){
         if viewModel.numOfActiveChat == 0 {
             let cvc = CriteriaVC()
-            cvc.modalPresentationStyle = .fullScreen
-            present(cvc, animated: false, completion: nil)
+            let navVC = UINavigationController(rootViewController:cvc)
+            navVC.isNavigationBarHidden = true
+            navVC.modalPresentationStyle = .fullScreen
+            present(navVC, animated: false, completion: nil)
         } else {
             let svc = SorryAlertVC()
             svc.modalPresentationStyle = .custom

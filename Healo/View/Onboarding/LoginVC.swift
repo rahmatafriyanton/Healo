@@ -283,7 +283,7 @@ class LoginVC : UIViewController {
                 svc.modalPresentationStyle = .fullScreen
                 present(svc, animated: true, completion: nil)
             } else if (UserProfile.shared.userRole == 1){
-                let tvc = TestExplanationVC()
+                let tvc = ListenerTabBarVC()
                 tvc.modalPresentationStyle = .fullScreen
                 present(tvc, animated: true, completion: nil)
             }
