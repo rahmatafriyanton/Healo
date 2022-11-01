@@ -443,9 +443,8 @@ class CriteriaVC: UIViewController {
         print(maxUsia)
         print(selectedTopic)
         SocketHandler.shared.findHealer(myStruct: [String].self, minAge: minUsia, maxAge: maxUsia, preferGender: selectedGender, preflek: selectedGender)
-        let plvc = PairingLoadingVC()
-        plvc.modalPresentationStyle = .fullScreen
-        present(plvc, animated: false, completion: nil)
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.pushViewController(PairingLoadingVC(), animated: false)
     }
     
 }

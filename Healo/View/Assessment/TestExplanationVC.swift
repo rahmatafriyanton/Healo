@@ -14,7 +14,7 @@ class TestExplanationVC: UIViewController {
     var timer = Timer()
     var isTimerStarted = false
 
-    var duration: TimeInterval = 240 * 60 // 240 min (4 hours)
+    var duration: TimeInterval = 1440 * 60 // 240 min (4 hours) || 1440 min (24 hours)
 
     
     private lazy var title1 : UILabel = {
@@ -295,10 +295,11 @@ class TestExplanationVC: UIViewController {
     
     @objc func tapMulaiAction(){
         //MARK: CALL COUNTDOWN
-//        setupCountDownHidden()
-        setupCountDownNum()
+//      setupCountDownShow()
+//      setupCountDownNum()
+        
         AssessQuestionsVM.shared.getQuestions(myStruct: [AssQuestion].self)
-//        navigationController?.pushViewController(AssessQuestionsVC(), animated: true)
+        
         let avc = AssessQuestionsVC()
         avc.modalPresentationStyle = .custom
         avc.modalTransitionStyle = .crossDissolve
@@ -306,7 +307,7 @@ class TestExplanationVC: UIViewController {
         present(avc, animated: false, completion: nil)
     }
     
-    func setupCountDownHidden(){
+    func setupCountDownShow(){
         hintLabel.isHidden = false
         mulaiButton.isEnabled = false
         mulaiButton.isHidden = true
