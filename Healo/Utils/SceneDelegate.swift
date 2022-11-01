@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		guard let scene = (scene as? UIWindowScene) else { return }
 		window = UIWindow(windowScene: scene)
 //        window?.rootViewController = UINavigationController(rootViewController: PairingSuccessVC())
-        window?.rootViewController = UINavigationController(rootViewController: TestExplanationVC())
+        window?.rootViewController = UINavigationController(rootViewController: SeekerTabBarVC())
 		window?.makeKeyAndVisible()
 	}
 	func sceneDidDisconnect(_ scene: UIScene) {
