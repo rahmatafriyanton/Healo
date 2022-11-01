@@ -128,6 +128,7 @@
 		A472A00A28F280E6009EC57A /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00928F280E6009EC57A /* UITextField.swift */; };
 		A472A00C28F2810E009EC57A /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00B28F2810E009EC57A /* UIImageView.swift */; };
 		A472A00E28F28129009EC57A /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00D28F28129009EC57A /* UIButton.swift */; };
+		A4B78AD9290F913100E07777 /* ListenerTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B78AD8290F913100E07777 /* ListenerTabBarVC.swift */; };
 		A4CB0D592909073300220DD7 /* RequestAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB0D582909073300220DD7 /* RequestAlertVC.swift */; };
 		C59B456328F5079D00B4B8D7 /* VerifyEmailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */; };
 		C59B456528F5B8BB00B4B8D7 /* UITapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */; };
@@ -235,6 +236,7 @@
 		A472A00928F280E6009EC57A /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		A472A00B28F2810E009EC57A /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		A472A00D28F28129009EC57A /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		A4B78AD8290F913100E07777 /* ListenerTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerTabBarVC.swift; sourceTree = "<group>"; };
 		A4CB0D582909073300220DD7 /* RequestAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAlertVC.swift; sourceTree = "<group>"; };
 		C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailVM.swift; sourceTree = "<group>"; };
 		C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGesture.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				689FB9EC2908E7C50074B961 /* JournalVC.swift */,
 				689FB9EA2908E7C50074B961 /* ProfileVC.swift */,
 				689FB9E92908E7C50074B961 /* SeekerTabBarVC.swift */,
+				A4B78AD8290F913100E07777 /* ListenerTabBarVC.swift */,
 				689FB9ED2908E7C50074B961 /* SorryAlertVC.swift */,
 				A4CB0D582909073300220DD7 /* RequestAlertVC.swift */,
 				689FB9EE2908E7C50074B961 /* ToEndVC.swift */,
@@ -706,6 +709,7 @@
 				3C2D59B028FAC54A005D7C27 /* AssQuestion.swift in Sources */,
 				689FBA152908EB450074B961 /* PickRoleVC.swift in Sources */,
 				A45BD8B728FFCEE8006D0072 /* (null) in Sources */,
+				A4B78AD9290F913100E07777 /* ListenerTabBarVC.swift in Sources */,
 				C5AAD9D328FE85A900D587B1 /* PairingFailedVC.swift in Sources */,
 				A472A00428F27FA4009EC57A /* SetProfileViewModel.swift in Sources */,
 				3C2D596628F6F18B005D7C27 /* QuestionAnswer.swift in Sources */,

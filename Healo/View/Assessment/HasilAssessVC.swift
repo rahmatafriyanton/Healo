@@ -60,10 +60,10 @@ class HasilAssessVC: UIViewController {
     
     @objc func tapIfSuccess(){
         print("successsss")
-        // insert navigation to main page
-        //            let tvc = TabBarController()
-        //            tvc.modalPresentationStyle = .fullScreen
-        //            present(tvc, animated: true, completion: nil)
+       
+       let tvc = ListenerTabBarVC()
+       tvc.modalPresentationStyle = .fullScreen
+       present(tvc, animated: true, completion: nil)
     }
     
     @objc func tapIfFail(){
