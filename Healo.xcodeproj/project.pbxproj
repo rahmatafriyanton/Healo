@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C1DB5322912AC100015C2EF /* VerifyToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1DB5312912AC100015C2EF /* VerifyToken.swift */; };
 		3C2D58CD28EC15AA005D7C27 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D58CC28EC15AA005D7C27 /* UIColor.swift */; };
 		3C2D58CF28EC15ED005D7C27 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D58CE28EC15ED005D7C27 /* UIFont.swift */; };
 		3C2D591E28ED294F005D7C27 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C2D590C28ED294F005D7C27 /* Poppins-Black.ttf */; };
@@ -140,6 +141,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C1DB5312912AC100015C2EF /* VerifyToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyToken.swift; sourceTree = "<group>"; };
 		3C2D58CC28EC15AA005D7C27 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3C2D58CE28EC15ED005D7C27 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		3C2D590C28ED294F005D7C27 /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 				C5AADAD92909A4AA00D587B1 /* EditIconVM.swift */,
 				3C2D596128F6ECE9005D7C27 /* AssessmentResultVM.swift */,
 				3C2D59AD28FAC484005D7C27 /* AssessQuestionsVM.swift */,
+				3C1DB5312912AC100015C2EF /* VerifyToken.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				A45BD89228FFC53C006D0072 /* (null) in Sources */,
 				C5AADADA2909A4AA00D587B1 /* EditIconVM.swift in Sources */,
 				3C7B7E222907EBCE00BB1A7A /* SocketHandler.swift in Sources */,
+				3C1DB5322912AC100015C2EF /* VerifyToken.swift in Sources */,
 				3C2D594B28EEDEAD005D7C27 /* ReusableLabel.swift in Sources */,
 				C5AAD9D728FE85C700D587B1 /* PairingSuccessVC.swift in Sources */,
 				A45BD8AA28FFC8D5006D0072 /* (null) in Sources */,

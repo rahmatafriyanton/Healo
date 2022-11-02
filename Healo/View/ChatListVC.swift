@@ -98,6 +98,14 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
     
     private lazy var labelStack = UIStackView()
     
+    override func viewDidAppear(_ animated: Bool) {
+        print("appear")
+        SocketHandler.shared.establishConnection()
+        SocketHandler.shared.mSocket.on(clientEvent: .connect){data, ack in
+            SocketHandler.shared.createConnection(id: UserProfile.shared.userId)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         GetUserVM.shared.getUser(myStruct: User.self)

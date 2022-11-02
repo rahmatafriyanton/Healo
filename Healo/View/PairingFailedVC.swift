@@ -124,7 +124,10 @@ class PairingFailedVC: UIViewController {
     }
     
     @objc private func onTapToPreflection() {
-//        navigationController?.pushViewController(PairingSuccessVC(), animated: true)
+        let svc = SeekerTabBarVC()
+        svc.modalPresentationStyle = .fullScreen
+        present(svc, animated: false, completion: nil)
+        
     }
     
     @objc private func onTapBack() {
