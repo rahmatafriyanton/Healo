@@ -100,29 +100,32 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GetUserVM.shared.getUser(myStruct: User.self)
         SocketHandler.shared.establishConnection()
-        // nanti id diganti yg dari userProfile
         SocketHandler.shared.mSocket.on(clientEvent: .connect){data, ack in
-            SocketHandler.shared.createConnection(id: 2)
+            SocketHandler.shared.createConnection(id: UserProfile.shared.userId)
         }
-//        if (UserProfile.shared.userRole == 1){
-//            UserProfile.shared.userIsAvailable = 1
-//            // untuk nerima data
-//            SocketHandler.shared.listenGotPaired()
-//            SocketHandler.shared.mSocket.on("got_paired") { [] ( data, ack) -> Void in
-//                let rvc = RequestAlertVC()
-//                rvc.modalPresentationStyle = .custom
-//                rvc.modalTransitionStyle = .crossDissolve
-//                self.present(rvc, animated: false, completion: nil)
-//            }
-//            SocketHandler.shared.mSocket.on("chat_session_created") { ( data, ack) -> Void in
-//                self.navigationController?.pushViewController(ChatVC(), animated: false)
-//            }
-//            self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [] _ in
-//                SocketHandler.shared.addHealerToQueue(isAvailable: UserProfile.shared.userIsAvailable)
-//            })
-//        }
         configureUI()
+        if (UserProfile.shared.userRole == 1){
+            searchListenerBtn.isEnabled = false
+            searchListenerBtn.layer.opacity = 0
+            
+            UserProfile.shared.userIsAvailable = 1
+            // untuk nerima data
+            SocketHandler.shared.listenGotPaired()
+            SocketHandler.shared.mSocket.on("got_paired") { [] ( data, ack) -> Void in
+                let rvc = RequestAlertVC()
+                rvc.modalPresentationStyle = .custom
+                rvc.modalTransitionStyle = .crossDissolve
+                self.present(rvc, animated: false, completion: nil)
+            }
+            SocketHandler.shared.mSocket.on("chat_session_created") { ( data, ack) -> Void in
+                self.navigationController?.pushViewController(ChatVC(), animated: false)
+            }
+            self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [] _ in
+                SocketHandler.shared.addHealerToQueue(isAvailable: UserProfile.shared.userIsAvailable)
+            })
+        }
     }
     
     func configureUI(){
@@ -156,7 +159,11 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
     
     func setTableView(){
         regisTableViewCell()
-        viewModel.fetchUsers()
+        if (UserProfile.shared.userRole == 1){
+            viewModel.fetchActiveChats()
+        } else if (UserProfile.shared.userRole == 2){
+            viewModel.fetchSectionedChats()
+        }
      
         if viewModel.totalChat == 0 {
             setNoChat()

@@ -15,10 +15,10 @@ class GetUserVM {
         let sem = DispatchSemaphore.init(value: 0)
         print(url)
         
-//        guard url != nil else{
-//            print("url error")
-//            return
-//        }
+        guard url != nil else{
+            print("url error")
+            return
+        }
         
         var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
@@ -39,7 +39,9 @@ class GetUserVM {
                     print("not a user")
                     return
                 }
+                print(user)
                 UserProfile.shared.userId = user.userID
+                UserProfile.shared.userRole = user.roleID
             } catch {
                 print(error)
             }
