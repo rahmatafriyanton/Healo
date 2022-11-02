@@ -85,7 +85,7 @@ class SocketHandler: NSObject {
         var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
         let header = ["Content-Type":"application/json",
-                      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VyX25hbWUiOiJyYWhtYXRfYWZyaXlhbnRvbiIsInVzZXJfZW1haWwiOiIxODIxODAzNEBzdGQuc3RlaS5pdGIuYWMuaWQiLCJyb2xlX2lkIjoyLCJpYXQiOjE2NjcyODc2NTEsImV4cCI6MTY2NzM3NDA1MX0.yCbfcjcvleDtQtk3bi6ZhNxxD-6nLUKGRjO2Jyufog8"]
+                      "x-access-token": UserProfile.shared.token]
         request.allHTTPHeaderFields = header
         
         let body = ["min_age": minAge,

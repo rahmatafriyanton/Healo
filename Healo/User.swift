@@ -11,10 +11,10 @@ struct User: Decodable {
     let userID, roleID: Int
     let userName, userEmail: String
     let userIsAvailable: Bool
-    let userGender: String
-    let userYearBorn: Int
-    let userGoal, userAvailHour, userDesc: String
-    let userProfilePict: String
+    let userGender: String?
+    let userYearBorn: Int?
+    let userGoal, userAvailHour, userDesc: String?
+    let userProfilePict: String?
     let isEmailValidated: Bool
 
     enum CodingKeys: String, CodingKey {
