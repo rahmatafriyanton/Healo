@@ -118,6 +118,11 @@ class RequestAlertVC : UIViewController{
             pair = event
             setupData()
         }).disposed(by: bag)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 20.0) { [self] in
+            pair.status = "decline"
+            SocketHandler.shared.mSocket.emit("confirm_pairing",pair)
+            dismiss(animated: false)
+        }
         setupData()
         setupAlertView()
         setupAlertLayout()
@@ -214,6 +219,8 @@ class RequestAlertVC : UIViewController{
     }
     
     @objc func tapTolakAction(){
+        pair.status = "decline"
+        SocketHandler.shared.mSocket.emit("confirm_pairing",pair)
         self.dismiss(animated: false)
     }
     

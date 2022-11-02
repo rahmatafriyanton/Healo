@@ -8,6 +8,8 @@
 import UIKit
 
 class PairingLoadingVC: UIViewController {
+    
+    var paired = false
 
     private lazy var secondView : UIView = {
         let view = UIView()
@@ -65,9 +67,15 @@ class PairingLoadingVC: UIViewController {
         super.viewDidLoad()
         setupUI()
         SocketHandler.shared.mSocket.on("chat_session_created") { ( data, ack) -> Void in
+            self.paired = true
             self.navigationController?.pushViewController(PairingSuccessVC(), animated: false)
         }
-        // Do any additional setup after loading the view.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 60.0) {
+            if(!self.paired){
+                SocketHandler.shared.closeConnection()
+                self.navigationController?.pushViewController(PairingFailedVC(), animated: false)
+            }
+        }
     }
     
     private func setupNavBar() {
