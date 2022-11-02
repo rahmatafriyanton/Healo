@@ -14,8 +14,10 @@ class TestExplanationVC: UIViewController {
     var timer = Timer()
     var isTimerStarted = false
 
-    var duration: TimeInterval = 1440 * 60 // 240 min (4 hours) || 1440 min (24 hours)
-
+    lazy var maxTime: TimeInterval = 24 * 60 * 60 // 240 min (4 hours) || 1440 min (24 hours)
+    lazy var diffInterval: TimeInterval = 0
+    lazy var duration: TimeInterval = 0
+    let currentDateTime = Date()
     
     private lazy var title1 : UILabel = {
         let label = UILabel()
@@ -66,7 +68,6 @@ class TestExplanationVC: UIViewController {
         return view
     }()
     
-    
     private lazy var disTitleLabel : UILabel = {
         let label = UILabel()
         label.font = .poppinsBold(size: 14)
@@ -77,7 +78,6 @@ class TestExplanationVC: UIViewController {
         label.lineBreakMode = .byWordWrapping
         return label
     }()
-    
     
     private lazy var disBodyLabel1 : UILabel = {
         let label = UILabel()
@@ -167,16 +167,48 @@ class TestExplanationVC: UIViewController {
         return label
     }()
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        countDownView.isHidden = true
         configureUI()
+    
     }
     
+    
     func configureUI(){
+        checkStatus()
         setupView()
         setupLayout()
+    }
+    func checkStatus(){
+        if(UserProfile.shared.userAssessStatus == "Failed") {
+            setDuration()
+            setupCountDownNum()
+        } else {
+            setupCountDownHide()
+        }
+    
+    }
+    
+    func setDuration(){
+        let diffComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: Date(timeIntervalSince1970: UserProfile.shared.userFinishAssessTime), to: Date(timeIntervalSince1970: currentDateTime.timeIntervalSince1970))
+        let hours = diffComponents.hour!
+        let minutes = diffComponents.minute!
+        let second = diffComponents.second!
+
+        diffInterval = Double(hours * 60 * 60) +  Double(minutes * 60) + Double(second)
+        
+        duration = maxTime - diffInterval
+        checkWaitingTime()
+    }
+    
+    func checkWaitingTime(){
+        if diffInterval >= maxTime {
+           setupCountDownHide()
+        } else{
+            setupCountDownShow()
+        }
+
     }
     
     func setupView(){
@@ -293,17 +325,13 @@ class TestExplanationVC: UIViewController {
          }
     }
     
+    
     @objc func tapMulaiAction(){
-        //MARK: CALL COUNTDOWN
-//      setupCountDownShow()
-//      setupCountDownNum()
-        
         AssessQuestionsVM.shared.getQuestions(myStruct: [AssQuestion].self)
-        
+
         let avc = AssessQuestionsVC()
         avc.modalPresentationStyle = .custom
         avc.modalTransitionStyle = .crossDissolve
-
         present(avc, animated: false, completion: nil)
     }
     
@@ -311,10 +339,15 @@ class TestExplanationVC: UIViewController {
         hintLabel.isHidden = false
         mulaiButton.isEnabled = false
         mulaiButton.isHidden = true
-        
         countDownView.isHidden = false
     }
     
+    func setupCountDownHide(){
+        hintLabel.isHidden = true
+        mulaiButton.isEnabled = true
+        mulaiButton.isHidden = false
+        countDownView.isHidden = true
+    }
 
     func timeFormat() -> String {
         let hours = Int(duration) / 3600
@@ -333,7 +366,12 @@ class TestExplanationVC: UIViewController {
     
     @objc func updateTimeLabel(){
         duration -= 1
-        countDownLabel.text = timeFormat()
+        
+        if duration <= 0 {
+           setupCountDownHide()
+        } else{
+            countDownLabel.text = timeFormat()
+        }
     }
    
 

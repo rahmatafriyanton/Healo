@@ -29,6 +29,9 @@ class UserProfile {
     
     private var _userEmailValidationKey: Int
     
+    private var _userFinishAssessTime: TimeInterval
+    private var _userAssessStatus : String
+    
     static let shared = UserProfile()
     
     private init() {
@@ -52,6 +55,10 @@ class UserProfile {
         self._userAvailHour = UserDefaults.standard.string(forKey: "userAvailHour") ?? "no avail"
         
         self._userEmailValidationKey = UserDefaults.standard.integer(forKey: "userEmailValidationKey")
+       
+        self._userFinishAssessTime = UserDefaults.standard.double(forKey: "userFinishAssessTime")
+        self._userAssessStatus = UserDefaults.standard.string(forKey: "userAssessStatus") ?? "no status"
+       
     }
     
     var userId: Int {
@@ -211,6 +218,26 @@ class UserProfile {
         set(newValue) {
             self._userEmailValidationKey = newValue
             UserDefaults.standard.set(newValue, forKey: "userEmailValidationKey")
+        }
+    }
+    
+    var userFinishAssessTime: TimeInterval {
+        get {
+            return self._userFinishAssessTime
+        }
+        set(newValue) {
+            self._userFinishAssessTime = newValue
+            UserDefaults.standard.set(newValue, forKey: "userFinishAssessTime")
+        }
+    }
+    
+    var userAssessStatus: String {
+        get {
+            return self._userAssessStatus
+        }
+        set(newValue) {
+            self._userAssessStatus = newValue
+            UserDefaults.standard.set(newValue, forKey: "userAssessStatus")
         }
     }
 }

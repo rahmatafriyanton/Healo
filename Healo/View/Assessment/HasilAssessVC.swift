@@ -12,6 +12,8 @@ import RxCocoa
 class HasilAssessVC: UIViewController {
     let disposeBag = DisposeBag()
     
+    let currentDateTime = Date()
+    
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.textColor = .blackPurple
@@ -68,6 +70,7 @@ class HasilAssessVC: UIViewController {
     
     @objc func tapIfFail(){
         print("failll")
+        
         // insert navigation to assessment intro
         let tvc = TestExplanationVC()
         tvc.modalPresentationStyle = .fullScreen
@@ -83,13 +86,20 @@ class HasilAssessVC: UIViewController {
                 centerImage.image = UIImage(named: "congrats-illus")?.withRenderingMode(.alwaysOriginal)
                 descLabel.text = "Anda telah berhasil melewati test untuk menjadi Listener. Sekarang, anda dapat melanjutkan untuk masuk ke aplikasi dan memulai chatting dengan Seeker!"
                 nextButton.addTarget(self, action: #selector(tapIfSuccess), for: .touchUpInside)
+                UserProfile.shared.userAssessStatus = "Success"
             } else if (event.status == "fail") {
                 titleLabel.text = "Maaf!"
                 centerImage.image = UIImage(named: "sad-illus")?.withRenderingMode(.alwaysOriginal)
                 descLabel.text = "Maaf, anda belum berhasil melewati test untuk menjadi Listener. Anda dapat mencoba untuk mengambil kembali test Listener yang ada."
                 nextButton.addTarget(self, action: #selector(tapIfFail), for: .touchUpInside)
+                UserProfile.shared.userAssessStatus = "Failed"
+                UserProfile.shared.userFinishAssessTime = currentDateTime.timeIntervalSince1970
             } else {
                 titleLabel.text = "something went wrong"
+                
+                //MARK: Kalau ini nanti kalian mau hapus gapapa juga -el
+                UserProfile.shared.userAssessStatus = "Failed"
+                nextButton.addTarget(self, action: #selector(tapIfFail), for: .touchUpInside)
             }
         }).disposed(by: disposeBag)
     }
