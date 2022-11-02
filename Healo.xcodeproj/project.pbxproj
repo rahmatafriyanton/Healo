@@ -136,6 +136,7 @@
 		C5AAD9D528FE85B700D587B1 /* PairingLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAD9D428FE85B700D587B1 /* PairingLoadingVC.swift */; };
 		C5AAD9D728FE85C700D587B1 /* PairingSuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAD9D628FE85C700D587B1 /* PairingSuccessVC.swift */; };
 		C5AADADA2909A4AA00D587B1 /* EditIconVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AADAD92909A4AA00D587B1 /* EditIconVM.swift */; };
+		C5AADAE229120A9F00D587B1 /* PostReflectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AADAE129120A9F00D587B1 /* PostReflectionVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -244,6 +245,7 @@
 		C5AAD9D428FE85B700D587B1 /* PairingLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingLoadingVC.swift; sourceTree = "<group>"; };
 		C5AAD9D628FE85C700D587B1 /* PairingSuccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingSuccessVC.swift; sourceTree = "<group>"; };
 		C5AADAD92909A4AA00D587B1 /* EditIconVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIconVM.swift; sourceTree = "<group>"; };
+		C5AADAE129120A9F00D587B1 /* PostReflectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReflectionVC.swift; sourceTree = "<group>"; };
 		C5BDC0B428F3115600781461 /* Healo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Healo.entitlements; sourceTree = "<group>"; };
 		F57D014619D3C93F77BA8088 /* Pods-Healo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healo.release.xcconfig"; path = "Target Support Files/Pods-Healo/Pods-Healo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -381,6 +383,7 @@
 				68C8764028EB277200069DAA /* LaunchScreen.storyboard */,
 				3CA3F7AE28FD92E300922354 /* DidEndChatVC.swift */,
 				3CA3F7B228FE4B8C00922354 /* SuccessEndChatVC.swift */,
+				C5AADAE129120A9F00D587B1 /* PostReflectionVC.swift */,
 				3CA3F7B428FE533C00922354 /* EndChatVC.swift */,
 				C5AAD9D228FE85A900D587B1 /* PairingFailedVC.swift */,
 				C5AAD9D428FE85B700D587B1 /* PairingLoadingVC.swift */,
@@ -746,6 +749,7 @@
 				A45BD8B028FFCBE3006D0072 /* (null) in Sources */,
 				689FBA142908EB450074B961 /* UserConditionsVC.swift in Sources */,
 				689FBA172908EB450074B961 /* RegisterVC.swift in Sources */,
+				C5AADAE229120A9F00D587B1 /* PostReflectionVC.swift in Sources */,
 				3CA3F7B528FE533C00922354 /* EndChatVC.swift in Sources */,
 				A45BD8BB28FFD063006D0072 /* (null) in Sources */,
 				689FBA362908F8650074B961 /* TestExplanationVC.swift in Sources */,

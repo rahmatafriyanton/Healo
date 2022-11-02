@@ -27,4 +27,6 @@ extension UIColor {
     static let greyHide = UIColor(red: 0.45, green: 0.45, blue: 0.45, alpha: 1.00)
     static let redError = UIColor(red: 1.00, green: 0.22, blue: 0.19, alpha: 1.00)
     static let starYellow = UIColor(red: 0.98, green: 0.80, blue: 0.36, alpha: 1.00)
+    static let greyPlaceholder = UIColor(red: 0.72, green: 0.72, blue: 0.72, alpha: 1.00)
+    static let greyMood = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)
 }
