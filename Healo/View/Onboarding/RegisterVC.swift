@@ -42,6 +42,7 @@ class RegisterVC : UIViewController {
         textField.layer.cornerRadius = 10
         textField.placeholder = "Username"
         textField.translatesAutoresizingMaskIntoConstraints = false
+			textField.addDoneButtonOnKeyboard()
         return textField
     }()
     
@@ -72,6 +73,7 @@ class RegisterVC : UIViewController {
         textField.layer.cornerRadius = 10
         textField.placeholder = "Email Address"
         textField.translatesAutoresizingMaskIntoConstraints = false
+			textField.addDoneButtonOnKeyboard()
         return textField
     }()
     
@@ -101,6 +103,7 @@ class RegisterVC : UIViewController {
         textField.layer.cornerRadius = 10
         textField.placeholder = "Password"
         textField.translatesAutoresizingMaskIntoConstraints = false
+			textField.addDoneButtonOnKeyboard()
         return textField
     }()
     
@@ -139,6 +142,7 @@ class RegisterVC : UIViewController {
         textField.layer.cornerRadius = 10
         textField.placeholder = "Confirm Password"
         textField.translatesAutoresizingMaskIntoConstraints = false
+			textField.addDoneButtonOnKeyboard()
         return textField
     }()
     

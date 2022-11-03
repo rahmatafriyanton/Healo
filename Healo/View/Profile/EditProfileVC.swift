@@ -94,6 +94,7 @@ class EditProfileVC: UIViewController, editIconImage {
         textField.text = "\(username)"
         textField.textColor = .blackPurple
         textField.translatesAutoresizingMaskIntoConstraints = false
+			textField.addDoneButtonOnKeyboard()
         return textField
     }()
     
@@ -122,6 +123,7 @@ class EditProfileVC: UIViewController, editIconImage {
         textField.text = "\(email)"
         textField.textColor = .blackPurple
         textField.translatesAutoresizingMaskIntoConstraints = false
+			textField.addDoneButtonOnKeyboard()
         return textField
     }()
     
@@ -151,6 +153,7 @@ class EditProfileVC: UIViewController, editIconImage {
         textField.text = "\(password)"
         textField.textColor = .blackPurple
         textField.translatesAutoresizingMaskIntoConstraints = false
+			textField.addDoneButtonOnKeyboard()
         return textField
     }()
     
@@ -235,6 +238,7 @@ class EditProfileVC: UIViewController, editIconImage {
         textField.textColor = .blackPurple
         textField.tintColor = .greyPurple
         textField.translatesAutoresizingMaskIntoConstraints = false
+			
         
         textField.addDoneButtonOnKeyboard()
         

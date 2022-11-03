@@ -41,6 +41,7 @@ class LoginVC : UIViewController {
         textField.layer.cornerRadius = 10
         textField.placeholder = "Email"
         textField.translatesAutoresizingMaskIntoConstraints = false
+			textField.addDoneButtonOnKeyboard()
         return textField
     }()
     
@@ -60,6 +61,7 @@ class LoginVC : UIViewController {
         textField.layer.cornerRadius = 10
         textField.placeholder = "Password"
         textField.translatesAutoresizingMaskIntoConstraints = false
+			textField.addDoneButtonOnKeyboard()
         return textField
     }()
     
