@@ -22,7 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let validity = VerifyToken.shared.verify(myStruct: [String].self)
         if (validity == "success"){
             if(UserProfile.shared.userRole == 1){
-                window?.rootViewController = UINavigationController(rootViewController: ListenerTabBarVC())
+                if (UserProfile.shared.userAssessStatus == "Success"){
+                    window?.rootViewController = UINavigationController(rootViewController: ListenerTabBarVC())
+                } else {
+                    window?.rootViewController = UINavigationController(rootViewController: TestExplanationVC())
+                }
             } else if (UserProfile.shared.userRole == 2){
                 window?.rootViewController = UINavigationController(rootViewController: SeekerTabBarVC())
             } else {
