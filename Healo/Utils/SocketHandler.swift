@@ -12,7 +12,7 @@ import RxCocoa
 
 class SocketHandler: NSObject {
     static let shared = SocketHandler()
-    let socket = SocketManager(socketURL: URL(string: "http://localhost:3001")!, config: [.log(true), .compress])
+	let socket = SocketManager(socketURL: URL(string: GlobalVariable.socketURL)!, config: [.log(true), .compress])
     var mSocket: SocketIOClient!
     var pairInfo = BehaviorSubject<Pair>(value: Pair(id: "", seeker_id: 0, healer_id: 0, status: "", min_age: 0, max_age: 0, prefered_gender: "", seeker_preflection: ""))
 
