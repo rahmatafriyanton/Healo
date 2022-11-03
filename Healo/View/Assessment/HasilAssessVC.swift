@@ -85,8 +85,8 @@ class HasilAssessVC: UIViewController {
                 nextButton.addTarget(self, action: #selector(tapIfSuccess), for: .touchUpInside)
             } else if (event.status == "fail") {
                 titleLabel.text = "Maaf!"
-                centerImage.image = UIImage(named: "sad-illus")?.withRenderingMode(.alwaysOriginal)
-                descLabel.text = "Maaf, anda belum berhasil melewati test untuk menjadi Listener. Anda dapat mencoba untuk mengambil kembali test Listener yang ada."
+                centerImage.image = UIImage(named: "sorry-alert")?.withRenderingMode(.alwaysOriginal)
+                descLabel.text = "Maaf, anda belum berhasil melewati test untuk menjadi Listener. Anda harus menunggu 24 jam untuk mengambil ulang test assessment"
                 nextButton.addTarget(self, action: #selector(tapIfFail), for: .touchUpInside)
             } else {
                 titleLabel.text = "something went wrong"

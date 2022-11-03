@@ -33,7 +33,7 @@ class ListenerTabBarVC : UITabBarController{
     func setupVC(){
         viewControllers = [
             createNavController(for: ChatListVC(), title: NSLocalizedString("Chat", comment: ""), image: UIImage(systemName: "bubble.right")!, selImage: UIImage(systemName: "bubble.right.fill")!),
-            createNavController(for: DataProfileVC(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person")!, selImage: UIImage(systemName: "person.fill")!)
+            createNavController(for: ProfileHealerVC(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person")!, selImage: UIImage(systemName: "person.fill")!)
         ]
     }
     

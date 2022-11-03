@@ -40,6 +40,7 @@ class GetUserVM {
                     return
                 }
                 UserProfile.shared.userId = user.userID
+                UserProfile.shared.userRole = user.roleID
             } catch {
                 print(error)
             }

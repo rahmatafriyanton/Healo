@@ -22,6 +22,7 @@ class OnboardingVC: UIViewController {
     private lazy var centerImage: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "chat-illus")?.withRenderingMode(.alwaysOriginal)
+        view.contentMode = .scaleAspectFit
         return view
     }()
     
@@ -76,9 +77,9 @@ class OnboardingVC: UIViewController {
         
         view.addSubview(centerImage)
         centerImage.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(56)
-            make.left.right.equalToSuperview().inset(33)
-            make.height.equalTo(265)
+            make.top.equalTo(titleLabel.snp.bottom).offset(33)
+            make.left.right.equalToSuperview().inset(55)
+            make.height.equalTo(281)
         }
         
         view.addSubview(descLabel)

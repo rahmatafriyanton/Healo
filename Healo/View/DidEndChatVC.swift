@@ -126,9 +126,9 @@ class DidEndChatVC: UIViewController {
         
         whiteLabel.addSubview(centerImage)
         centerImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(99)
-            make.left.right.equalToSuperview().inset(84)
-            make.height.equalTo(163)
+            make.top.equalToSuperview().offset(67)
+            make.left.right.equalToSuperview().inset(85)
+            make.height.equalTo(189)
         }
         
         whiteLabel.addSubview(subTitle)

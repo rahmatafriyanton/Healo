@@ -77,7 +77,8 @@ class PostReflectionVC: UIViewController {
         textView.font = .poppinsRegular(size: 16)
         textView.textColor = .greyPlaceholder
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.returnKeyType = .done
+        textView.addDoneButtonOnKeyboard()
+//        textView.returnKeyType = .done
         textView.textAlignment = .left
         return textView
     }()
@@ -744,6 +745,23 @@ class PostReflectionVC: UIViewController {
             
         }
     }
+    
+    func setupKeyboard(){
+          NotificationCenter.default.addObserver(self, selector: #selector(PostReflectionVC.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+          NotificationCenter.default.addObserver(self, selector: #selector(PostReflectionVC.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+           return
+        }
+          self.view.frame.origin.y = 0 - keyboardSize.height
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
 }
 
 extension PostReflectionVC: UITextViewDelegate {
@@ -754,13 +772,6 @@ extension PostReflectionVC: UITextViewDelegate {
             PRTextView.font = .poppinsRegular(size: 16)
             PRTextView.textColor = .blackPurple
         }
-    }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
-        if text == "\n" {
-            PRTextView.resignFirstResponder()
-        }
-        return true
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
