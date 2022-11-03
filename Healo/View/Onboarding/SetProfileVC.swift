@@ -212,6 +212,7 @@ class SetProfileVC: UIViewController, updateIconImage{
     }
     
     func configureUI(){
+        setupNavBar()
         setupView()
         setupLayout()
         viewModel.setupTahunPicker()
@@ -220,6 +221,10 @@ class SetProfileVC: UIViewController, updateIconImage{
         selectedPicker()
         
         masukButton.isEnabled = false
+    }
+    
+    func setupNavBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     

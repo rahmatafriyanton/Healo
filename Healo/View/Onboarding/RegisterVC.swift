@@ -333,22 +333,13 @@ class RegisterVC : UIViewController {
             hideConfirmPasswordBtn.trailingAnchor.constraint(equalTo: confirmPasswordView.trailingAnchor, constant: -14)
         ])
         
-        self.view.addSubview(tncLabel)
+        self.view.addSubview(confidentialLabel)
         NSLayoutConstraint.activate([
-            tncLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            tncLabel.heightAnchor.constraint(equalToConstant: 44),
-            tncLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 67),
-            tncLabel.topAnchor.constraint(equalTo: confirmPasswordView.bottomAnchor, constant: 134),
-            tncLabel.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -67)
-        ])
-        
-        self.view.addSubview(registerBtn)
-        NSLayoutConstraint.activate([
-            registerBtn.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
-            registerBtn.heightAnchor.constraint(equalToConstant: 52),
-            registerBtn.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 38),
-            registerBtn.topAnchor.constraint(equalTo: tncLabel.bottomAnchor, constant: 16),
-            registerBtn.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -38)
+            confidentialLabel.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
+            confidentialLabel.heightAnchor.constraint(equalToConstant: 44),
+            confidentialLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 67),
+            confidentialLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -21),
+            confidentialLabel.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -67)
         ])
         
         self.view.addSubview(toLoginLabel)
@@ -356,17 +347,26 @@ class RegisterVC : UIViewController {
             toLoginLabel.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
             toLoginLabel.heightAnchor.constraint(equalToConstant: 20),
             toLoginLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 70),
-            toLoginLabel.topAnchor.constraint(equalTo: registerBtn.bottomAnchor, constant: 16),
+            toLoginLabel.bottomAnchor.constraint(equalTo: confidentialLabel.topAnchor, constant: -32),
             toLoginLabel.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -70)
         ])
         
-        self.view.addSubview(confidentialLabel)
+        self.view.addSubview(registerBtn)
         NSLayoutConstraint.activate([
-            confidentialLabel.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
-            confidentialLabel.heightAnchor.constraint(equalToConstant: 44),
-            confidentialLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 67),
-            confidentialLabel.topAnchor.constraint(equalTo: toLoginLabel.bottomAnchor, constant: 32),
-            confidentialLabel.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -67)
+            registerBtn.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
+            registerBtn.heightAnchor.constraint(equalToConstant: 52),
+            registerBtn.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 38),
+            registerBtn.bottomAnchor.constraint(equalTo: toLoginLabel.topAnchor, constant: -16),
+            registerBtn.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -38)
+        ])
+        
+        self.view.addSubview(tncLabel)
+        NSLayoutConstraint.activate([
+            tncLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            tncLabel.heightAnchor.constraint(equalToConstant: 44),
+            tncLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 67),
+            tncLabel.bottomAnchor.constraint(equalTo: registerBtn.topAnchor, constant: -16),
+            tncLabel.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -67)
         ])
         
         resetForm()

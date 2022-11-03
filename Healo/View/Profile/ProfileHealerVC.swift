@@ -131,6 +131,7 @@ class ProfileHealerVC: UIViewController {
     
     private lazy var logOutButton : UIButton = {
         let btn = UIButton()
+        btn.addTarget(self, action: #selector(onTapLogout), for: .touchUpInside)
         btn.backgroundColor = .darkPurple
         btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
         btn.layer.cornerRadius = 15
@@ -311,6 +312,13 @@ class ProfileHealerVC: UIViewController {
         let dataProfil3 = DataProfil(image: "star.fill", title: "Ulasan")
         
         return [dataProfil1, dataProfil2, dataProfil3]
+    }
+    
+    @objc func onTapLogout() {
+        UserProfile.shared.token = ""
+        let lvc = LoginVC()
+        lvc.modalPresentationStyle = .fullScreen
+        present(lvc, animated: false, completion: nil)
     }
 }
 

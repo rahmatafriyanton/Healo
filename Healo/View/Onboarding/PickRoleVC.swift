@@ -24,8 +24,8 @@ class PickRoleVC: UIViewController {
     }()
     
     private let healerDesc: NSMutableAttributedString = {
-        let boldText = "Healer"
-        let regText = " adalah seseorang yang pasti akan mendengarkan semua perasaan yang ingin dibagikan oleh Seeker dan mengingatkan mereka untuk melakukan reparenting. \n \n Untuk menjadi seorang healer Anda harus mengambil sebuah"
+        let boldText = "Listener"
+        let regText = " adalah seseorang yang pasti akan mendengarkan semua perasaan yang ingin dibagikan oleh Seeker dan mengingatkan mereka untuk melakukan reparenting. \n \nUntuk menjadi seorang listener Anda harus mengambil sebuah"
         let boldText2 = " assessment"
         let regText2 = " untuk menentukan kesiapan Anda."
         let attr1 = [NSAttributedString.Key.font : UIFont(name: "Poppins-SemiBold", size: 16)]
@@ -123,13 +123,14 @@ class PickRoleVC: UIViewController {
     private lazy var healerImage: UIImageView = {
        let view = UIImageView()
         view.image = UIImage(named: "healer")?.withRenderingMode(.alwaysTemplate)
+        view.contentMode = .scaleAspectFit
         view.tintColor = .blackPurple
         return view
     }()
     
     private lazy var healerLabel: UILabel = {
        let view = UILabel()
-        view.text = "Healer"
+        view.text = "Listener"
         view.textColor = .blackPurple
         view.font = UIFont(name: "Poppins-Regular", size: 18.0)
         view.numberOfLines = 0
@@ -148,6 +149,7 @@ class PickRoleVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setup()
+        navigationController?.navigationBar.tintColor = .darkPurple
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 14) ?? "", NSAttributedString.Key.foregroundColor: UIColor.darkPurple], for: .normal)
     }
@@ -244,7 +246,7 @@ class PickRoleVC: UIViewController {
         healerStackView.snp.makeConstraints { make in
             make.center.equalTo(healerButton)
             make.top.bottom.equalToSuperview().inset(30)
-            make.left.right.equalToSuperview().inset(47)
+            make.left.right.equalToSuperview().inset(43)
         }
         
         view.addSubview(roleDescLabel)

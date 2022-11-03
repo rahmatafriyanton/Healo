@@ -141,14 +141,14 @@ class LoginVC : UIViewController {
     
     private func setupNavBar() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 17) ?? "",NSAttributedString.Key.foregroundColor : UIColor.darkPurple], for: .normal)
+        navigationItem.backBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 14) ?? "",NSAttributedString.Key.foregroundColor : UIColor.darkPurple], for: .normal)
         navigationController?.navigationBar.tintColor = .darkPurple
     }
     
     private func setupUI() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        
+        UserProfile.shared.userRole = 0
         setupNavBar()
         
         self.view.addSubview(titleLabel)
@@ -275,6 +275,7 @@ class LoginVC : UIViewController {
         UserProfile.shared.email = emailTextField.text ?? ""
         UserProfile.shared.password = passwordTextField.text ?? ""
         LoginVM.shared.login(myStruct: Token.self)
+        GetUserVM.shared.getUser(myStruct: User.self)
         subscribe()
         if(statusLoginVC == "success") {
             // navigate masuk tabbar sesuai role

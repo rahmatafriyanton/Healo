@@ -20,7 +20,7 @@ class SorryAlertVC : UIViewController{
     
     private lazy var imageView : UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "sorry-alert")
+        imageView.image = UIImage(named: "sad-illus")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()

@@ -95,14 +95,14 @@ class SuccessAlertVC : UIViewController{
     
     func setupAlertLayout(){
         imageView.snp.makeConstraints { make in
-            make.width.equalTo(134)
-            make.height.equalTo(216)
+            make.width.equalTo(184)
+            make.height.equalTo(217)
             make.top.equalTo(alertView.snp.top).offset(16)
             make.centerX.equalTo(alertView.snp.centerX)
         }
         
         labelStack.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(21)
+            make.top.equalTo(imageView.snp.bottom).offset(16)
             make.centerX.equalTo(alertView.snp.centerX)
         }
 

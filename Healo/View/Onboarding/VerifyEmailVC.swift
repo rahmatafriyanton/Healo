@@ -276,18 +276,20 @@ class VerifyEmailVC : UIViewController {
         NSLayoutConstraint.activate([
             askLabel.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
             askLabel.heightAnchor.constraint(equalToConstant: 21),
-            askLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 95),
+//            askLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 95),
             askLabel.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 4),
-            askLabel.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -95)
+//            askLabel.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -95)
+            askLabel.widthAnchor.constraint(equalToConstant: 201)
         ])
         
         self.view.addSubview(sendAgainBtn)
         NSLayoutConstraint.activate([
             sendAgainBtn.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
             sendAgainBtn.heightAnchor.constraint(equalToConstant: 21),
-            sendAgainBtn.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 134),
+//            sendAgainBtn.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 134),
             sendAgainBtn.topAnchor.constraint(equalTo: askLabel.bottomAnchor, constant: 4),
-            sendAgainBtn.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -134)
+//            sendAgainBtn.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -134)
+            sendAgainBtn.widthAnchor.constraint(equalToConstant: 123)
         ])
         
         self.view.addSubview(anotherLabel)

@@ -288,6 +288,9 @@ class DataProfileVC: UIViewController {
     }
 
     @objc func onTapLogout() {
-        
+        UserProfile.shared.token = ""
+        let lvc = LoginVC()
+        lvc.modalPresentationStyle = .fullScreen
+        present(lvc, animated: false, completion: nil)
     }
 }

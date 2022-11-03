@@ -6,5 +6,5 @@
 //
 
 struct GlobalVariable {
-    static var url = "http://localhost:3000"
+    static var url = "http://167.172.87.13:3000"
 }
