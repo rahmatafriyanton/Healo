@@ -34,7 +34,7 @@ class DataProfileVC: UIViewController {
     
     private var editButton : UIButton = {
         let btn = UIButton()
-        btn.addTarget(self, action: #selector(onTapEditProfile), for: .touchUpInside)
+        btn.addTarget(DataProfileVC.self, action: #selector(onTapEditProfile), for: .touchUpInside)
         btn.backgroundColor = .darkPurple
         btn.layer.cornerRadius = 15
         btn.setTitle("Edit Profil", for: .normal)
@@ -289,8 +289,9 @@ class DataProfileVC: UIViewController {
 
     @objc func onTapLogout() {
         UserProfile.shared.token = ""
-        let lvc = LoginVC()
+        let lvc = UINavigationController(rootViewController: LoginVC())
         lvc.modalPresentationStyle = .fullScreen
+        lvc.modalTransitionStyle = .crossDissolve
         present(lvc, animated: false, completion: nil)
     }
 }

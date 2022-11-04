@@ -75,7 +75,7 @@ class SocketHandler: NSObject {
     func findHealer<T: Decodable>(myStruct: T.Type, minAge: Int, maxAge: Int, preferGender: String, preflek: String) {
         let sem = DispatchSemaphore.init(value: 0)
         let url = URL(string: GlobalVariable.url + "/api/chat/find_healer")
-        print(url)
+        print(url as Any)
         
         guard url != nil else{
             print("url error")
@@ -125,7 +125,7 @@ class SocketHandler: NSObject {
     func addHealerToQueue(isAvailable: Int) {
         let sem = DispatchSemaphore.init(value: 0)
         let url = URL(string: GlobalVariable.url + "/api/chat/healer/queue")
-        print(url)
+        print(url as Any)
         
         guard url != nil else{
             print("url error")
@@ -135,7 +135,7 @@ class SocketHandler: NSObject {
         var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
         let header = ["Content-Type":"application/json",
-                      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX25hbWUiOiJpYW5nYW50ZW5nIiwidXNlcl9lbWFpbCI6InZpbmNlbnRpYW5udWdyb2hvQGdtYWlsLmNvbSIsInJvbGVfaWQiOjEsImlhdCI6MTY2Njc3MjY2OCwiZXhwIjoxNjY2ODU5MDY4fQ.nDpmVpWcbfuAjJDpsSdwmnZ_XeC0M0OdICaFqFJ6yaw"]
+                      "x-access-token": UserProfile.shared.token]
         request.allHTTPHeaderFields = header
         
         let body = ["is_available": isAvailable

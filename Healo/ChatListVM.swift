@@ -15,8 +15,6 @@ class ChatListVM {
     var totalChat = 1 //ini tar hrs calculate total semua chat (active & past)
     var numOfActiveChat = 0
     var allChats: [ChatUser] = []
-    var activeChats: [ChatUser] = []
-    var pastChats: [ChatUser] = []
     var activeSection = SectionModel(model: "Active", items: [ChatUser]())
     var pastSection = SectionModel(model: "Past", items: [ChatUser]())
 
@@ -25,9 +23,6 @@ class ChatListVM {
         let user1 = ChatUser(id: 1, profileIcon: "empty-illus", username: "Elvina J.", message: "Hello, apa kabs ?", sentTime: "14.45", numOfMesReceived: 10, chatStatus: "Active", reflectStatus: 0)
         let user2 = ChatUser(id: 2, profileIcon: "sad-illus", username: "Jacia", message: "Hello, baik baik saja anda ? Hello, baik baik saja anda ? Hello, baik baik saja anda ? Hello, baik baik saja anda ?", sentTime: "12.40", numOfMesReceived: 2, chatStatus: "Past", reflectStatus: 0)
         let user3 = ChatUser(id: 2, profileIcon: "empty-illus", username: "Elvinaa Jc", message: "Halo kamiu ?", sentTime: "11.40", numOfMesReceived: 2, chatStatus: "Past", reflectStatus: 1)
-        
-        var activeChats: [ChatUser] = []
-        var pastChats: [ChatUser] = []
         
          let activeSection = SectionModel(model: "Active", items: [user1])
          let pastSection = SectionModel(model: "Past", items: [user2, user3])
@@ -41,21 +36,13 @@ class ChatListVM {
         let user2 = ChatUser(id: 2, profileIcon: "sad-illus", username: "Jacia", message: "Hello, baik baik saja anda ? Hello, baik baik saja anda ? Hello, baik baik saja anda ? Hello, baik baik saja anda ?", sentTime: "12.40", numOfMesReceived: 2, chatStatus: "Past", reflectStatus: 0)
         let user3 = ChatUser(id: 2, profileIcon: "empty-illus", username: "Elvinaa Jc", message: "Halo kamiu ?", sentTime: "11.40", numOfMesReceived: 2, chatStatus: "Past", reflectStatus: 1)
         
-        allChats.append(contentsOf: [user2,user3])
+        allChats.append(contentsOf: [user1,user2,user3])
         
-        for chat in allChats {
-            if (chat.chatStatus == "Active"){
-                activeChats.append(chat)
-            } else if (chat.chatStatus == "Past"){
-                pastChats.append(chat)
-            }
-        }
-        
-        activeSection.items = activeChats
-        pastSection.items = pastChats
+        activeSection.items = allChats.filter { $0.chatStatus.contains("Active")}
+        pastSection.items = allChats.filter { $0.chatStatus.contains("Past")}
         
         totalChat = allChats.count
-        numOfActiveChat = activeChats.count
+        numOfActiveChat = activeSection.items.count
     }
     
     func fetchSectionedChats() {

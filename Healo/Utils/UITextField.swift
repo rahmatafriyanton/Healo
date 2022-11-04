@@ -13,7 +13,7 @@ extension SetProfileVC : UITextFieldDelegate {
         return false
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) -> Bool {
+    private func textFieldDidBeginEditing(_ textField: UITextField) -> Bool {
         return false
     }
     
@@ -31,7 +31,7 @@ extension CriteriaVC: UITextFieldDelegate {
         return false
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) -> Bool {
+    private func textFieldDidBeginEditing(_ textField: UITextField) -> Bool {
         return false
     }
     

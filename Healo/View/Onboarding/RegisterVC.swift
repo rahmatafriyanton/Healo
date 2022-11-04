@@ -434,6 +434,9 @@ class RegisterVC : UIViewController {
             navigationController?.pushViewController(VerifyEmailVC(), animated: true)
             print("Status: \(statusRegisterVC)")
         } else {
+            let alert = UIAlertController(title: "Registrasi gagal", message: "Terjadi kesalahan", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             print("Status: \(statusRegisterVC)")
         }
     }
@@ -451,12 +454,12 @@ class RegisterVC : UIViewController {
         
         let text = "By signing up, you agree to App’s Name Terms & Conditions and Privacy Policy."
         let attribute = NSMutableAttributedString(string: text)
-        attribute.addAttribute(.font, value: UIFont.poppinsRegular(size: 12), range: NSRange(location: 0, length: 38))
-        attribute.addAttribute(.font, value: UIFont.poppinsBold(size: 12), range: NSRange(location: 39, length: 18))
+        attribute.addAttribute(.font, value: UIFont.poppinsRegular(size: 12) as Any, range: NSRange(location: 0, length: 38))
+        attribute.addAttribute(.font, value: UIFont.poppinsBold(size: 12) as Any, range: NSRange(location: 39, length: 18))
         attribute.addAttribute(.underlineStyle, value: NSNumber(value: 1), range: NSRange(location: 39, length: 18))
         attribute.addAttribute(.foregroundColor, value: UIColor.darkPurple, range: NSRange(location: 39, length: 18))
-        attribute.addAttribute(.font, value: UIFont.poppinsRegular(size: 12), range: NSRange(location: 58, length: 3))
-        attribute.addAttribute(.font, value: UIFont.poppinsBold(size: 12), range: NSRange(location: 62, length: 15))
+        attribute.addAttribute(.font, value: UIFont.poppinsRegular(size: 12) as Any, range: NSRange(location: 58, length: 3))
+        attribute.addAttribute(.font, value: UIFont.poppinsBold(size: 12) as Any, range: NSRange(location: 62, length: 15))
         attribute.addAttribute(.underlineStyle, value: NSNumber(value: 1), range: NSRange(location: 62, length: 15))
         attribute.addAttribute(.foregroundColor, value: UIColor.darkPurple, range: NSRange(location: 62, length: 15))
         

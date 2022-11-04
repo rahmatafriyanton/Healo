@@ -19,29 +19,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 		guard let scene = (scene as? UIWindowScene) else { return }
 		window = UIWindow(windowScene: scene)
-        let validity = VerifyToken.shared.verify(myStruct: [String].self)
-        if (validity == "success"){
-            if(UserProfile.shared.userRole == 1){
-                if (UserProfile.shared.userAssessStatus == "Success"){
-                    window?.rootViewController = UINavigationController(rootViewController: ListenerTabBarVC())
-                } else {
-                    window?.rootViewController = UINavigationController(rootViewController: TestExplanationVC())
-                }
-            } else if (UserProfile.shared.userRole == 2){
-                window?.rootViewController = UINavigationController(rootViewController: SeekerTabBarVC())
-            } else {
-                window?.rootViewController = UINavigationController(rootViewController: OnboardingVC())
-            }
-        } else if (validity == "Failed"){
-            if(UserProfile.shared.userId > 0 ){
-                window?.rootViewController = UINavigationController(rootViewController: LoginVC())
-            } else {
-                window?.rootViewController = UINavigationController(rootViewController: OnboardingVC())
-            }
-        } else {
-            window?.rootViewController = UINavigationController(rootViewController: OnboardingVC())
-        }
-//        window?.rootViewController = UINavigationController(rootViewController: ListenerTabBarVC())
+//        let validity = VerifyToken.shared.verify(myStruct: [String].self)
+//        if (validity == "success"){
+//            if(UserProfile.shared.userRole == 1){
+//                if (UserProfile.shared.userAssessStatus == "Success"){
+//                    window?.rootViewController = UINavigationController(rootViewController: ListenerTabBarVC())
+//                } else {
+//                    window?.rootViewController = UINavigationController(rootViewController: TestExplanationVC())
+//                }
+//            } else if (UserProfile.shared.userRole == 2){
+//                window?.rootViewController = UINavigationController(rootViewController: SeekerTabBarVC())
+//            } else {
+//                window?.rootViewController = UINavigationController(rootViewController: OnboardingVC())
+//            }
+//        } else if (validity == "Failed"){
+//            if(UserProfile.shared.userId > 0 ){
+//                window?.rootViewController = UINavigationController(rootViewController: LoginVC())
+//            } else {
+//                window?.rootViewController = UINavigationController(rootViewController: OnboardingVC())
+//            }
+//        } else {
+//            window?.rootViewController = UINavigationController(rootViewController: OnboardingVC())
+//        }
+        window?.rootViewController = UINavigationController(rootViewController: RegisterVC())
 		window?.makeKeyAndVisible()
 	}
 	func sceneDidDisconnect(_ scene: UIScene) {

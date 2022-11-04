@@ -106,7 +106,7 @@ class ProfileHealerVC: UIViewController {
     
     private var availableSwitch : UISwitch = {
         let swh = UISwitch()
-        swh.addTarget(self, action: #selector(onTapSwitch), for: .valueChanged)
+        swh.addTarget(ProfileHealerVC.self, action: #selector(onTapSwitch), for: .valueChanged)
         swh.translatesAutoresizingMaskIntoConstraints = false
         return swh
     }()
