@@ -41,7 +41,7 @@ class ChatListVM {
         let user2 = ChatUser(id: 2, profileIcon: "sad-illus", username: "Jacia", message: "Hello, baik baik saja anda ? Hello, baik baik saja anda ? Hello, baik baik saja anda ? Hello, baik baik saja anda ?", sentTime: "12.40", numOfMesReceived: 2, chatStatus: "Past", reflectStatus: 0)
         let user3 = ChatUser(id: 2, profileIcon: "empty-illus", username: "Elvinaa Jc", message: "Halo kamiu ?", sentTime: "11.40", numOfMesReceived: 2, chatStatus: "Past", reflectStatus: 1)
         
-        allChats.append(contentsOf: [user2,user3])
+        allChats.append(contentsOf: [user1,user2,user3])
         
         for chat in allChats {
             if (chat.chatStatus == "Active"){

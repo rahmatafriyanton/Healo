@@ -70,7 +70,7 @@ class PairingLoadingVC: UIViewController {
             self.paired = true
             self.navigationController?.pushViewController(PairingSuccessVC(), animated: false)
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 60.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 30.0) {
             if(!self.paired){
                 SocketHandler.shared.closeConnection()
                 self.navigationController?.pushViewController(PairingFailedVC(), animated: false)

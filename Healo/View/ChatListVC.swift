@@ -108,6 +108,7 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("loaded")
         GetUserVM.shared.getUser(myStruct: User.self)
         SocketHandler.shared.establishConnection()
         SocketHandler.shared.mSocket.on(clientEvent: .connect){data, ack in
@@ -131,6 +132,7 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
                 self.navigationController?.pushViewController(ChatVC(), animated: false)
             }
             self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [] _ in
+                print("listener set")
                 SocketHandler.shared.addHealerToQueue(isAvailable: UserProfile.shared.userIsAvailable)
             })
         }

@@ -32,6 +32,7 @@ class VerifyToken {
         let task = URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error in defer { sem.signal() }
             guard data != nil && error == nil else {
                 print("error creating url session")
+                print(error)
                 return
             }
             do {

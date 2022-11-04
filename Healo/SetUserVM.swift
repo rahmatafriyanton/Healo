@@ -56,6 +56,7 @@ class SetUserVM {
             do {
                 print("decoding")
                 let result = try JSONDecoder().decode(Response<T>.self, from: data!)
+                print("result:")
                 print(result)
             } catch {
                 print(error)

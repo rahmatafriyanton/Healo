@@ -41,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             window?.rootViewController = UINavigationController(rootViewController: OnboardingVC())
         }
-//        window?.rootViewController = UINavigationController(rootViewController: ListenerTabBarVC())
+//        window?.rootViewController = UINavigationController(rootViewController: RegisterVC())
 		window?.makeKeyAndVisible()
 	}
 	func sceneDidDisconnect(_ scene: UIScene) {

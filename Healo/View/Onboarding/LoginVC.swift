@@ -277,9 +277,11 @@ class LoginVC : UIViewController {
         UserProfile.shared.email = emailTextField.text ?? ""
         UserProfile.shared.password = passwordTextField.text ?? ""
         LoginVM.shared.login(myStruct: Token.self)
+        print("role sblm get user:\(UserProfile.shared.userRole)")
         GetUserVM.shared.getUser(myStruct: User.self)
         subscribe()
         if(statusLoginVC == "success") {
+            print("role saat login:\(UserProfile.shared.userRole)")
             // navigate masuk tabbar sesuai role
             if(UserProfile.shared.userRole == 2){
                 let svc = SeekerTabBarVC()
@@ -329,7 +331,7 @@ class LoginVC : UIViewController {
         let label = (text as NSString).range(of: "Belum ada akun? Buat akun baru")
 
         if gesture.didTapAttributedTextInLabel(label: self.toRegisterLabel, inRange: label) {
-            navigationController?.pushViewController(RegisterVC(), animated: true)
+            navigationController?.pushViewController(PickRoleVC(), animated: true)
         }
     }
     

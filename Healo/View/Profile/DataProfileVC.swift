@@ -289,8 +289,9 @@ class DataProfileVC: UIViewController {
 
     @objc func onTapLogout() {
         UserProfile.shared.token = ""
-        let lvc = LoginVC()
+        let lvc = UINavigationController(rootViewController: LoginVC())
         lvc.modalPresentationStyle = .fullScreen
+        lvc.modalTransitionStyle = .crossDissolve
         present(lvc, animated: false, completion: nil)
     }
 }

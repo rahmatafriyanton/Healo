@@ -103,8 +103,10 @@ class EndChatVC: UIViewController {
     
     @objc func cancel(){
         // insert cancel
-        let cvc = ChatVC()
+        let cvc = UINavigationController(rootViewController:ChatVC())
+        cvc.isNavigationBarHidden = true
         cvc.modalPresentationStyle = .fullScreen
+        cvc.modalTransitionStyle = .crossDissolve
         present(cvc, animated: false, completion: nil)
     }
     
