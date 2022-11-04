@@ -153,10 +153,10 @@ class EndChatVC: UIViewController {
         let text4 = "Apa kamu yakin?"
         let attr1 = [NSAttributedString.Key.font : UIFont(name: "Poppins-SemiBold", size: 16)]
         let attr2 = [NSAttributedString.Key.font : UIFont(name: "Poppins-Regular", size: 16)]
-        let attString1 = NSMutableAttributedString(string: text1, attributes: attr2)
-        let attString2 = NSMutableAttributedString(string: text2, attributes: attr1)
-        let attString3 = NSMutableAttributedString(string: text3, attributes: attr2)
-        let attString4 = NSMutableAttributedString(string: text4, attributes: attr1)
+        let attString1 = NSMutableAttributedString(string: text1, attributes: attr2 as [NSAttributedString.Key : Any])
+        let attString2 = NSMutableAttributedString(string: text2, attributes: attr1 as [NSAttributedString.Key : Any])
+        let attString3 = NSMutableAttributedString(string: text3, attributes: attr2 as [NSAttributedString.Key : Any])
+        let attString4 = NSMutableAttributedString(string: text4, attributes: attr1 as [NSAttributedString.Key : Any])
         attString1.append(attString2)
         attString1.append(attString3)
         attString1.append(attString4)

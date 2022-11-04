@@ -53,8 +53,8 @@ class PairingLoadingVC: UIViewController {
         let label = UILabel()
         let text = "Pro-Tip: Jangan bagikan informasi pribadi Anda kepada orang lain!"
         let attribute = NSMutableAttributedString(string: text)
-        attribute.addAttribute(.font, value: UIFont.poppinsSemiBold(size: 16), range: NSRange(location: 0, length: 8))
-        attribute.addAttribute(.font, value: UIFont.poppinsRegular(size: 16), range: NSRange(location: 10, length: text.count-10))
+        attribute.addAttribute(.font, value: UIFont.poppinsSemiBold(size: 16) as Any, range: NSRange(location: 0, length: 8))
+        attribute.addAttribute(.font, value: UIFont.poppinsRegular(size: 16) as Any, range: NSRange(location: 10, length: text.count-10))
         label.attributedText = attribute
         label.numberOfLines = 0
         label.textAlignment = .center

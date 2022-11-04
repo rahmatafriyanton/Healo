@@ -75,7 +75,7 @@ class SocketHandler: NSObject {
     func findHealer<T: Decodable>(myStruct: T.Type, minAge: Int, maxAge: Int, preferGender: String, preflek: String) {
         let sem = DispatchSemaphore.init(value: 0)
         let url = URL(string: GlobalVariable.url + "/api/chat/find_healer")
-        print(url)
+        print(url as Any)
         
         guard url != nil else{
             print("url error")
@@ -125,7 +125,7 @@ class SocketHandler: NSObject {
     func addHealerToQueue(isAvailable: Int) {
         let sem = DispatchSemaphore.init(value: 0)
         let url = URL(string: GlobalVariable.url + "/api/chat/healer/queue")
-        print(url)
+        print(url as Any)
         
         guard url != nil else{
             print("url error")

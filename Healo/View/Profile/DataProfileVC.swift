@@ -34,7 +34,7 @@ class DataProfileVC: UIViewController {
     
     private var editButton : UIButton = {
         let btn = UIButton()
-        btn.addTarget(self, action: #selector(onTapEditProfile), for: .touchUpInside)
+        btn.addTarget(DataProfileVC.self, action: #selector(onTapEditProfile), for: .touchUpInside)
         btn.backgroundColor = .darkPurple
         btn.layer.cornerRadius = 15
         btn.setTitle("Edit Profil", for: .normal)

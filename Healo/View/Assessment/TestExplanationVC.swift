@@ -98,7 +98,7 @@ class TestExplanationVC: UIViewController {
         
         let text = "•  Anda akan mendapatkan 2 poin untuk \n   setiap pertanyaan jika Anda menjawab \n   dengan benar."
         let atrText = NSMutableAttributedString(string: text)
-        atrText.addAttribute(.font, value: UIFont(name: "Poppins-Bold", size: 14), range: NSRange(location: 24, length: 7))
+        atrText.addAttribute(.font, value: UIFont(name: "Poppins-Bold", size: 14) as Any, range: NSRange(location: 24, length: 7))
         label.attributedText = atrText
         
         label.numberOfLines = 3
@@ -114,8 +114,8 @@ class TestExplanationVC: UIViewController {
         
         let text = "•  Untuk terkualifikasi menjadi seorang \n   Listener, anda harus mendapatkan \n   setidaknya 20 poin dari total 28 poin."
         let atrText = NSMutableAttributedString(string: text)
-        atrText.addAttribute(.font, value: UIFont(name: "Poppins-Bold", size: 14), range: NSRange(location: 92, length: 7))
-        atrText.addAttribute(.font, value: UIFont(name: "Poppins-Bold", size: 14), range: NSRange(location: 104, length: 14))
+        atrText.addAttribute(.font, value: UIFont(name: "Poppins-Bold", size: 14) as Any, range: NSRange(location: 92, length: 7))
+        atrText.addAttribute(.font, value: UIFont(name: "Poppins-Bold", size: 14) as Any, range: NSRange(location: 104, length: 14))
         label.attributedText = atrText
        
         label.numberOfLines = 3

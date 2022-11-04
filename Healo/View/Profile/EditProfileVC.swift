@@ -61,7 +61,7 @@ class EditProfileVC: UIViewController, editIconImage {
     
     private var editIconButton : UIButton = {
         let btn = UIButton()
-        btn.addTarget(self, action: #selector(onTapEditIconBtn), for: .touchUpInside)
+        btn.addTarget(EditProfileVC.self, action: #selector(onTapEditIconBtn), for: .touchUpInside)
         btn.setTitle("Ubah Foto Profil", for: .normal)
         btn.setTitleColor(.darkPurple, for: .normal)
         btn.titleLabel?.font = .poppinsBold(size: 14)
@@ -179,7 +179,7 @@ class EditProfileVC: UIViewController, editIconImage {
     
     private var wanitaButton : UIButton = {
         let btn = UIButton()
-        btn.addTarget(self, action: #selector(onTapPickWoman), for: .touchUpInside)
+        btn.addTarget(EditProfileVC.self, action: #selector(onTapPickWoman), for: .touchUpInside)
         btn.backgroundColor = .lightPurple
         btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -56, bottom: 0, right: 0)
         btn.layer.cornerRadius = 10
@@ -195,7 +195,7 @@ class EditProfileVC: UIViewController, editIconImage {
     
     private var priaButton : UIButton = {
         let btn = UIButton()
-        btn.addTarget(self, action: #selector(onTapPickMan), for: .touchUpInside)
+        btn.addTarget(EditProfileVC.self, action: #selector(onTapPickMan), for: .touchUpInside)
         btn.backgroundColor = .lightPurple
         btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -76, bottom: 0, right: 0)
         btn.layer.cornerRadius = 10
@@ -542,7 +542,7 @@ class EditProfileVC: UIViewController, editIconImage {
     func setupTahunPicker(){
         tahunList.append("Tahun Lahir")
         var tahunAdd = tahunPast
-        for i in 1...50 {
+        for _ in 1...50 {
             tahunAdd += 1
             tahunList.append(String(tahunAdd))
         }

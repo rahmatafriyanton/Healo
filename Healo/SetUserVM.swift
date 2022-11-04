@@ -13,7 +13,7 @@ class SetUserVM {
     func setUser<T: Decodable>(myStruct: T.Type) {
         let url = URL(string: GlobalVariable.url + "/api/user")
         let sem = DispatchSemaphore.init(value: 0)
-        print(url)
+        print(url as Any)
         
         guard url != nil else{
             print("url error")

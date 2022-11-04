@@ -16,9 +16,9 @@ class PickRoleVC: UIViewController {
         let boldText = "Seeker"
         let attr1 = [NSAttributedString.Key.font : UIFont(name: "Poppins-SemiBold", size: 16)]
         let attr2 = [NSAttributedString.Key.font : UIFont(name: "Poppins-Regular", size: 16)]
-        let attString = NSMutableAttributedString(string: boldText, attributes: attr1)
+        let attString = NSMutableAttributedString(string: boldText, attributes: attr1 as [NSAttributedString.Key : Any])
         let regText = " adalah seseorang yang membutuhkan bantuan karena kurangnya motivasi dalam melakukan self-reparenting dan membutuhkan seseorang untuk mendengarkan semua perasaan mereka."
-        let regString = NSMutableAttributedString(string: regText, attributes: attr2)
+        let regString = NSMutableAttributedString(string: regText, attributes: attr2 as [NSAttributedString.Key : Any])
         attString.append(regString)
         return attString
     }()
@@ -30,10 +30,10 @@ class PickRoleVC: UIViewController {
         let regText2 = " untuk menentukan kesiapan Anda."
         let attr1 = [NSAttributedString.Key.font : UIFont(name: "Poppins-SemiBold", size: 16)]
         let attr2 = [NSAttributedString.Key.font : UIFont(name: "Poppins-Regular", size: 16)]
-        let attString = NSMutableAttributedString(string: boldText, attributes: attr1)
-        let regString = NSMutableAttributedString(string: regText, attributes: attr2)
-        let attString2 = NSMutableAttributedString(string: boldText2, attributes: attr1)
-        let regString2 = NSMutableAttributedString(string: regText2, attributes: attr2)
+        let attString = NSMutableAttributedString(string: boldText, attributes: attr1 as [NSAttributedString.Key : Any])
+        let regString = NSMutableAttributedString(string: regText, attributes: attr2 as [NSAttributedString.Key : Any])
+        let attString2 = NSMutableAttributedString(string: boldText2, attributes: attr1 as [NSAttributedString.Key : Any])
+        let regString2 = NSMutableAttributedString(string: regText2, attributes: attr2 as [NSAttributedString.Key : Any])
         attString.append(regString)
         attString.append(attString2)
         attString.append(regString2)

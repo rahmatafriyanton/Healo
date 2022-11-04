@@ -14,7 +14,7 @@ class VerifyToken {
     func verify<T: Decodable>(myStruct: T.Type) -> String {
         let sem = DispatchSemaphore.init(value: 0)
         let url = URL(string: GlobalVariable.url + "/api/auth/verify_token")
-        print(url)
+        print(url as Any)
         
         guard url != nil else{
             print("url error")
@@ -32,7 +32,7 @@ class VerifyToken {
         let task = URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error in defer { sem.signal() }
             guard data != nil && error == nil else {
                 print("error creating url session")
-                print(error)
+                print(error as Any)
                 return
             }
             do {
