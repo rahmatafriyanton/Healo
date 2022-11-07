@@ -557,18 +557,34 @@ class EditProfileVC: UIViewController, editIconImage {
     }
     
     @objc func onTapSave() {
-        var editedIcon = profileImage
-        var editedUsername = usernameTextField.text
-        var editedEmail = emailTextField.text
-        var editedPassword = passwordTextField.text
-        var editedYear = Int(tahunLahirTextField.text!)
+        let editedIcon = profileImage
+        guard let editedUsername = usernameTextField.text else {
+            print("editedUsername empty")
+            return
+        }
+        guard let editedEmail = emailTextField.text else {
+            print("editedEmail empty")
+            return
+        }
+        guard let editedPassword = passwordTextField.text else {
+            print("editedPassword empty")
+            return
+        }
+        guard let tahunlahir = tahunLahirTextField.text else {
+            print("tahun lahir empty")
+            return
+        }
+        guard let editedYear = Int(tahunlahir) else {
+            print("editedYear empty")
+            return
+        }
         
         UserProfile.shared.userProfilePict = imageUrl
-        UserProfile.shared.username = editedUsername!
-        UserProfile.shared.email = editedEmail!
-        UserProfile.shared.password = editedPassword!
+        UserProfile.shared.username = editedUsername
+        UserProfile.shared.email = editedEmail
+        UserProfile.shared.password = editedPassword
         UserProfile.shared.userGender = editedGender
-        UserProfile.shared.userYearBorn = editedYear!
+        UserProfile.shared.userYearBorn = editedYear
         
         SetUserVM.shared.setUser(myStruct: [String].self)
 

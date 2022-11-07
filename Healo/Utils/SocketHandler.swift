@@ -124,15 +124,13 @@ class SocketHandler: NSObject {
     
     func addHealerToQueue(isAvailable: Int) {
         let sem = DispatchSemaphore.init(value: 0)
-        let url = URL(string: GlobalVariable.url + "/api/chat/healer/queue")
-        print(url as Any)
-        
-        guard url != nil else{
+        guard let url = URL(string: GlobalVariable.url + "/api/chat/healer/queue") else {
             print("url error")
             return
         }
+        print(url as Any)
         
-        var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
         let header = ["Content-Type":"application/json",
                       "x-access-token": UserProfile.shared.token]

@@ -15,15 +15,13 @@ class RegisterVM {
     
     func register<T: Decodable>(myStruct: T.Type) {
         let sem = DispatchSemaphore.init(value: 0)
-        let url = URL(string: GlobalVariable.url + "/api/auth/register")
-        print(url)
-        
-        guard url != nil else{
+        guard let url = URL(string: GlobalVariable.url + "/api/auth/register") else {
             print("url error")
             return
         }
+        print(url)
         
-        var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
         let header = ["Content-Type":"application/json"]
         request.allHTTPHeaderFields = header
@@ -47,13 +45,13 @@ class RegisterVM {
         request.httpMethod = "POST"
         
         let task = URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error in defer { sem.signal() }
-            guard data != nil && error == nil else {
+            guard let data = data else {
                 print("error creating url session")
                 return
             }
             do {
                 print("decoding")
-                let result = try JSONDecoder().decode(Response<T>.self, from: data!)
+                let result = try JSONDecoder().decode(Response<T>.self, from: data)
                 print(result)
                 self.statusRegister.on(.next(result.status))
                 

@@ -14,14 +14,12 @@ class EditIconVM {
     var icons = BehaviorSubject(value: [Icon]())
     
     func getIcons<T: Decodable>(myStruct: T.Type) {
-        let url = URL(string: GlobalVariable.url + "/api/user/profile_images")
-
-        guard url != nil else{
+        guard let url = URL(string: GlobalVariable.url + "/api/user/profile_images") else {
             print("url error")
             return
         }
         
-        var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
         let header = ["Content-Type":"application/json",
                       "x-access-token":UserProfile.shared.token]
@@ -29,12 +27,12 @@ class EditIconVM {
         
         let task = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
             
-            guard data != nil, error == nil else {
+            guard let data = data else {
                 print("api request failed")
                 return
             }
             do {
-                let result = try JSONDecoder().decode(Response<T>.self, from: data!)
+                let result = try JSONDecoder().decode(Response<T>.self, from: data)
                 guard let ikons = result.data as? [Icon] else {
                     print("not icons")
                     return

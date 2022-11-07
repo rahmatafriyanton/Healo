@@ -181,7 +181,7 @@ class DataProfileVC: UIViewController {
         NSLayoutConstraint.activate([
             secondView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             secondView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            secondView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            secondView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 126),
             secondView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
         

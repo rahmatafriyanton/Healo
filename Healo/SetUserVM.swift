@@ -11,16 +11,14 @@ class SetUserVM {
     static let shared = SetUserVM()
     
     func setUser<T: Decodable>(myStruct: T.Type) {
-        let url = URL(string: GlobalVariable.url + "/api/user")
-        let sem = DispatchSemaphore.init(value: 0)
-        print(url as Any)
-        
-        guard url != nil else{
+        guard let url = URL(string: GlobalVariable.url + "/api/user") else {
             print("url error")
             return
         }
+        let sem = DispatchSemaphore.init(value: 0)
+        print(url)
         
-        var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
         let header = ["Content-Type":"application/json",
                       "x-access-token":UserProfile.shared.token]
@@ -49,13 +47,13 @@ class SetUserVM {
         request.httpMethod = "POST"
         
         let task = URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error in defer { sem.signal() }
-            guard data != nil && error == nil else {
+            guard let data = data else {
                 print("error creating url session")
                 return
             }
             do {
                 print("decoding")
-                let result = try JSONDecoder().decode(Response<T>.self, from: data!)
+                let result = try JSONDecoder().decode(Response<T>.self, from: data)
                 print("result:")
                 print(result)
             } catch {
