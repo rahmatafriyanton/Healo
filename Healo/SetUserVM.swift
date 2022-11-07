@@ -38,6 +38,7 @@ class SetUserVM {
         ] as [String:Any]
         
         do {
+            print(body)
             let requestBody = try JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
             request.httpBody = requestBody
         } catch {

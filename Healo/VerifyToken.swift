@@ -37,14 +37,17 @@ class VerifyToken {
                 print("decoding")
                 let result = try JSONDecoder().decode(Response<T>.self, from: data)
                 print(result.status)
+                print(result.data)
                 self.status = result.status
                 
+                // harusnya ga perlu
                 guard let token = result.data as? Token else {
                     print("not a token")
                     return
                 }
                 print(token.token)
                 UserProfile.shared.token = token.token
+                // harusnya ga perlu
             } catch {
                 print(error)
             }

@@ -11,6 +11,8 @@ import MessageKit
 import InputBarAccessoryView
 
 class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate, InputBarAccessoryViewDelegate  {
+    
+    public let currRoomId: String
 
     // ntar ganti jadi let currentUser = Sender, pass data dari chat list
     var currentUser = Sender(senderId: "self", displayName: "seeker")
@@ -25,6 +27,15 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
     var receiverUsername = ""
     var receiverAge = 0
     var receiverGender = ""
+    
+    init (with roomId: String){
+        self.currRoomId = roomId
+        super.init(nibName: nil, bundle: nil)
+    }
+            
+    required init?(coder: NSCoder){
+        fatalError("init(coder:) has not been implemented")
+    }
     
     public static let idDateFormatter: DateFormatter = {
         let formattre = DateFormatter()
@@ -114,6 +125,8 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("current room id:")
+        print(self.currRoomId)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: .none)
         
         view.backgroundColor = .red
@@ -129,7 +142,13 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
         
         currentUser = Sender(senderId: "self", displayName: UserProfile.shared.username)
         otherUser = Sender(senderId: "other", displayName: UserProfile.shared.username)
-        messages.append(Message(sender: currentUser, messageId: "1", sentDate: Date(), kind: .text("halooo")))
+//        messages.append(Message(sender: currentUser, messageId: "1", sentDate: Date(), kind: .text("halooo")))
+        SocketHandler.shared.mSocket.on("new_message") { ( data, ack) -> Void in
+            let message = data[0] as! [String: AnyObject]
+            let messageId = message["message_id"] as! String
+            let messageText = message["message"] as! String
+            messages.append(Message(sender: otherUser, messageId: messageId, sentDate: Date(), kind: .text("halooo")))
+        }
         
         // simpen image sendiri
         guard let urlSelfImage = URL(string: "\(GlobalVariable.url)\(UserProfile.shared.userProfilePict)") else {

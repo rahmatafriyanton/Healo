@@ -331,7 +331,11 @@ class LoginVC : UIViewController {
         let label = (text as NSString).range(of: "Belum ada akun? Buat akun baru")
 
         if gesture.didTapAttributedTextInLabel(label: self.toRegisterLabel, inRange: label) {
-            navigationController?.pushViewController(PickRoleVC(), animated: true)
+            let prvc = UINavigationController(rootViewController: PickRoleVC())
+            prvc.isNavigationBarHidden = true
+            prvc.modalPresentationStyle = .fullScreen
+            prvc.modalTransitionStyle = .crossDissolve
+            present(prvc, animated: false, completion: nil)
         }
     }
     

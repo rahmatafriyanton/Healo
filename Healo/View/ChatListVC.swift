@@ -113,6 +113,8 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
         SocketHandler.shared.establishConnection()
         SocketHandler.shared.mSocket.on(clientEvent: .connect){data, ack in
             SocketHandler.shared.createConnection(id: UserProfile.shared.userId)
+            print("socket connected with user id \(UserProfile.shared.userId)")
+            print("socket connected with user role \(UserProfile.shared.userRole)")
         }
         configureUI()
         if (UserProfile.shared.userRole == 1){
@@ -129,7 +131,9 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
                 self.present(rvc, animated: false, completion: nil)
             }
             SocketHandler.shared.mSocket.on("chat_session_created") { ( data, ack) -> Void in
-                self.navigationController?.pushViewController(ChatVC(), animated: false)
+                let roomId = (data[0] as! [String: AnyObject])["room_id"] as! String
+                UserProfile.shared.currentRoomId = roomId
+                self.navigationController?.pushViewController(ChatVC(with: roomId), animated: false)
             }
             self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [] _ in
                 print("listener set")
@@ -199,12 +203,14 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
                     badgeLbl = "!" + "      "
                 }
             } else {
-                badgeLbl = "\(item.numOfMesReceived)" + "    "
+                if(item.numOfMesReceived>0){
+                    badgeLbl = "\(item.numOfMesReceived)" + "    "
+                }
             }
             
             let cell = chatTableView.dequeueReusableCell(withIdentifier: "cell") as! ChatCell
             cell.usernameLabel.text = item.username
-            cell.profileIcon.image = UIImage(named: "\(item.profileIcon)")
+            cell.profileIcon.setImage(from: item.profileIcon)
             cell.messageLabel.text = item.message
             cell.timeLabel.text = item.sentTime
             cell.badgeLabel.text = badgeLbl
@@ -241,10 +247,17 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
       
         
         chatTableView.rx.itemSelected.subscribe(onNext: { indexPath in
-    
-            DispatchQueue.main.async {
-                self.navigationController?.pushViewController(ChatVC(), animated: false)
+            print("indexPath")
+            if(indexPath.section == 0){
+                UserProfile.shared.currentRoomId = self.viewModel.activeSection.items[indexPath.row].id
+            } else {
+                UserProfile.shared.currentRoomId = self.viewModel.pastSection.items[indexPath.row].id
             }
+            print(self.viewModel.activeSection.items[0].id)
+            DispatchQueue.main.async {
+                self.navigationController?.pushViewController(ChatVC(with: UserProfile.shared.currentRoomId), animated: false)
+            }
+
         }).disposed(by: bag)
         
     }

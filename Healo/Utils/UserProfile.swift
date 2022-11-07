@@ -32,6 +32,9 @@ class UserProfile {
     private var _userFinishAssessTime: TimeInterval
     private var _userAssessStatus : String
     
+    private var _currentRoomId : String
+
+    
     static let shared = UserProfile()
     
     private init() {
@@ -59,6 +62,7 @@ class UserProfile {
         self._userFinishAssessTime = UserDefaults.standard.double(forKey: "userFinishAssessTime")
         self._userAssessStatus = UserDefaults.standard.string(forKey: "userAssessStatus") ?? "no status"
        
+        self._currentRoomId = UserDefaults.standard.string(forKey: "currentRoomId") ?? ""
     }
     
     var userId: Int {
@@ -238,6 +242,16 @@ class UserProfile {
         set(newValue) {
             self._userAssessStatus = newValue
             UserDefaults.standard.set(newValue, forKey: "userAssessStatus")
+        }
+    }
+    
+    var currentRoomId: String {
+        get {
+            return self._currentRoomId
+        }
+        set(newValue) {
+            self._currentRoomId = newValue
+            UserDefaults.standard.set(newValue, forKey: "currentRoomId")
         }
     }
 }

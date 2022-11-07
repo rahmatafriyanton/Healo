@@ -68,6 +68,8 @@ class PairingLoadingVC: UIViewController {
         setupUI()
         SocketHandler.shared.mSocket.on("chat_session_created") { ( data, ack) -> Void in
             self.paired = true
+            let roomId = (data[0] as! [String: AnyObject])["room_id"] as! String
+            UserProfile.shared.currentRoomId = roomId
             self.navigationController?.pushViewController(PairingSuccessVC(), animated: false)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 30.0) {

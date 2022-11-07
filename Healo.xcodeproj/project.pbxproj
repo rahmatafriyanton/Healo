@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C1BC85F2919057C00CE3C25 /* ChatList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1BC85E2919057C00CE3C25 /* ChatList.swift */; };
+		3C1BC86129195C0600CE3C25 /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1BC86029195C0600CE3C25 /* ChatVM.swift */; };
+		3C1BC863291960A900CE3C25 /* MessageForChatDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1BC862291960A900CE3C25 /* MessageForChatDetail.swift */; };
 		3C1DB5322912AC100015C2EF /* VerifyToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1DB5312912AC100015C2EF /* VerifyToken.swift */; };
 		3C2D58CD28EC15AA005D7C27 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D58CC28EC15AA005D7C27 /* UIColor.swift */; };
 		3C2D58CF28EC15ED005D7C27 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D58CE28EC15ED005D7C27 /* UIFont.swift */; };
@@ -141,6 +144,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C1BC85E2919057C00CE3C25 /* ChatList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatList.swift; path = Healo/ChatList.swift; sourceTree = SOURCE_ROOT; };
+		3C1BC86029195C0600CE3C25 /* ChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVM.swift; sourceTree = "<group>"; };
+		3C1BC862291960A900CE3C25 /* MessageForChatDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageForChatDetail.swift; path = Healo/MessageForChatDetail.swift; sourceTree = SOURCE_ROOT; };
 		3C1DB5312912AC100015C2EF /* VerifyToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyToken.swift; sourceTree = "<group>"; };
 		3C2D58CC28EC15AA005D7C27 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3C2D58CE28EC15ED005D7C27 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
@@ -399,6 +405,7 @@
 		6847814A28EB2D5300255D01 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3C1BC86029195C0600CE3C25 /* ChatVM.swift */,
 				689FB9FA2908E7E90074B961 /* ChatListVM.swift */,
 				689FB9F92908E7E80074B961 /* CriteriaVM.swift */,
 				A472A00328F27FA4009EC57A /* SetProfileViewModel.swift */,
@@ -429,6 +436,8 @@
 				3C7B7DC72905232900BB1A7A /* Message.swift */,
 				3C7B7E1D2907E48B00BB1A7A /* User.swift */,
 				3C7B7E23290824EF00BB1A7A /* Pair.swift */,
+				3C1BC85E2919057C00CE3C25 /* ChatList.swift */,
+				3C1BC862291960A900CE3C25 /* MessageForChatDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -676,6 +685,7 @@
 				A45BD89828FFC566006D0072 /* (null) in Sources */,
 				689FBA162908EB450074B961 /* SetProfileVC.swift in Sources */,
 				A45BD8A828FFC591006D0072 /* (null) in Sources */,
+				3C1BC863291960A900CE3C25 /* MessageForChatDetail.swift in Sources */,
 				3CA3F7B328FE4B8C00922354 /* SuccessEndChatVC.swift in Sources */,
 				689FBA292908F81D0074B961 /* DataProfileVC.swift in Sources */,
 				689FBA2E2908F81D0074B961 /* ProfileHealerVC.swift in Sources */,
@@ -705,6 +715,7 @@
 				3C7B7DC62905230200BB1A7A /* Sender.swift in Sources */,
 				689FBA372908F8650074B961 /* AssessQuestionsVC.swift in Sources */,
 				3C7B7DC429051A4100BB1A7A /* ChatVC.swift in Sources */,
+				3C1BC86129195C0600CE3C25 /* ChatVM.swift in Sources */,
 				68C8763828EB277100069DAA /* SceneDelegate.swift in Sources */,
 				3CA3F7AF28FD92E300922354 /* DidEndChatVC.swift in Sources */,
 				A472A00A28F280E6009EC57A /* UITextField.swift in Sources */,
@@ -735,6 +746,7 @@
 				689FBA2F2908F81D0074B961 /* RatingTableViewCell.swift in Sources */,
 				689FBA1D2908EB450074B961 /* OnboardingVC.swift in Sources */,
 				3C2D595428F1D983005D7C27 /* Token.swift in Sources */,
+				3C1BC85F2919057C00CE3C25 /* ChatList.swift in Sources */,
 				3C7B7D7228FEB52F00BB1A7A /* ReusableChoiceButton.swift in Sources */,
 				689FBA1F2908EB450074B961 /* SuccessAlertVC.swift in Sources */,
 				A45BD8BF28FFD19D006D0072 /* (null) in Sources */,
