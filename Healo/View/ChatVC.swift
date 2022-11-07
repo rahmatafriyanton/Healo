@@ -132,7 +132,10 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
         messages.append(Message(sender: currentUser, messageId: "1", sentDate: Date(), kind: .text("halooo")))
         
         // simpen image sendiri
-        let urlSelfImage = URL(string: "\(GlobalVariable.url)\(UserProfile.shared.userProfilePict)")!
+        guard let urlSelfImage = URL(string: "\(GlobalVariable.url)\(UserProfile.shared.userProfilePict)") else {
+            print("urlSelfImage error")
+            return
+        }
 
         let dataTaskSelfImage = URLSession.shared.dataTask(with: urlSelfImage) { [weak self] (data, _, _) in
             if let data = data {
@@ -144,7 +147,10 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
         dataTaskSelfImage.resume()
         
         // simpen image lawan bicara
-        let urlOtherImage = URL(string: "\(GlobalVariable.url)\("imej.jpg")")!
+        guard let urlOtherImage = URL(string: "\(GlobalVariable.url)\("imej.jpg")") else {
+            print("urlOtherImage error")
+            return
+        }
 
         let dataTaskOtherImage = URLSession.shared.dataTask(with: urlOtherImage) { [weak self] (data, _, _) in
             if let data = data {

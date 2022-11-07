@@ -18,14 +18,12 @@ class AssessmentResultVM {
     
     func makeAssessment<T: Decodable>(myStruct: T.Type, answers: [QuestionAnswer]) {
         let sem = DispatchSemaphore.init(value: 0)
-        let url = URL(string: GlobalVariable.url + "/api/assessment/")
-        
-        guard url != nil else{
+        guard let url = URL(string: GlobalVariable.url + "/api/assessment/") else {
             print("url error")
             return
         }
         
-        var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
         let header = ["Content-Type":"application/json","x-access-token":UserProfile.shared.token]
         request.allHTTPHeaderFields = header
@@ -44,15 +42,18 @@ class AssessmentResultVM {
         request.httpMethod = "POST"
         
         let task = URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error in defer { sem.signal() }
-            guard data != nil && error == nil else {
+            guard let data = data else {
                 print("error creating url session")
                 return
             }
             do {
                 print("decoding")
-                let sBody = NSString(data: data!, encoding: NSASCIIStringEncoding)
+                guard let sBody = NSString(data: data, encoding: NSASCIIStringEncoding) else {
+                    print("sBody error")
+                    return
+                }
                 print(sBody)
-                let result = try JSONDecoder().decode(Response<T>.self, from: data!)
+                let result = try JSONDecoder().decode(Response<T>.self, from: data)
                 print(result)
                 guard let resultData = result.data as? AssResult else {
                     print("not assessment results")

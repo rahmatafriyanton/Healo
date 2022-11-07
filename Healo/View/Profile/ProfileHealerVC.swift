@@ -172,7 +172,7 @@ class ProfileHealerVC: UIViewController {
         NSLayoutConstraint.activate([
             secondView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             secondView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            secondView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            secondView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 126),
             secondView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
 
@@ -278,9 +278,12 @@ class ProfileHealerVC: UIViewController {
     private func ageGenderDetail() {
         let getAge = UserProfile.shared.userYearBorn
         let getGender = UserProfile.shared.userGender
-        let year = Calendar(identifier: .gregorian).dateComponents([.year], from: Date()).year
+        guard let year = Calendar(identifier: .gregorian).dateComponents([.year], from: Date()).year else {
+            print("year error")
+            return
+        }
         
-        age = year! - getAge
+        age = year - getAge
         
         if getGender == "F" {
             gender = "Wanita"
@@ -328,17 +331,20 @@ extension ProfileHealerVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as? ProfileTableViewCell
-        
-        cell?.configure(image: dataProfils[indexPath.row].image, text: dataProfils[indexPath.row].title)
-        cell?.selectionStyle = .none
-        cell?.tintColor = .darkPurple
-        
-        if (indexPath.row == 2) {
-            cell!.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as? ProfileTableViewCell else {
+            print("cell error")
+            return UITableViewCell()
         }
         
-        return cell!
+        cell.configure(image: dataProfils[indexPath.row].image, text: dataProfils[indexPath.row].title)
+        cell.selectionStyle = .none
+        cell.tintColor = .darkPurple
+        
+        if (indexPath.row == 2) {
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+        }
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

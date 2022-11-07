@@ -340,15 +340,29 @@ class VerifyEmailVC : UIViewController {
     
     @objc func toSetProfile() {
         
-        var digit1 = digit1TextField.text!
-        print("ini digit1:\(digit1)")
-        var digit2 = digit2TextField.text!
-        var digit3 = digit3TextField.text!
-        var digit4 = digit4TextField.text!
+        guard let digit1 = digit1TextField.text else {
+            print("digit1 empty")
+            return
+        }
+        guard let digit2 = digit2TextField.text else {
+            print("digit2 empty")
+            return
+        }
+        guard let digit3 = digit3TextField.text else {
+            print("digit3 empty")
+            return
+        }
+        guard let digit4 = digit4TextField.text else {
+            print("digit4 empty")
+            return
+        }
         
-        let allDigits = Int("\(digit1)\(digit2)\(digit3)\(digit4)")
-        UserProfile.shared.userEmailValidationKey = allDigits!
-        print(allDigits!)
+        guard let allDigits = Int("\(digit1)\(digit2)\(digit3)\(digit4)") else {
+            print("allDigits error")
+            return
+        }
+        UserProfile.shared.userEmailValidationKey = allDigits
+        print(allDigits)
         VerifyEmailVM.shared.verifyEmail(myStruct: [String].self)
         subscribe()
         if(statusVerifyEmailVC == "failed") {

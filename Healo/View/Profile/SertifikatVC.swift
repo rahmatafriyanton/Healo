@@ -108,8 +108,10 @@ class CollectionViewModel {
     var users = BehaviorSubject(value: [myUser]())
     
     func fetchUsers() {
-        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else {
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else {
                 return
             }
