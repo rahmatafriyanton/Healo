@@ -253,7 +253,6 @@ class ChatListVC: UIViewController, UIScrollViewDelegate {
             } else {
                 UserProfile.shared.currentRoomId = self.viewModel.pastSection.items[indexPath.row].id
             }
-            print(self.viewModel.activeSection.items[0].id)
             DispatchQueue.main.async {
                 self.navigationController?.pushViewController(ChatVC(with: UserProfile.shared.currentRoomId), animated: false)
             }

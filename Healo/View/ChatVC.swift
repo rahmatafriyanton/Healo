@@ -32,6 +32,8 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
     var receiverAge = 0
     var receiverGender = ""
     
+    var roomStatus = ""
+    
     init (with roomId: String){
         self.currRoomId = roomId
         super.init(nibName: nil, bundle: nil)
@@ -144,6 +146,7 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
         messageInputBar.inputTextView.becomeFirstResponder()
         print("chatvc loaded")
         chatViewModel.chatDetail.subscribe(onNext: { [self] event in
+            roomStatus = event.roomStatus
             if (UserProfile.shared.userRole == 1){
                 otherUser = Sender(senderId: "\(event.seeker.userID)", displayName: event.seeker.userName)
                 
@@ -194,9 +197,23 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
             let message = data[0] as! [String: AnyObject]
             let messageId = message["message_id"] as! String
             let messageText = message["message"] as! String
-            self.messages.append(Message(sender: self.otherUser, messageId: messageId, sentDate: Date(), kind: .text(messageText)))
-            self.messagesCollectionView.reloadDataAndKeepOffset()
-            self.messagesCollectionView.scrollToLastItem(animated: false)
+            let senderId = message["sender_id"] as! Int
+            if (senderId != UserProfile.shared.userId){
+                self.messages.append(Message(sender: self.otherUser, messageId: messageId, sentDate: Date(), kind: .text(messageText)))
+                self.messagesCollectionView.reloadDataAndKeepOffset()
+                self.messagesCollectionView.scrollToLastItem(animated: false)
+            }
+        }
+        
+        // listen to room_ended
+        SocketHandler.shared.mSocket.on("room_ended") { ( data, ack) -> Void in
+            let response = data[0] as! [String: AnyObject]
+            let closedBy = response["room_closed_by"] as! Int
+            if (closedBy != UserProfile.shared.userId){
+                SocketHandler.shared.leaveRoom(roomId: self.currRoomId)
+                self.navigationController?.pushViewController(DidEndChatVC(), animated: false)
+            }
+
         }
         
         // simpen image sendiri
@@ -213,6 +230,9 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
             }
         }
         dataTaskSelfImage.resume()
+        
+        self.messagesCollectionView.reloadDataAndKeepOffset()
+        self.messagesCollectionView.scrollToLastItem(animated: false)
     }
     
     func configureUI(){
@@ -258,7 +278,9 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
         profileLabelStack.spacing = 16
         profileView.addSubview(profileLabelStack)
         
-        profileView.addSubview(tripleBtn)
+        if(roomStatus == "active"){
+            profileView.addSubview(tripleBtn)
+        }
     }
     
     func setupProfileLayout(){
@@ -284,19 +306,23 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
             make.left.equalTo(backButton).offset(28)
         }
         
-        tripleBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(83)
-            make.right.equalToSuperview().offset(26)
-            make.height.equalTo(30)
-            make.width.equalTo(100)
+        if (roomStatus == "active"){
+            tripleBtn.snp.makeConstraints { make in
+                make.top.equalToSuperview().offset(83)
+                make.right.equalToSuperview().offset(26)
+                make.height.equalTo(30)
+                make.width.equalTo(100)
+            }
         }
-        
     }
     
     @objc func backTapped(){
-        let svc = SeekerTabBarVC()
-        svc.modalPresentationStyle = .fullScreen
-        present(svc, animated: false, completion: nil)
+        var vc: UITabBarController = SeekerTabBarVC()
+        if (UserProfile.shared.userRole == 1) {
+            vc = ListenerTabBarVC()
+        }
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false, completion: nil)
     }
     
     @objc func tripleTapped(){

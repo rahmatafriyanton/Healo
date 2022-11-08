@@ -67,6 +67,10 @@ class SocketHandler: NSObject {
         mSocket.emit("create_connection",id)
     }
     
+    func leaveRoom(roomId: String) {
+        mSocket.emit("leave_room", roomId)
+    }
+    
     func acceptPairing() {
 //        print(gotPair.status)
 //        mSocket.emit("confirm_pairing",Pair(id: gotPair.id, seeker_id: gotPair.seeker_id, healer_id: gotPair.healer_id, status: "accept", min_age: gotPair.min_age, max_age: gotPair.max_age, prefered_gender: gotPair.prefered_gender, seeker_preflection: gotPair.seeker_preflection))

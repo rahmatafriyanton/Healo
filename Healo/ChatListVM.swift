@@ -72,7 +72,7 @@ class ChatListVM {
                 }
                 print("hmhm")
                 activeSection.items = allChats.filter { $0.chatStatus.localizedCaseInsensitiveContains("Active")}
-                pastSection.items = allChats.filter { $0.chatStatus.localizedCaseInsensitiveContains("Past")}
+                pastSection.items = allChats.filter { $0.chatStatus.localizedCaseInsensitiveContains("Closed")}
                 
                 totalChat = allChats.count
                 numOfActiveChat = activeSection.items.count

@@ -47,6 +47,7 @@
 		3C2D596628F6F18B005D7C27 /* QuestionAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D596528F6F18B005D7C27 /* QuestionAnswer.swift */; };
 		3C2D59AE28FAC484005D7C27 /* AssessQuestionsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D59AD28FAC484005D7C27 /* AssessQuestionsVM.swift */; };
 		3C2D59B028FAC54A005D7C27 /* AssQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D59AF28FAC54A005D7C27 /* AssQuestion.swift */; };
+		3C75B5D2291A7BD600CBA15A /* EndChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C75B5D1291A7BD600CBA15A /* EndChatVM.swift */; };
 		3C7B7D7228FEB52F00BB1A7A /* ReusableChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B7D7128FEB52F00BB1A7A /* ReusableChoiceButton.swift */; };
 		3C7B7DC429051A4100BB1A7A /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B7DC329051A4100BB1A7A /* ChatVC.swift */; };
 		3C7B7DC62905230200BB1A7A /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B7DC52905230200BB1A7A /* Sender.swift */; };
@@ -185,6 +186,7 @@
 		3C2D596528F6F18B005D7C27 /* QuestionAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionAnswer.swift; path = Healo/QuestionAnswer.swift; sourceTree = SOURCE_ROOT; };
 		3C2D59AD28FAC484005D7C27 /* AssessQuestionsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessQuestionsVM.swift; sourceTree = "<group>"; };
 		3C2D59AF28FAC54A005D7C27 /* AssQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AssQuestion.swift; path = Healo/AssQuestion.swift; sourceTree = SOURCE_ROOT; };
+		3C75B5D1291A7BD600CBA15A /* EndChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndChatVM.swift; sourceTree = "<group>"; };
 		3C7B7D7128FEB52F00BB1A7A /* ReusableChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableChoiceButton.swift; sourceTree = "<group>"; };
 		3C7B7DC329051A4100BB1A7A /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		3C7B7DC52905230200BB1A7A /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sender.swift; path = Healo/View/Sender.swift; sourceTree = SOURCE_ROOT; };
@@ -421,6 +423,7 @@
 				3C2D596128F6ECE9005D7C27 /* AssessmentResultVM.swift */,
 				3C2D59AD28FAC484005D7C27 /* AssessQuestionsVM.swift */,
 				3C1DB5312912AC100015C2EF /* VerifyToken.swift */,
+				3C75B5D1291A7BD600CBA15A /* EndChatVM.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -734,6 +737,7 @@
 				A4B78AD9290F913100E07777 /* ListenerTabBarVC.swift in Sources */,
 				C5AAD9D328FE85A900D587B1 /* PairingFailedVC.swift in Sources */,
 				A472A00428F27FA4009EC57A /* SetProfileViewModel.swift in Sources */,
+				3C75B5D2291A7BD600CBA15A /* EndChatVM.swift in Sources */,
 				3C2D596628F6F18B005D7C27 /* QuestionAnswer.swift in Sources */,
 				3C2D595028F143DA005D7C27 /* GlobalVariable.swift in Sources */,
 				3C2D593528EDB1B1005D7C27 /* RegisterVM.swift in Sources */,

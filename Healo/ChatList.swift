@@ -14,7 +14,8 @@ struct ChatList: Codable {
     let postflection: String
     let postflectionTime: String?
     let roomStatus: String
-    let roomClosedBy, roomClosedReason, seekerMoodCheckout: String?
+    let roomClosedBy: Int?
+    let roomClosedReason, seekerMoodCheckout: String?
     let createdAt, updatedAt: String
     let seeker, healer: UserForChat
     let lastMessage: MessageForChat
