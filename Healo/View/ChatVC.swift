@@ -318,6 +318,7 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
         print(dateString)
         
         // insert api post message
+        chatViewModel.sendMessage(roomId: currRoomId, message: text)
         
         messages.append(Message(sender: currentUser, messageId: dateString, sentDate: Date(), kind: .text(text)))
         self.messagesCollectionView.reloadDataAndKeepOffset()
