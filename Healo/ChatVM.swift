@@ -6,7 +6,45 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
-struct ChatVM{
-    let shared = ChatVM()
-}
+class ChatVM {
+    var chatDetail = PublishSubject<ChatDetail>()
+    var numOfActiveChat = 0
+    
+    func fetchChats<T: Decodable>(myStruct: T.Type, roomId: String) {
+        let sem = DispatchSemaphore.init(value: 0)
+        guard let url = URL(string: GlobalVariable.url + "/api/chat/" + roomId) else {
+            print("url error")
+            return
+        }
+
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        
+        let header = ["Content-Type":"application/json",
+                      "x-access-token":UserProfile.shared.token]
+        request.allHTTPHeaderFields = header
+        
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in defer {sem.signal()}
+            
+            guard let data = data else {
+                print("api request failed")
+                return
+            }
+            do {
+                let result = try JSONDecoder().decode(Response<T>.self, from: data)
+                print(result)
+                guard let cd = result.data as? ChatDetail else {
+                    print("not chat detail")
+                    return
+                }
+                self.chatDetail.on(.next(cd))
+            }
+            catch {
+                print(error)
+            }
+        })
+        task.resume()
+        sem.wait()
+    }}

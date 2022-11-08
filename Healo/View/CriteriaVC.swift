@@ -441,7 +441,7 @@ class CriteriaVC: UIViewController {
         print(minUsia)
         print(maxUsia)
         print(selectedTopic)
-        SocketHandler.shared.findHealer(myStruct: [String].self, minAge: minUsia, maxAge: maxUsia, preferGender: selectedGender, preflek: selectedGender)
+        SocketHandler.shared.findHealer(myStruct: [String].self, minAge: minUsia, maxAge: maxUsia, preferGender: selectedGender, preflek: selectedTopic)
         navigationController?.isNavigationBarHidden = false
         navigationController?.pushViewController(PairingLoadingVC(), animated: false)
     }

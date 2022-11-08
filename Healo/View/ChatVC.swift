@@ -9,10 +9,14 @@ import UIKit
 import SnapKit
 import MessageKit
 import InputBarAccessoryView
+import RxSwift
+import RxCocoa
 
 class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate, InputBarAccessoryViewDelegate  {
     
     public let currRoomId: String
+    private var chatViewModel = ChatVM()
+    let bag = DisposeBag()
 
     // ntar ganti jadi let currentUser = Sender, pass data dari chat list
     var currentUser = Sender(senderId: "self", displayName: "seeker")
@@ -80,6 +84,7 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
     
     private lazy var iconImgView : UIImageView = {
         let iconView = UIImageView()
+        iconView.setImage(from: "\(imageUrl)")
         iconView.clipsToBounds = true
         iconView.layer.borderColor = UIColor.darkPurple.cgColor
         iconView.layer.borderWidth = 1
@@ -130,7 +135,6 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: .none)
         
         view.backgroundColor = .red
-        configureUI()
         self.messagesCollectionView.contentInset = UIEdgeInsets(top: self.view.frame.height > 735 ? 180 : 180, left: 0, bottom: 0, right: 0)
         
         messagesCollectionView.messagesDataSource = self
@@ -138,20 +142,65 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
         messageInputBar.inputTextView.becomeFirstResponder()
-        print("loaded")
-        
-        currentUser = Sender(senderId: "self", displayName: UserProfile.shared.username)
-        otherUser = Sender(senderId: "other", displayName: UserProfile.shared.username)
+        print("chatvc loaded")
+        chatViewModel.chatDetail.subscribe(onNext: { [self] event in
+            if (UserProfile.shared.userRole == 1){
+                otherUser = Sender(senderId: "\(event.seeker.userID)", displayName: event.seeker.userName)
+                
+                imageUrl = event.seeker.profilePict
+                receiverUsername = event.seeker.userName
+                receiverAge = event.seeker.age
+                receiverGender = event.seeker.userGender
+            } else if (UserProfile.shared.userRole == 2){
+                otherUser = Sender(senderId: "\(event.healer.userID)", displayName: event.healer.userName)
+                
+                imageUrl = event.healer.profilePict
+                receiverUsername = event.healer.userName
+                receiverAge = event.healer.age
+                receiverGender = event.healer.userGender
+            }
+            currentUser = Sender(senderId: "\(UserProfile.shared.userId)", displayName: UserProfile.shared.username)
+            
+            for e in event.messages.reversed(){
+                if (e.senderID == UserProfile.shared.userId){
+                    messages.append(Message(sender: currentUser, messageId: e.messageID, sentDate: Date(), kind: .text(e.message)))
+                } else {
+                    messages.append(Message(sender: otherUser   , messageId: e.messageID, sentDate: Date(), kind: .text(e.message)))
+                }
+            }
+            
+            // simpen image lawan bicara
+            guard let urlOtherImage = URL(string: (UserProfile.shared.userRole==1 ? event.seeker.profilePict : event.healer.profilePict)) else {
+                print("urlOtherImage error")
+                return
+            }
+
+            let dataTaskOtherImage = URLSession.shared.dataTask(with: urlOtherImage) { [weak self] (data, _, _) in
+                if let data = data {
+                    // Create Image and Update Image View
+                    print("get image")
+                    self?.otherImage = UIImage(data: data)
+                }
+            }
+            dataTaskOtherImage.resume()
+            
+        }).disposed(by: bag)
+        chatViewModel.fetchChats(myStruct: ChatDetail.self, roomId: currRoomId)
+        configureUI()
+//        currentUser = Sender(senderId: "self", displayName: UserProfile.shared.username)
+//        otherUser = Sender(senderId: "other", displayName: UserProfile.shared.username)
 //        messages.append(Message(sender: currentUser, messageId: "1", sentDate: Date(), kind: .text("halooo")))
         SocketHandler.shared.mSocket.on("new_message") { ( data, ack) -> Void in
             let message = data[0] as! [String: AnyObject]
             let messageId = message["message_id"] as! String
             let messageText = message["message"] as! String
-            messages.append(Message(sender: otherUser, messageId: messageId, sentDate: Date(), kind: .text("halooo")))
+            self.messages.append(Message(sender: self.otherUser, messageId: messageId, sentDate: Date(), kind: .text(messageText)))
+            self.messagesCollectionView.reloadDataAndKeepOffset()
+            self.messagesCollectionView.scrollToLastItem(animated: false)
         }
         
         // simpen image sendiri
-        guard let urlSelfImage = URL(string: "\(GlobalVariable.url)\(UserProfile.shared.userProfilePict)") else {
+        guard let urlSelfImage = URL(string: UserProfile.shared.userProfilePict) else {
             print("urlSelfImage error")
             return
         }
@@ -164,21 +213,6 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
             }
         }
         dataTaskSelfImage.resume()
-        
-        // simpen image lawan bicara
-        guard let urlOtherImage = URL(string: "\(GlobalVariable.url)\("imej.jpg")") else {
-            print("urlOtherImage error")
-            return
-        }
-
-        let dataTaskOtherImage = URLSession.shared.dataTask(with: urlOtherImage) { [weak self] (data, _, _) in
-            if let data = data {
-                // Create Image and Update Image View
-                print("get image")
-                self?.otherImage = UIImage(data: data)
-            }
-        }
-        dataTaskOtherImage.resume()
     }
     
     func configureUI(){
@@ -189,7 +223,7 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
             make.height.equalTo(162)
         }
         
-        setupProfileData()
+//        setupProfileData()
         setupProfileView()
         setupProfileLayout()
         
@@ -199,7 +233,6 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
             make.centerY.equalTo(profileView.snp.bottom)
             make.height.equalTo(40)
         }
-        
         
     }
     
@@ -306,7 +339,7 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
             let sender = message.sender
-            if sender.senderId == "self" {
+        if sender.senderId == "\(UserProfile.shared.userId)" {
                 // our message that we've sent
                 return .darkPurple
             }
@@ -329,7 +362,7 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
       let initials = "\(firstName?.first ?? "A")\(lastName?.first ?? "A")"
         
         // nanti avatar diganti sama profile seeker/listener
-        if (sender.senderId == "self"){
+        if (sender.senderId == "\(UserProfile.shared.userId)"){
             return Avatar(image: selfImage, initials: initials)
         } else {
             return Avatar(image: otherImage, initials: initials)

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C1BC85F2919057C00CE3C25 /* ChatList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1BC85E2919057C00CE3C25 /* ChatList.swift */; };
 		3C1BC86129195C0600CE3C25 /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1BC86029195C0600CE3C25 /* ChatVM.swift */; };
-		3C1BC863291960A900CE3C25 /* MessageForChatDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1BC862291960A900CE3C25 /* MessageForChatDetail.swift */; };
+		3C1BC863291960A900CE3C25 /* MessageForSendChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1BC862291960A900CE3C25 /* MessageForSendChat.swift */; };
 		3C1DB5322912AC100015C2EF /* VerifyToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1DB5312912AC100015C2EF /* VerifyToken.swift */; };
 		3C2D58CD28EC15AA005D7C27 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D58CC28EC15AA005D7C27 /* UIColor.swift */; };
 		3C2D58CF28EC15ED005D7C27 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2D58CE28EC15ED005D7C27 /* UIFont.swift */; };
@@ -59,6 +59,7 @@
 		3CA3F7AF28FD92E300922354 /* DidEndChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3F7AE28FD92E300922354 /* DidEndChatVC.swift */; };
 		3CA3F7B328FE4B8C00922354 /* SuccessEndChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3F7B228FE4B8C00922354 /* SuccessEndChatVC.swift */; };
 		3CA3F7B528FE533C00922354 /* EndChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3F7B428FE533C00922354 /* EndChatVC.swift */; };
+		3CBAA726291963CD003807C2 /* ChatDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBAA725291963CD003807C2 /* ChatDetail.swift */; };
 		485FEA827949B88AD9E664A9 /* Pods_Healo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C94F26B84BE355A54DD03EF /* Pods_Healo.framework */; };
 		689FB9F02908E7C50074B961 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FB9E72908E7C50074B961 /* ChatUser.swift */; };
 		689FB9F22908E7C50074B961 /* SeekerTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FB9E92908E7C50074B961 /* SeekerTabBarVC.swift */; };
@@ -146,7 +147,7 @@
 /* Begin PBXFileReference section */
 		3C1BC85E2919057C00CE3C25 /* ChatList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatList.swift; path = Healo/ChatList.swift; sourceTree = SOURCE_ROOT; };
 		3C1BC86029195C0600CE3C25 /* ChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVM.swift; sourceTree = "<group>"; };
-		3C1BC862291960A900CE3C25 /* MessageForChatDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageForChatDetail.swift; path = Healo/MessageForChatDetail.swift; sourceTree = SOURCE_ROOT; };
+		3C1BC862291960A900CE3C25 /* MessageForSendChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageForSendChat.swift; path = Healo/MessageForSendChat.swift; sourceTree = SOURCE_ROOT; };
 		3C1DB5312912AC100015C2EF /* VerifyToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyToken.swift; sourceTree = "<group>"; };
 		3C2D58CC28EC15AA005D7C27 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3C2D58CE28EC15ED005D7C27 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
@@ -196,6 +197,7 @@
 		3CA3F7AE28FD92E300922354 /* DidEndChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidEndChatVC.swift; sourceTree = "<group>"; };
 		3CA3F7B228FE4B8C00922354 /* SuccessEndChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessEndChatVC.swift; sourceTree = "<group>"; };
 		3CA3F7B428FE533C00922354 /* EndChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndChatVC.swift; sourceTree = "<group>"; };
+		3CBAA725291963CD003807C2 /* ChatDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatDetail.swift; path = Healo/ChatDetail.swift; sourceTree = SOURCE_ROOT; };
 		5D7A5D340B8EE6125DAF5B44 /* Pods-Healo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healo.debug.xcconfig"; path = "Target Support Files/Pods-Healo/Pods-Healo.debug.xcconfig"; sourceTree = "<group>"; };
 		689FB9E72908E7C50074B961 /* ChatUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
 		689FB9E92908E7C50074B961 /* SeekerTabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeekerTabBarVC.swift; sourceTree = "<group>"; };
@@ -437,7 +439,8 @@
 				3C7B7E1D2907E48B00BB1A7A /* User.swift */,
 				3C7B7E23290824EF00BB1A7A /* Pair.swift */,
 				3C1BC85E2919057C00CE3C25 /* ChatList.swift */,
-				3C1BC862291960A900CE3C25 /* MessageForChatDetail.swift */,
+				3C1BC862291960A900CE3C25 /* MessageForSendChat.swift */,
+				3CBAA725291963CD003807C2 /* ChatDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -685,7 +688,7 @@
 				A45BD89828FFC566006D0072 /* (null) in Sources */,
 				689FBA162908EB450074B961 /* SetProfileVC.swift in Sources */,
 				A45BD8A828FFC591006D0072 /* (null) in Sources */,
-				3C1BC863291960A900CE3C25 /* MessageForChatDetail.swift in Sources */,
+				3C1BC863291960A900CE3C25 /* MessageForSendChat.swift in Sources */,
 				3CA3F7B328FE4B8C00922354 /* SuccessEndChatVC.swift in Sources */,
 				689FBA292908F81D0074B961 /* DataProfileVC.swift in Sources */,
 				689FBA2E2908F81D0074B961 /* ProfileHealerVC.swift in Sources */,
@@ -708,6 +711,7 @@
 				689FBA022908E8790074B961 /* UITextView.swift in Sources */,
 				3C2D595228F14F0D005D7C27 /* SetUserVM.swift in Sources */,
 				A45BD89A28FFC56B006D0072 /* (null) in Sources */,
+				3CBAA726291963CD003807C2 /* ChatDetail.swift in Sources */,
 				689FB9FB2908E7E90074B961 /* CriteriaVM.swift in Sources */,
 				C59B456528F5B8BB00B4B8D7 /* UITapGesture.swift in Sources */,
 				689FB9F02908E7C50074B961 /* ChatUser.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MessageForChatDetail: Codable {
+struct MessageForSendChat: Codable {
     let messageID: String
     let senderID: Int
     let roomID, message: String
