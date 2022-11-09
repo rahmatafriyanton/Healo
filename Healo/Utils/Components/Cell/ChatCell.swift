@@ -33,6 +33,7 @@ class ChatCell: UITableViewCell {
     lazy var profileIcon: UIImageView = {
         let icon = UIImageView()
         icon.contentMode = .scaleAspectFit
+        icon.clipsToBounds = true
         icon.translatesAutoresizingMaskIntoConstraints = false
         icon.frame.size.width = 60
         icon.frame.size.height = 60
@@ -146,6 +147,8 @@ class ChatCell: UITableViewCell {
     func setProfileIconLayout(){
         profileIcon.centerYAnchor.constraint(equalTo: iconView.centerYAnchor, constant: 0).isActive = true
         profileIcon.centerXAnchor.constraint(equalTo: iconView.centerXAnchor,constant: 0).isActive = true
+        profileIcon.widthAnchor.constraint(equalToConstant: profileIconDim).isActive = true
+        profileIcon.heightAnchor.constraint(equalToConstant: profileIconDim).isActive = true
     }
     
     func setUsernameLayout(){
