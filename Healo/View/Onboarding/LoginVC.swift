@@ -36,10 +36,11 @@ class LoginVC : UIViewController {
     
     private lazy var emailTextField : UITextField = {
         let textField = UITextField()
+        textField.attributedPlaceholder = NSAttributedString(string: "Email Address", attributes: [NSAttributedString.Key.foregroundColor : UIColor.greyPlaceholder])
         textField.font = .poppinsRegular(size: 14)
         textField.keyboardType = .emailAddress
         textField.layer.cornerRadius = 10
-        textField.placeholder = "Email"
+        textField.textColor = .blackPurple
         textField.translatesAutoresizingMaskIntoConstraints = false
 			textField.addDoneButtonOnKeyboard()
         return textField
@@ -56,10 +57,11 @@ class LoginVC : UIViewController {
     
     private lazy var passwordTextField : UITextField = {
         let textField = UITextField()
+        textField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.greyPlaceholder])
         textField.font = .poppinsRegular(size: 14)
         textField.isSecureTextEntry = true
         textField.layer.cornerRadius = 10
-        textField.placeholder = "Password"
+        textField.textColor = .blackPurple
         textField.translatesAutoresizingMaskIntoConstraints = false
 			textField.addDoneButtonOnKeyboard()
         return textField
@@ -115,6 +117,7 @@ class LoginVC : UIViewController {
         let btn = UIButton()
         btn.addTarget(self, action: #selector(onTapSignInApple), for: .touchUpInside)
         btn.backgroundColor = .black
+        btn.isEnabled = false
         btn.layer.cornerRadius = 15
         btn.setImage(UIImage(systemName: "applelogo"), for: .normal)
         btn.setTitle("  Sign in with Apple", for: .normal)
@@ -291,6 +294,8 @@ class LoginVC : UIViewController {
                 let tvc = ListenerTabBarVC()
                 tvc.modalPresentationStyle = .fullScreen
                 present(tvc, animated: true, completion: nil)
+            } else {
+                
             }
         }
     }

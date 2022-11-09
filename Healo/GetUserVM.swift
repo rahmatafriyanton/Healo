@@ -40,6 +40,11 @@ class GetUserVM {
                 print(user)
                 UserProfile.shared.userId = user.userID
                 UserProfile.shared.userRole = user.roleID
+                UserProfile.shared.username = user.userName
+                UserProfile.shared.email = user.userEmail
+                UserProfile.shared.userGender = user.userGender ?? ""
+                UserProfile.shared.userYearBorn = user.userYearBorn ?? 0
+                UserProfile.shared.userProfilePict = user.userProfilePict ?? ""
             } catch {
                 print(error)
             }

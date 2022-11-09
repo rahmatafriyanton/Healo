@@ -19,7 +19,7 @@ class RegisterVC : UIViewController {
         label.font = .poppinsSemiBold(size: 21)
         label.text = "Buat Akun"
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = .blackPurple
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -37,10 +37,11 @@ class RegisterVC : UIViewController {
     private lazy var usernameTextField : UITextField = {
         let textField = UITextField()
         textField.addTarget(self, action: #selector(usernameChanged), for: .editingChanged)
+        textField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedString.Key.foregroundColor : UIColor.greyPlaceholder])
         textField.font = .poppinsRegular(size: 14)
         textField.keyboardType = .emailAddress
         textField.layer.cornerRadius = 10
-        textField.placeholder = "Username"
+        textField.textColor = .blackPurple
         textField.translatesAutoresizingMaskIntoConstraints = false
 			textField.addDoneButtonOnKeyboard()
         return textField
@@ -68,10 +69,11 @@ class RegisterVC : UIViewController {
     private lazy var emailTextField : UITextField = {
         let textField = UITextField()
         textField.addTarget(self, action: #selector(emailChanged), for: .editingChanged)
+        textField.attributedPlaceholder = NSAttributedString(string: "Email Address", attributes: [NSAttributedString.Key.foregroundColor : UIColor.greyPlaceholder])
         textField.font = .poppinsRegular(size: 14)
         textField.keyboardType = .emailAddress
         textField.layer.cornerRadius = 10
-        textField.placeholder = "Email Address"
+        textField.textColor = .blackPurple
         textField.translatesAutoresizingMaskIntoConstraints = false
 			textField.addDoneButtonOnKeyboard()
         return textField
@@ -98,10 +100,11 @@ class RegisterVC : UIViewController {
     private lazy var passwordTextField : UITextField = {
         let textField = UITextField()
         textField.addTarget(self, action: #selector(passwordChanged), for: .editingChanged)
+        textField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.greyPlaceholder])
         textField.font = .poppinsRegular(size: 14)
         textField.isSecureTextEntry = true
         textField.layer.cornerRadius = 10
-        textField.placeholder = "Password"
+        textField.textColor = .blackPurple
         textField.translatesAutoresizingMaskIntoConstraints = false
 			textField.addDoneButtonOnKeyboard()
         return textField
@@ -137,10 +140,11 @@ class RegisterVC : UIViewController {
     private lazy var confirmPasswordTextField : UITextField = {
         let textField = UITextField()
         textField.addTarget(self, action: #selector(confirmPasswordChanged), for: .editingChanged)
+        textField.attributedPlaceholder = NSAttributedString(string: "Confirm Password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.greyPlaceholder])
         textField.font = .poppinsRegular(size: 14)
         textField.isSecureTextEntry = true
         textField.layer.cornerRadius = 10
-        textField.placeholder = "Confirm Password"
+        textField.textColor = .blackPurple
         textField.translatesAutoresizingMaskIntoConstraints = false
 			textField.addDoneButtonOnKeyboard()
         return textField
