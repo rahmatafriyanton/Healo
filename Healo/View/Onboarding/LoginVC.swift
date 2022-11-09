@@ -108,6 +108,7 @@ class LoginVC : UIViewController {
         label.textAlignment = .center
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isHidden = true
         return label
     }()
     
@@ -122,10 +123,7 @@ class LoginVC : UIViewController {
         btn.setTitleColor(UIColor.white.withAlphaComponent(0.3), for: .highlighted)
         btn.tintColor = .white
         btn.translatesAutoresizingMaskIntoConstraints = false
-        
-        // ilangin login apple
-        btn.isEnabled = false
-        btn.layer.opacity = 0
+        btn.isHidden = true
         return btn
     }()
  
@@ -400,6 +398,7 @@ class Separator: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
+        isHidden = true
     }
 
     required init?(coder: NSCoder) {

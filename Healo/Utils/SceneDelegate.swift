@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 		guard let scene = (scene as? UIWindowScene) else { return }
 		window = UIWindow(windowScene: scene)
+        print("token pas login:" + UserProfile.shared.token)
         let validity = VerifyToken.shared.verify(myStruct: [String].self)
         if (validity == "success"){
             if(UserProfile.shared.userRole == 1){

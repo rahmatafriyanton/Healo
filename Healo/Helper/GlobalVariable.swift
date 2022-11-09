@@ -6,8 +6,8 @@
 //
 
 struct GlobalVariable {
-//    static var url = "http://167.172.87.13:3000"
-//    static var socketURL = "http://167.172.87.13:3001"
-    static var url = "http://localhost:3000"
-    static var socketURL = "http://localhost:3001"
+    static var url = "http://167.172.87.13:3000"
+    static var socketURL = "http://167.172.87.13:3001"
+//    static var url = "http://localhost:3000"
+//    static var socketURL = "http://localhost:3001"
 }
