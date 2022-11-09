@@ -18,6 +18,8 @@ class EditIconVM {
             print("url error")
             return
         }
+        let sem = DispatchSemaphore.init(value: 0)
+        print("url\(url)")
         
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
@@ -25,7 +27,7 @@ class EditIconVM {
                       "x-access-token":UserProfile.shared.token]
         request.allHTTPHeaderFields = header
         
-        let task = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in defer { sem.signal() }
             
             guard let data = data else {
                 print("api request failed")
@@ -44,5 +46,6 @@ class EditIconVM {
             }
         })
         task.resume()
+        sem.wait()
     }
 }

@@ -187,6 +187,7 @@ class EditIconVC: UIViewController {
     
     func subscribeIcons(){
         // get icons from subject
+        EditIconVM.shared.getIcons(myStruct: [Icon].self)
         EditIconVM.shared.icons.subscribe(onNext: { event in
             self.imageUrl1 = GlobalVariable.url + event[0].image_path
             self.imageView1.setImage(from: self.imageUrl1)
@@ -201,7 +202,7 @@ class EditIconVC: UIViewController {
             self.imageUrl6 = GlobalVariable.url + event[5].image_path
             self.imageView6.setImage(from: self.imageUrl6)
         }).disposed(by: disposeBag)
-        print(imageUrl1)
+//        print(imageUrl1)
     }
     
 
@@ -350,7 +351,7 @@ class EditIconVC: UIViewController {
     
     
     @objc func tapDoneAction(){
-         delegates?.iconClicked(selectedIconView: selectedImage)
+        delegates?.iconClicked(selectedIconView: selectedImage)
         self.dismiss(animated: true)
     }
     

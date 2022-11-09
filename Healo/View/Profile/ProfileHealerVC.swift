@@ -155,6 +155,7 @@ class ProfileHealerVC: UIViewController {
         setupUI()
         setupTableView()
         ageGenderDetail()
+        statusSwitch()
     }
     
     private func setupNavBar() {
@@ -300,6 +301,16 @@ class ProfileHealerVC: UIViewController {
             availableStatus = 0
         }
         UserProfile.shared.userIsAvailable = availableStatus
+    }
+    
+    func statusSwitch() {
+        if UserProfile.shared.userIsAvailable == 1 {
+            availableSwitch.isOn = true
+            availableStatus = 1
+        } else {
+            availableSwitch.isOn = false
+            availableStatus = 0
+        }
     }
     
     private func setupTableView() {

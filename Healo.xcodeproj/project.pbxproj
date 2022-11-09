@@ -917,7 +917,7 @@
 				CODE_SIGN_ENTITLEMENTS = Healo/Healo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20221103;
-				DEVELOPMENT_TEAM = C77567662R;
+				DEVELOPMENT_TEAM = Y8686RJS9V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Healo/Utils/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Healo - Share Your Thoughts, Heal Your Feelings";
@@ -954,7 +954,7 @@
 				CODE_SIGN_ENTITLEMENTS = Healo/Healo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20221103;
-				DEVELOPMENT_TEAM = C77567662R;
+				DEVELOPMENT_TEAM = Y8686RJS9V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Healo/Utils/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Healo - Share Your Thoughts, Heal Your Feelings";

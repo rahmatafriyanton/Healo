@@ -16,14 +16,18 @@ protocol editIconImage {
 class EditProfileVC: UIViewController, editIconImage {
     func iconClicked(selectedIconView: String) {
         editedIcon = selectedIconView
-        
-        self.profileImage.image = UIImage(named: editedIcon)
-        self.profileImage.layer.cornerRadius = radius
+        print(UserProfile.shared.userProfilePict)
+        print(editedIcon)
+        imageUrl = editedIcon
+        self.profileImage.setImage(from: editedIcon)
+        self.profileImage.layer.cornerRadius = profileImage.frame.height/2
         self.profileImage.contentMode = .scaleToFill
         self.profileImage.clipsToBounds = true
+        self.profileImage.translatesAutoresizingMaskIntoConstraints = false
+        
     }
     
-    let imageUrl = UserProfile.shared.userProfilePict
+    var imageUrl = ""
     
     let disposeBag = DisposeBag()
     
@@ -53,7 +57,7 @@ class EditProfileVC: UIViewController, editIconImage {
         image.frame = CGRect(x: 0, y: 0, width: 107, height: 107)
         image.layer.masksToBounds = false
         image.layer.cornerRadius = image.frame.height/2
-        image.setImage(from: imageUrl)
+        image.setImage(from: UserProfile.shared.userProfilePict)
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -61,7 +65,7 @@ class EditProfileVC: UIViewController, editIconImage {
     
     private var editIconButton : UIButton = {
         let btn = UIButton()
-        btn.addTarget(EditProfileVC.self, action: #selector(onTapEditIconBtn), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(onTapEditIconBtn), for: .touchUpInside)
         btn.setTitle("Ubah Foto Profil", for: .normal)
         btn.setTitleColor(.darkPurple, for: .normal)
         btn.titleLabel?.font = .poppinsBold(size: 14)
@@ -179,7 +183,7 @@ class EditProfileVC: UIViewController, editIconImage {
     
     private var wanitaButton : UIButton = {
         let btn = UIButton()
-        btn.addTarget(EditProfileVC.self, action: #selector(onTapPickWoman), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(onTapPickWoman), for: .touchUpInside)
         btn.backgroundColor = .lightPurple
         btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -56, bottom: 0, right: 0)
         btn.layer.cornerRadius = 10
@@ -195,7 +199,7 @@ class EditProfileVC: UIViewController, editIconImage {
     
     private var priaButton : UIButton = {
         let btn = UIButton()
-        btn.addTarget(EditProfileVC.self, action: #selector(onTapPickMan), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(onTapPickMan), for: .touchUpInside)
         btn.backgroundColor = .lightPurple
         btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -76, bottom: 0, right: 0)
         btn.layer.cornerRadius = 10

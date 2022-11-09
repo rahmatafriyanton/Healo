@@ -9,7 +9,7 @@ import UIKit
 
 class DataProfileVC: UIViewController {
     
-    let imageUrl = UserProfile.shared.userProfilePict
+    var imageUrl = UserProfile.shared.userProfilePict
     
     private let secondView : UIView = {
         let view = UIView()
@@ -34,7 +34,7 @@ class DataProfileVC: UIViewController {
     
     private var editButton : UIButton = {
         let btn = UIButton()
-        btn.addTarget(DataProfileVC.self, action: #selector(onTapEditProfile), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(onTapEditProfile), for: .touchUpInside)
         btn.backgroundColor = .darkPurple
         btn.layer.cornerRadius = 15
         btn.setTitle("Edit Profil", for: .normal)
