@@ -122,6 +122,10 @@ class LoginVC : UIViewController {
         btn.setTitleColor(UIColor.white.withAlphaComponent(0.3), for: .highlighted)
         btn.tintColor = .white
         btn.translatesAutoresizingMaskIntoConstraints = false
+        
+        // ilangin login apple
+        btn.isEnabled = false
+        btn.layer.opacity = 0
         return btn
     }()
  

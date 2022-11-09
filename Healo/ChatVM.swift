@@ -34,6 +34,7 @@ class ChatVM {
             }
             do {
                 let result = try JSONDecoder().decode(Response<T>.self, from: data)
+                print("chat details:")
                 print(result)
                 guard let cd = result.data as? ChatDetail else {
                     print("not chat detail")

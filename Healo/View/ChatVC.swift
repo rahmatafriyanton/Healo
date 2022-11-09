@@ -34,6 +34,8 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
     
     var roomStatus = ""
     
+    let dateFormatter = DateFormatter()
+    
     init (with roomId: String){
         self.currRoomId = roomId
         super.init(nibName: nil, bundle: nil)
@@ -145,6 +147,9 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
         messageInputBar.delegate = self
         messageInputBar.inputTextView.becomeFirstResponder()
         print("chatvc loaded")
+        
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        
         chatViewModel.chatDetail.subscribe(onNext: { [self] event in
             roomStatus = event.roomStatus
             if (UserProfile.shared.userRole == 1){
@@ -164,11 +169,14 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
             }
             currentUser = Sender(senderId: "\(UserProfile.shared.userId)", displayName: UserProfile.shared.username)
             
-            for e in event.messages.reversed(){
-                if (e.senderID == UserProfile.shared.userId){
-                    messages.append(Message(sender: currentUser, messageId: e.messageID, sentDate: Date(), kind: .text(e.message)))
-                } else {
-                    messages.append(Message(sender: otherUser   , messageId: e.messageID, sentDate: Date(), kind: .text(e.message)))
+            if (event.messages?.isEmpty == false){
+                for e in event.messages!.reversed(){
+                    if (e.senderID == UserProfile.shared.userId){
+                        messages.append(Message(sender: currentUser, messageId: e.messageID, sentDate: dateFormatter.date(from: e.createdAt) ?? Date(), kind: .text(e.message)))
+                    } else {
+                        print("DATEEE " + e.createdAt)
+                        messages.append(Message(sender: otherUser   , messageId: e.messageID, sentDate: dateFormatter.date(from: e.createdAt) ?? Date(), kind: .text(e.message)))
+                    }
                 }
             }
             
@@ -198,8 +206,9 @@ class ChatVC: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate
             let messageId = message["message_id"] as! String
             let messageText = message["message"] as! String
             let senderId = message["sender_id"] as! Int
+            let createdAt = message["createdAt"] as! String
             if (senderId != UserProfile.shared.userId){
-                self.messages.append(Message(sender: self.otherUser, messageId: messageId, sentDate: Date(), kind: .text(messageText)))
+                self.messages.append(Message(sender: self.otherUser, messageId: messageId, sentDate: self.dateFormatter.date(from: createdAt) ?? Date(), kind: .text(messageText)))
                 self.messagesCollectionView.reloadDataAndKeepOffset()
                 self.messagesCollectionView.scrollToLastItem(animated: false)
             }

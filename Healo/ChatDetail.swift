@@ -17,7 +17,7 @@ struct ChatDetail: Codable {
     let roomClosedReason, seekerMoodCheckout: String?
     let createdAt, updatedAt: String
     let seeker, healer: UserForChat
-    let messages: [MessageForChat]
+    let messages: [MessageForChat]?
     let numberOfUnread: Int
 
     enum CodingKeys: String, CodingKey {

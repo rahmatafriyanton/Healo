@@ -59,7 +59,7 @@ class ChatListVM {
                 print("chatlists:")
                 print(chatlist)
                 for cl in chatlist {
-                    var clAppend = ChatUser(id: cl.roomID, profileIcon: "", username: "", message: cl.lastMessage.message, sentTime: cl.lastMessage.createdAt, numOfMesReceived: cl.numberOfUnread, chatStatus: cl.roomStatus, reflectStatus: 0, roomID: cl.roomID)
+                    var clAppend = ChatUser(id: cl.roomID, profileIcon: "", username: "", message: cl.lastMessage?.message ?? "", sentTime: cl.lastMessage?.createdAt ?? "", numOfMesReceived: cl.numberOfUnread, chatStatus: cl.roomStatus, reflectStatus: 0, roomID: cl.roomID)
                     if (UserProfile.shared.userRole == 1){
                         clAppend.profileIcon = cl.seeker.profilePict
                         clAppend.username = cl.seeker.userName
