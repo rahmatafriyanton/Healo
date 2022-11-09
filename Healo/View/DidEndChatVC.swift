@@ -107,7 +107,12 @@ class DidEndChatVC: UIViewController {
     }()
     
     @objc func kembali() {
-        // insert navigate to chat list here
+        var vc: UITabBarController = SeekerTabBarVC()
+        if (UserProfile.shared.userRole == 1) {
+            vc = ListenerTabBarVC()
+        }
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false, completion: nil)
     }
     
     func configureUI() {

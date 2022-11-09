@@ -108,6 +108,7 @@ class LoginVC : UIViewController {
         label.textAlignment = .center
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isHidden = true
         return label
     }()
     
@@ -122,6 +123,7 @@ class LoginVC : UIViewController {
         btn.setTitleColor(UIColor.white.withAlphaComponent(0.3), for: .highlighted)
         btn.tintColor = .white
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.isHidden = true
         return btn
     }()
  
@@ -331,7 +333,11 @@ class LoginVC : UIViewController {
         let label = (text as NSString).range(of: "Belum ada akun? Buat akun baru")
 
         if gesture.didTapAttributedTextInLabel(label: self.toRegisterLabel, inRange: label) {
-            navigationController?.pushViewController(PickRoleVC(), animated: true)
+            let prvc = UINavigationController(rootViewController: PickRoleVC())
+            prvc.isNavigationBarHidden = true
+            prvc.modalPresentationStyle = .fullScreen
+            prvc.modalTransitionStyle = .crossDissolve
+            present(prvc, animated: false, completion: nil)
         }
     }
     
@@ -392,6 +398,7 @@ class Separator: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
+        isHidden = true
     }
 
     required init?(coder: NSCoder) {

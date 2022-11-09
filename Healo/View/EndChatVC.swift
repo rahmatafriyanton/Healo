@@ -95,6 +95,8 @@ class EndChatVC: UIViewController {
     
     @objc func end(){
         print(cause)
+        EndChatVM.shared.endChat(reason: cause)
+        SocketHandler.shared.leaveRoom(roomId: UserProfile.shared.currentRoomId)
         let sec = SuccessEndChatVC()
         sec.modalPresentationStyle = .custom
         sec.modalTransitionStyle = .crossDissolve
@@ -102,8 +104,7 @@ class EndChatVC: UIViewController {
     }
     
     @objc func cancel(){
-        // insert cancel
-        let cvc = UINavigationController(rootViewController:ChatVC())
+        let cvc = UINavigationController(rootViewController:ChatVC(with: UserProfile.shared.currentRoomId))
         cvc.isNavigationBarHidden = true
         cvc.modalPresentationStyle = .fullScreen
         cvc.modalTransitionStyle = .crossDissolve

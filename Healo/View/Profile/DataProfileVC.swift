@@ -147,6 +147,7 @@ class DataProfileVC: UIViewController {
         btn.titleLabel?.font = .poppinsBold(size: 16)
         btn.tintColor = .white
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(onTapLogout), for: .touchUpInside)
         return btn
     }()
 
@@ -289,6 +290,8 @@ class DataProfileVC: UIViewController {
 
     @objc func onTapLogout() {
         UserProfile.shared.token = ""
+        print("token pas logout:")
+        print(UserProfile.shared.token)
         let lvc = UINavigationController(rootViewController: LoginVC())
         lvc.modalPresentationStyle = .fullScreen
         lvc.modalTransitionStyle = .crossDissolve
