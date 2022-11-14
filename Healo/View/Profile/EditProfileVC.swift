@@ -27,7 +27,7 @@ class EditProfileVC: UIViewController, editIconImage {
         
     }
     
-    var imageUrl = ""
+    var imageUrl = UserProfile.shared.userProfilePict
     
     let disposeBag = DisposeBag()
     
@@ -51,6 +51,44 @@ class EditProfileVC: UIViewController, editIconImage {
     var selectWoman = 0
     var selectMan = 0
     
+//    let navBar : UINavigationBar = {
+//        let navBar = UINavigationBar()
+//        let navItem = UINavigationItem(title: "Edit Profile")
+//        let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+//        backButton.setTitle("  Kembali", for: .normal)
+//        backButton.tintColor = .darkPurple
+//        backButton.setTitleColor(.darkPurple, for: .normal)
+//        backButton.titleLabel?.font = .poppinsMedium(size: 14)
+//        let backBtn = UIImage(systemName: "chevron.left",withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .regular))
+//        backButton.setImage(backBtn, for: .normal)
+//        backButton.semanticContentAttribute = .forceLeftToRight
+//        backButton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+//        navItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+//
+//        let saveButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+//        saveButton.setTitle("Simpan", for: .normal)
+//        saveButton.tintColor = .darkPurple
+//        saveButton.setTitleColor(.darkPurple, for: .normal)
+//        saveButton.titleLabel?.font = .poppinsMedium(size: 14)
+//        saveButton.semanticContentAttribute = .forceLeftToRight
+//        saveButton.addTarget(self, action: #selector(onTapSave), for: .touchUpInside)
+//        navItem.rightBarButtonItem = UIBarButtonItem(customView: saveButton)
+//
+//        navBar.setItems([navItem], animated: false)
+//        navBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.poppinsSemiBold(size: 18)!]
+//        navBar.translatesAutoresizingMaskIntoConstraints = false
+//        navBar.barTintColor = .white
+//        navBar.shadowImage = UIImage()
+//        return navBar
+//    }()
+//
+//    private let secondView : UIView = {
+//        let view = UIView()
+//        view.backgroundColor = .white
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
+//
     private lazy var profileImage : UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .lightPurple
@@ -289,6 +327,8 @@ class EditProfileVC: UIViewController, editIconImage {
             NSAttributedString.Key.foregroundColor : UIColor.darkPurple,
         ], for: .normal)
         
+        tabBarController?.tabBar.isHidden = true
+        tabBarController?.tabBar.isTranslucent = true
     }
     
     private func setupUI() {
@@ -298,7 +338,7 @@ class EditProfileVC: UIViewController, editIconImage {
         NSLayoutConstraint.activate([
             profileImage.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             profileImage.heightAnchor.constraint(equalToConstant: 107),
-            profileImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 31),
+            profileImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 129),
             profileImage.widthAnchor.constraint(equalToConstant: 107)
         ])
         

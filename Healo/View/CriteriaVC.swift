@@ -33,7 +33,7 @@ class CriteriaVC: UIViewController {
         let backBtn = UIImage(systemName: "chevron.left",withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .regular))
         backButton.setImage(backBtn, for: .normal)
         backButton.semanticContentAttribute = .forceLeftToRight
-        backButton.addTarget(CriteriaVC.self, action: #selector(backTapped), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
         navItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
         navBar.setItems([navItem], animated: false)
         navBar.translatesAutoresizingMaskIntoConstraints = false

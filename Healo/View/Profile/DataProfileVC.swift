@@ -157,6 +157,18 @@ class DataProfileVC: UIViewController {
         configureAll()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.poppinsBold(size: 25)!]
+        if UserProfile.shared.userRole == 2 {
+            tabBarController?.tabBar.isHidden = false
+            tabBarController?.tabBar.isTranslucent = false
+        } else {
+            tabBarController?.tabBar.isHidden = true
+            tabBarController?.tabBar.isTranslucent = true
+        }
+    }
+    
     private func configureAll() {
         setupNavBar()
         setupUI()
@@ -173,6 +185,9 @@ class DataProfileVC: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.poppinsSemiBold(size: 25)!]
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = .darkPurple
+        
+//        tabBarController?.tabBar.isHidden = false
+//        tabBarController?.tabBar.isTranslucent = false
     }
     
     private func setupUI() {
