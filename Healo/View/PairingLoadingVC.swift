@@ -103,9 +103,9 @@ class PairingLoadingVC: UIViewController {
         self.view.addSubview(loadingImage)
         NSLayoutConstraint.activate([
             loadingImage.centerXAnchor.constraint(equalTo: secondView.centerXAnchor),
-            loadingImage.heightAnchor.constraint(equalToConstant: 163),
-            loadingImage.topAnchor.constraint(equalTo: secondView.topAnchor, constant: 118),
-            loadingImage.widthAnchor.constraint(equalToConstant: 172)
+            loadingImage.heightAnchor.constraint(equalToConstant: 283),
+            loadingImage.topAnchor.constraint(equalTo: secondView.topAnchor, constant: 61),
+            loadingImage.widthAnchor.constraint(equalToConstant: 291)
         ])
         
         self.view.addSubview(titleLabel)

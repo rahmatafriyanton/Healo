@@ -9,6 +9,22 @@ import UIKit
 
 class JournalVC: UIViewController {
 
+    private let navBar : UINavigationBar = {
+        let navBar = UINavigationBar()
+        let navItem = UINavigationItem(title: "Journal")
+        let atr = [
+            NSAttributedString.Key.foregroundColor: UIColor.blackPurple,
+            NSAttributedString.Key.font: UIFont(name: "Poppins-Bold", size: 25)!
+        ]
+        UINavigationBar.appearance().titleTextAttributes = atr
+        
+        navBar.setItems([navItem], animated: false)
+        navBar.barTintColor = .lightPurple
+        navBar.shadowImage = UIImage()
+        navBar.translatesAutoresizingMaskIntoConstraints = false
+        return navBar
+    }()
+    
     private let secondView : UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -24,7 +40,7 @@ class JournalVC: UIViewController {
     }
     
     private func configureAll() {
-        setupNavBar()
+//        setupNavBar()
         setupUI()
     }
     
@@ -36,6 +52,14 @@ class JournalVC: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .lightPurple
+        
+        view.addSubview(navBar)
+        NSLayoutConstraint.activate([
+            navBar.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
+            navBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 57),
+            navBar.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            navBar.heightAnchor.constraint(equalToConstant: 44)
+        ])
         
         view.addSubview(secondView)
         NSLayoutConstraint.activate([

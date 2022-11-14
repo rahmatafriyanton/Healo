@@ -91,9 +91,9 @@ class PairingFailedVC: UIViewController {
         self.view.addSubview(failedImage)
         NSLayoutConstraint.activate([
             failedImage.centerXAnchor.constraint(equalTo: secondView.centerXAnchor),
-            failedImage.heightAnchor.constraint(equalToConstant: 163),
-            failedImage.topAnchor.constraint(equalTo: secondView.topAnchor, constant: 118),
-            failedImage.widthAnchor.constraint(equalToConstant: 221)
+            failedImage.heightAnchor.constraint(equalToConstant: 199),
+            failedImage.topAnchor.constraint(equalTo: secondView.topAnchor, constant: 86),
+            failedImage.widthAnchor.constraint(equalToConstant: 199)
         ])
         
         self.view.addSubview(titleLabel)
