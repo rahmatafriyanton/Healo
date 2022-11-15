@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 
-class SetProfileViewModel {
+class SetProfileVM {
 
     var tahunNow = Int(Calendar.current.component(.year, from: Date()))
     var tahunPast : Int {

@@ -130,7 +130,7 @@
 		A45BD8BF28FFD19D006D0072 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		A45BD8C128FFD1F7006D0072 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		A45BD8C528FFD312006D0072 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		A472A00428F27FA4009EC57A /* SetProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00328F27FA4009EC57A /* SetProfileViewModel.swift */; };
+		A472A00428F27FA4009EC57A /* SetProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00328F27FA4009EC57A /* SetProfileVM.swift */; };
 		A472A00A28F280E6009EC57A /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00928F280E6009EC57A /* UITextField.swift */; };
 		A472A00C28F2810E009EC57A /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00B28F2810E009EC57A /* UIImageView.swift */; };
 		A472A00E28F28129009EC57A /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00D28F28129009EC57A /* UIButton.swift */; };
@@ -245,7 +245,7 @@
 		68C8764128EB277200069DAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68C8764328EB277200069DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C94F26B84BE355A54DD03EF /* Pods_Healo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Healo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A472A00328F27FA4009EC57A /* SetProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetProfileViewModel.swift; path = Healo/View/SetProfileViewModel.swift; sourceTree = SOURCE_ROOT; };
+		A472A00328F27FA4009EC57A /* SetProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetProfileVM.swift; path = Healo/View/SetProfileVM.swift; sourceTree = SOURCE_ROOT; };
 		A472A00928F280E6009EC57A /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		A472A00B28F2810E009EC57A /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		A472A00D28F28129009EC57A /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -412,7 +412,7 @@
 				3C1BC86029195C0600CE3C25 /* ChatVM.swift */,
 				689FB9FA2908E7E90074B961 /* ChatListVM.swift */,
 				689FB9F92908E7E80074B961 /* CriteriaVM.swift */,
-				A472A00328F27FA4009EC57A /* SetProfileViewModel.swift */,
+				A472A00328F27FA4009EC57A /* SetProfileVM.swift */,
 				3C2D593428EDB1B1005D7C27 /* RegisterVM.swift */,
 				3C2D595128F14F0D005D7C27 /* SetUserVM.swift */,
 				3C7B7E1B2907E3B500BB1A7A /* GetUserVM.swift */,
@@ -736,7 +736,7 @@
 				A45BD8B728FFCEE8006D0072 /* (null) in Sources */,
 				A4B78AD9290F913100E07777 /* ListenerTabBarVC.swift in Sources */,
 				C5AAD9D328FE85A900D587B1 /* PairingFailedVC.swift in Sources */,
-				A472A00428F27FA4009EC57A /* SetProfileViewModel.swift in Sources */,
+				A472A00428F27FA4009EC57A /* SetProfileVM.swift in Sources */,
 				3C75B5D2291A7BD600CBA15A /* EndChatVM.swift in Sources */,
 				3C2D596628F6F18B005D7C27 /* QuestionAnswer.swift in Sources */,
 				3C2D595028F143DA005D7C27 /* GlobalVariable.swift in Sources */,

@@ -33,6 +33,8 @@ class UserProfile {
     private var _userAssessStatus : String
     
     private var _currentRoomId : String
+    
+    private var _isEmailValidated : Bool
 
     
     static let shared = UserProfile()
@@ -63,6 +65,8 @@ class UserProfile {
         self._userAssessStatus = UserDefaults.standard.string(forKey: "userAssessStatus") ?? "no status"
        
         self._currentRoomId = UserDefaults.standard.string(forKey: "currentRoomId") ?? ""
+        
+        self._isEmailValidated  = UserDefaults.standard.bool(forKey: "isEmailValidated") 
     }
     
     var userId: Int {
@@ -252,6 +256,16 @@ class UserProfile {
         set(newValue) {
             self._currentRoomId = newValue
             UserDefaults.standard.set(newValue, forKey: "currentRoomId")
+        }
+    }
+    
+    var isEmailValidated: Bool{
+        get {
+            return self._isEmailValidated
+        }
+        set(newValue) {
+            self._isEmailValidated = newValue
+            UserDefaults.standard.set(newValue, forKey: "isEmailValidated")
         }
     }
 }

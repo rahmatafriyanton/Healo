@@ -23,13 +23,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let validity = VerifyToken.shared.verify(myStruct: [String].self)
         if (validity == "success"){
             if(UserProfile.shared.userRole == 1){
+                if(UserProfile.shared.isEmailValidated == false){
+                    window?.rootViewController = UINavigationController(rootViewController: VerifyEmailVC())
+                } else if (UserProfile.shared.userYearBorn == 0) {
+                    window?.rootViewController = UINavigationController(rootViewController: SetProfileVC())
+                }
+                
                 if (UserProfile.shared.userAssessStatus == "Success"){
                     window?.rootViewController = UINavigationController(rootViewController: ListenerTabBarVC())
                 } else {
                     window?.rootViewController = UINavigationController(rootViewController: TestExplanationVC())
                 }
             } else if (UserProfile.shared.userRole == 2){
-                window?.rootViewController = UINavigationController(rootViewController: SeekerTabBarVC())
+                if(UserProfile.shared.isEmailValidated == false){
+                    window?.rootViewController = UINavigationController(rootViewController: VerifyEmailVC())
+                } else if (UserProfile.shared.userYearBorn == 0) {
+                        window?.rootViewController = UINavigationController(rootViewController: SetProfileVC())
+                } else {
+                    window?.rootViewController = UINavigationController(rootViewController: SeekerTabBarVC())
+                }
             } else {
                 window?.rootViewController = UINavigationController(rootViewController: OnboardingVC())
             }

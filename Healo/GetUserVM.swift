@@ -49,7 +49,7 @@ class GetUserVM {
 //                UserProfile.shared.userGender = user.userGender ?? ""
 //                UserProfile.shared.userYearBorn = user.userYearBorn ?? 0
 //                UserProfile.shared.userProfilePict = user.userProfilePict ?? ""
-                try self.checkProfile(userId: user.userID, roleID: user.roleID, userName: user.userName, userEmail: user.userEmail, userGender: user.userGender ?? "", userYearBorn: user.userYearBorn ?? 0, profilePict: user.userProfilePict ?? "")
+                try self.checkProfile(userId: user.userID, roleID: user.roleID, userName: user.userName, userEmail: user.userEmail, userGender: user.userGender ?? "", userYearBorn: user.userYearBorn ?? 0, profilePict: user.userProfilePict ?? "", isEmailValidated: user.isEmailValidated)
                   print("Valid Division")
             } catch ProfileError.userIDEmpty {
                 print("Error: user ID cannot be Empty")
@@ -73,7 +73,7 @@ class GetUserVM {
         sem.wait()
     }
     
-    func checkProfile(userId: Int, roleID: Int, userName: String, userEmail: String, userGender: String, userYearBorn: Int, profilePict: String) throws {
+    func checkProfile(userId: Int, roleID: Int, userName: String, userEmail: String, userGender: String, userYearBorn: Int, profilePict: String, isEmailValidated : Bool) throws {
         if userId == 0 {
           throw ProfileError.userIDEmpty
         } else {
@@ -122,5 +122,6 @@ class GetUserVM {
           UserProfile.shared.userProfilePict = profilePict
           print(profilePict)
         }
+    
     }
 }

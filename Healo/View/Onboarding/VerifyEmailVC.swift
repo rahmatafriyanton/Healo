@@ -371,6 +371,8 @@ class VerifyEmailVC : UIViewController {
         } else if(statusVerifyEmailVC == "success" && digit1 != "" && digit2 != "" && digit3 != "" && digit4 != "") {
             navigationController?.pushViewController(SetProfileVC(), animated: true)
             print("ini status:\(statusVerifyEmailVC)")
+            GetUserVM.shared.getUser(myStruct: User.self)
+            UserProfile.shared.isEmailValidated = true
         }
 //        while(true){
 //            if(statusVerifyEmailVC == "failed") {
