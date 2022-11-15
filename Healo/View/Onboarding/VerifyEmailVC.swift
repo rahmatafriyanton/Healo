@@ -160,7 +160,7 @@ class VerifyEmailVC : UIViewController {
     
     var timer: Timer?
     var totalTime = 0
-    var sendAgainTime = 5
+    var sendAgainTime = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -413,6 +413,7 @@ class VerifyEmailVC : UIViewController {
     }
     
     @objc func onTapBtnSendAgain() {
+        ResendCodeVM.shared.resendCode(myStruct: User.self)
         startOtpTimer()
         startSendAgainTimer()
     }
@@ -424,6 +425,7 @@ class VerifyEmailVC : UIViewController {
     }
     
     private func startSendAgainTimer() {
+        self.sendAgainTime = 5
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateSendAgainTimer), userInfo: nil, repeats: true)
     }
         

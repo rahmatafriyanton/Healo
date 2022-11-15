@@ -136,6 +136,7 @@
 		A472A00E28F28129009EC57A /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00D28F28129009EC57A /* UIButton.swift */; };
 		A4B78AD9290F913100E07777 /* ListenerTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B78AD8290F913100E07777 /* ListenerTabBarVC.swift */; };
 		A4CB0D592909073300220DD7 /* RequestAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB0D582909073300220DD7 /* RequestAlertVC.swift */; };
+		C58760632923477B0079F5AE /* ResendCodeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58760622923477B0079F5AE /* ResendCodeVM.swift */; };
 		C59B456328F5079D00B4B8D7 /* VerifyEmailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */; };
 		C59B456528F5B8BB00B4B8D7 /* UITapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */; };
 		C5AAD9D328FE85A900D587B1 /* PairingFailedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AAD9D228FE85A900D587B1 /* PairingFailedVC.swift */; };
@@ -251,6 +252,7 @@
 		A472A00D28F28129009EC57A /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		A4B78AD8290F913100E07777 /* ListenerTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerTabBarVC.swift; sourceTree = "<group>"; };
 		A4CB0D582909073300220DD7 /* RequestAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAlertVC.swift; sourceTree = "<group>"; };
+		C58760622923477B0079F5AE /* ResendCodeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendCodeVM.swift; sourceTree = "<group>"; };
 		C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailVM.swift; sourceTree = "<group>"; };
 		C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGesture.swift; sourceTree = "<group>"; };
 		C5AAD9D228FE85A900D587B1 /* PairingFailedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingFailedVC.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 				3C2D59AD28FAC484005D7C27 /* AssessQuestionsVM.swift */,
 				3C1DB5312912AC100015C2EF /* VerifyToken.swift */,
 				3C75B5D1291A7BD600CBA15A /* EndChatVM.swift */,
+				C58760622923477B0079F5AE /* ResendCodeVM.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				689FBA1B2908EB450074B961 /* EditIconVC.swift in Sources */,
 				689FB9F52908E7C50074B961 /* JournalVC.swift in Sources */,
 				689FBA192908EB450074B961 /* MainViewController.swift in Sources */,
+				C58760632923477B0079F5AE /* ResendCodeVM.swift in Sources */,
 				A45BD89628FFC560006D0072 /* (null) in Sources */,
 				3C2D596228F6ECE9005D7C27 /* AssessmentResultVM.swift in Sources */,
 				3C2D593D28EDBAF8005D7C27 /* Response.swift in Sources */,
