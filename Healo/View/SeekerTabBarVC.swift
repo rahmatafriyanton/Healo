@@ -10,13 +10,15 @@ import UIKit
 
 class SeekerTabBarVC : UITabBarController{
     
-    var numOfAllMMessageRec : Int = 10 //Total number of active chat
+    var numOfAllMMessageRec : Int = 0 //Total number of active chat
+    var viewModel = ChatListVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabBarUI()
         setupVC()
         setupBadge()
+        viewModel.fetchChats()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,8 +41,18 @@ class SeekerTabBarVC : UITabBarController{
     }
     
     func setupBadge(){
-        tabBar.items![0].badgeValue = String(numOfAllMMessageRec)
-        tabBar.items![0].badgeColor = .redNotif
+        var chats = viewModel.allChats
+        
+        for chat in chats {
+            if(chat.chatStatus == "active"){
+                numOfAllMMessageRec += chat.numOfMesReceived
+            }
+        }
+        
+        if numOfAllMMessageRec > 0 {
+            tabBar.items![0].badgeValue = String(numOfAllMMessageRec)
+            tabBar.items![0].badgeColor = .redNotif
+        }
     }
     
     
