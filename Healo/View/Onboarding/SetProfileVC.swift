@@ -32,7 +32,7 @@ class SetProfileVC: UIViewController, updateIconImage{
     var iconSize = 0
     var radius : CGFloat = 0
     
-    private var viewModel = SetProfileViewModel()
+    private var viewModel = SetProfileVM()
     let disposeBag = DisposeBag()
    
     var selectedTahun : String = ""

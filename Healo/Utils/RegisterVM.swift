@@ -61,6 +61,7 @@ class RegisterVM {
                 }
                 print(token.token)
                 UserProfile.shared.token = token.token
+                
             } catch {
                 print(error)
             }
