@@ -366,7 +366,11 @@ class VerifyEmailVC : UIViewController {
         VerifyEmailVM.shared.verifyEmail(myStruct: [String].self)
         subscribe()
         if(statusVerifyEmailVC == "failed") {
-//                navigationController?.pushViewController(SetProfileVC(), animated: true)
+            navigationController?.pushViewController(VerifyFailedVC(), animated: true)
+            digit1TextField.text = ""
+            digit2TextField.text = ""
+            digit3TextField.text = ""
+            digit4TextField.text = ""
             print("ini gagal:\(statusVerifyEmailVC)")
         } else if(statusVerifyEmailVC == "success" && digit1 != "" && digit2 != "" && digit3 != "" && digit4 != "") {
             navigationController?.pushViewController(SetProfileVC(), animated: true)

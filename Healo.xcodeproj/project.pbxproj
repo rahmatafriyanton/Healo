@@ -136,6 +136,8 @@
 		A472A00E28F28129009EC57A /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472A00D28F28129009EC57A /* UIButton.swift */; };
 		A4B78AD9290F913100E07777 /* ListenerTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B78AD8290F913100E07777 /* ListenerTabBarVC.swift */; };
 		A4CB0D592909073300220DD7 /* RequestAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB0D582909073300220DD7 /* RequestAlertVC.swift */; };
+		C57E36F029248C9C008DE4E3 /* VerifyFailedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57E36EF29248C9C008DE4E3 /* VerifyFailedVC.swift */; };
+		C57E36F229249757008DE4E3 /* SomethingWrongVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57E36F129249757008DE4E3 /* SomethingWrongVC.swift */; };
 		C58760632923477B0079F5AE /* ResendCodeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58760622923477B0079F5AE /* ResendCodeVM.swift */; };
 		C59B456328F5079D00B4B8D7 /* VerifyEmailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */; };
 		C59B456528F5B8BB00B4B8D7 /* UITapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */; };
@@ -252,6 +254,8 @@
 		A472A00D28F28129009EC57A /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		A4B78AD8290F913100E07777 /* ListenerTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerTabBarVC.swift; sourceTree = "<group>"; };
 		A4CB0D582909073300220DD7 /* RequestAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAlertVC.swift; sourceTree = "<group>"; };
+		C57E36EF29248C9C008DE4E3 /* VerifyFailedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyFailedVC.swift; sourceTree = "<group>"; };
+		C57E36F129249757008DE4E3 /* SomethingWrongVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomethingWrongVC.swift; sourceTree = "<group>"; };
 		C58760622923477B0079F5AE /* ResendCodeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendCodeVM.swift; sourceTree = "<group>"; };
 		C59B456228F5079D00B4B8D7 /* VerifyEmailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailVM.swift; sourceTree = "<group>"; };
 		C59B456428F5B8BB00B4B8D7 /* UITapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGesture.swift; sourceTree = "<group>"; };
@@ -380,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				689FBA072908EB450074B961 /* Onboarding */,
+				C57E36F129249757008DE4E3 /* SomethingWrongVC.swift */,
 				689FB9EB2908E7C50074B961 /* ChatListVC.swift */,
 				689FB9E72908E7C50074B961 /* ChatUser.swift */,
 				689FB9EF2908E7C50074B961 /* CriteriaVC.swift */,
@@ -474,6 +479,7 @@
 				689FBA112908EB450074B961 /* OnboardingVC.swift */,
 				689FBA122908EB450074B961 /* PickIconVC.swift */,
 				689FBA132908EB450074B961 /* SuccessAlertVC.swift */,
+				C57E36EF29248C9C008DE4E3 /* VerifyFailedVC.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -708,6 +714,7 @@
 				3C2D594728EECB8B005D7C27 /* ReusableNextButton.swift in Sources */,
 				A45BD8AC28FFC9AB006D0072 /* (null) in Sources */,
 				A45BD8A628FFC58B006D0072 /* (null) in Sources */,
+				C57E36F229249757008DE4E3 /* SomethingWrongVC.swift in Sources */,
 				A45BD8B928FFCF1D006D0072 /* (null) in Sources */,
 				C59B456328F5079D00B4B8D7 /* VerifyEmailVM.swift in Sources */,
 				A45BD8BD28FFD15A006D0072 /* (null) in Sources */,
@@ -732,6 +739,7 @@
 				A472A00A28F280E6009EC57A /* UITextField.swift in Sources */,
 				A472A00E28F28129009EC57A /* UIButton.swift in Sources */,
 				A45BD8A228FFC57E006D0072 /* (null) in Sources */,
+				C57E36F029248C9C008DE4E3 /* VerifyFailedVC.swift in Sources */,
 				3C2D596428F6ED51005D7C27 /* AssResult.swift in Sources */,
 				A45BD88E28FFC52B006D0072 /* (null) in Sources */,
 				A472A00C28F2810E009EC57A /* UIImageView.swift in Sources */,
