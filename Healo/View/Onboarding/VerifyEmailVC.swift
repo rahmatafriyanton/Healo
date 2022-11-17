@@ -377,6 +377,10 @@ class VerifyEmailVC : UIViewController {
             print("ini status:\(statusVerifyEmailVC)")
             GetUserVM.shared.getUser(myStruct: User.self)
             UserProfile.shared.isEmailValidated = true
+        } else {
+            let svc = SomethingWrongVC()
+            svc.modalPresentationStyle = .fullScreen
+            present(svc, animated: true, completion: nil)
         }
 //        while(true){
 //            if(statusVerifyEmailVC == "failed") {

@@ -64,6 +64,7 @@ class AssessmentResultVM {
                 self.assResult.on(.next(resultData))
             } catch {
                 print(error)
+                
             }
         })
         task.resume()

@@ -48,7 +48,7 @@ class LoginVM {
             do {
                 print("decoding")
                 let result = try JSONDecoder().decode(Response<T>.self, from: data)
-                print(result.status)
+                print("Result Decode \(result.status)")
                 self.statusLogin.on(.next(result.status))
                 
                 guard let token = result.data as? Token else {

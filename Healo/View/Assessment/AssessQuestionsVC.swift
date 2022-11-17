@@ -660,6 +660,7 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
         topicTitle.snp.makeConstraints { make in
             make.top.equalTo(numOfQuestStack.snp.bottom).offset(21)
             make.left.equalTo(baseView.snp.left).offset(27)
+            make.right.equalTo(baseView.snp.right).offset(-27)
         }
     }
 
@@ -684,7 +685,7 @@ class  AssessQuestionsVC: UIViewController, UIScrollViewDelegate {
         questionLabel.snp.makeConstraints { make in
             make.top.equalTo(longStripe.snp.bottom).offset(16)
             make.left.equalTo(baseView.snp.left).offset(26)
-            make.right.equalTo(baseView.snp.right).offset(26)
+            make.right.equalTo(baseView.snp.right).offset(-26)
             make.centerX.equalTo(baseView.snp.centerX)
         }
     }

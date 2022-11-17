@@ -438,7 +438,7 @@ class RegisterVC : UIViewController {
             navigationController?.pushViewController(VerifyEmailVC(), animated: true)
             print("Status: \(statusRegisterVC)")
         } else {
-            let alert = UIAlertController(title: "Registrasi gagal", message: "Terjadi kesalahan", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "Registrasi gagal", message: "Periksa kembali data anda", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             print("Status: \(statusRegisterVC)")

@@ -50,6 +50,8 @@ class OnboardingVC: UIViewController {
         view.addTarget(self, action: #selector(tapLogin), for: .touchUpInside)
         return view
     }()
+    
+    var imgSize = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +59,7 @@ class OnboardingVC: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: nil, action: nil)
         navigationItem.leftBarButtonItem?.tintColor = .darkPurple
         navigationItem.backBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 14) ?? "", NSAttributedString.Key.foregroundColor: UIColor.darkPurple], for: .normal)
+        imgSize = self.view.frame.height > 735 ? 281 : 210
         setupConfiguration()
     }
     
@@ -79,7 +82,8 @@ class OnboardingVC: UIViewController {
         centerImage.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(33)
             make.left.right.equalToSuperview().inset(55)
-            make.height.equalTo(281)
+            make.height.equalTo(imgSize)
+            make.width.equalTo(imgSize)
         }
         
         view.addSubview(descLabel)
@@ -97,7 +101,8 @@ class OnboardingVC: UIViewController {
         
         view.addSubview(loginButton)
         loginButton.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(96)
+           // make.left.right.equalToSuperview().inset(96)
+            make.centerX.equalTo(registerButton)
             make.bottom.equalToSuperview().offset(-38)
         }
     }
