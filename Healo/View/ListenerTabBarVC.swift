@@ -10,7 +10,8 @@ import UIKit
 
 class ListenerTabBarVC : UITabBarController{
     
-    var numOfAllMMessageRec : Int = 10 //Total number of active chat
+    var numOfAllMMessageRec : Int = 0 //Total number of active chat
+    var viewModel = ChatListVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +39,18 @@ class ListenerTabBarVC : UITabBarController{
     }
     
     func setupBadge(){
-        tabBar.items![0].badgeValue = String(numOfAllMMessageRec)
-        tabBar.items![0].badgeColor = .redNotif
+        var chats = viewModel.allChats
+        
+        for chat in chats {
+            if(chat.chatStatus == "active"){
+                numOfAllMMessageRec += chat.numOfMesReceived
+            }
+        }
+        
+        if numOfAllMMessageRec > 0 {
+            tabBar.items![0].badgeValue = String(numOfAllMMessageRec)
+            tabBar.items![0].badgeColor = .redNotif
+        }
     }
     
     
