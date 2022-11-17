@@ -87,6 +87,7 @@ class HasilAssessVC: UIViewController {
                 descLabel.text = "Anda telah berhasil melewati test untuk menjadi Listener. Sekarang, anda dapat melanjutkan untuk masuk ke aplikasi dan memulai chatting dengan Seeker!"
                 nextButton.addTarget(self, action: #selector(tapIfSuccess), for: .touchUpInside)
                 UserProfile.shared.userAssessStatus = "Success"
+                
             } else if (event.status == "fail") {
                 titleLabel.text = "Maaf!"
                 centerImage.image = UIImage(named: "sad-illus")?.withRenderingMode(.alwaysOriginal)
@@ -97,8 +98,8 @@ class HasilAssessVC: UIViewController {
             } else {
                 titleLabel.text = "something went wrong"
                 
-                //MARK: Kalau ini nanti kalian mau hapus gapapa juga -el
-                UserProfile.shared.userAssessStatus = "Failed"
+//                //MARK: Kalau ini nanti kalian mau hapus gapapa juga -el
+//                UserProfile.shared.userAssessStatus = "Failed"
                 nextButton.addTarget(self, action: #selector(tapIfFail), for: .touchUpInside)
             }
         }).disposed(by: disposeBag)

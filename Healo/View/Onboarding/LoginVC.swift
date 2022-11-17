@@ -303,10 +303,9 @@ class LoginVC : UIViewController {
                     tvc.modalPresentationStyle = .fullScreen
                     present(tvc, animated: true, completion: nil)
                 }
-                
-            } else {
-                
+
             }
+            
         } else {
             let alert = UIAlertController(title: "Login gagal", message: "Periksa kembali email dan password anda", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

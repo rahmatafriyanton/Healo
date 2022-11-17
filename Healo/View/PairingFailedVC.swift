@@ -49,7 +49,7 @@ class PairingFailedVC: UIViewController {
     
     private lazy var findNewButton : UIButton = {
        let button = UIButton()
-        button.addTarget(self, action: #selector(onTapToPreflection), for: .touchUpInside)
+        button.addTarget(self, action: #selector(onTapToPairing), for: .touchUpInside)
         button.backgroundColor = .darkPurple
         button.layer.cornerRadius = 15
         button.setTitle("Cari Listener Baru", for: .normal)
@@ -123,14 +123,16 @@ class PairingFailedVC: UIViewController {
         
     }
     
-    @objc private func onTapToPreflection() {
-        let svc = SeekerTabBarVC()
-        svc.modalPresentationStyle = .fullScreen
-        present(svc, animated: false, completion: nil)
+    @objc private func onTapToPairing() {
+        let cvc = CriteriaVC()
+        cvc.modalPresentationStyle = .fullScreen
+        present(cvc, animated: false, completion: nil)
         
     }
     
     @objc private func onTapBack() {
-//        navigationController?.pushViewController(PairingLoadingVC(), animated: true)
+        let svc = SeekerTabBarVC()
+        svc.modalPresentationStyle = .fullScreen
+        present(svc, animated: false, completion: nil)
     }
 }
