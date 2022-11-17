@@ -137,6 +137,6 @@ class SomethingWrongVC: UIViewController {
     }
     
     @objc private func onTapToHome() {
-        
+        dismiss(animated: true)
     }
 }

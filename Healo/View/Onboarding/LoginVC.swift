@@ -285,6 +285,7 @@ class LoginVC : UIViewController {
         print("role sblm get user:\(UserProfile.shared.userRole)")
         GetUserVM.shared.getUser(myStruct: User.self)
         subscribe()
+     
         if(statusLoginVC == "success") {
             print("role saat login:\(UserProfile.shared.userRole)")
             // navigate masuk tabbar sesuai role
@@ -293,12 +294,23 @@ class LoginVC : UIViewController {
                 svc.modalPresentationStyle = .fullScreen
                 present(svc, animated: true, completion: nil)
             } else if (UserProfile.shared.userRole == 1){
-                let tvc = ListenerTabBarVC()
-                tvc.modalPresentationStyle = .fullScreen
-                present(tvc, animated: true, completion: nil)
+                if(UserProfile.shared.userAssessStatus == "Success") {
+                    let tvc = ListenerTabBarVC()
+                    tvc.modalPresentationStyle = .fullScreen
+                    present(tvc, animated: true, completion: nil)
+                } else {
+                    let tvc = TestExplanationVC()
+                    tvc.modalPresentationStyle = .fullScreen
+                    present(tvc, animated: true, completion: nil)
+                }
+                
             } else {
                 
             }
+        } else {
+            let alert = UIAlertController(title: "Login gagal", message: "Periksa kembali email dan password anda", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
