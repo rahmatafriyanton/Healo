@@ -9,7 +9,9 @@ import UIKit
 
 class PairingSuccessVC: UIViewController {
 
-    let imageUrl1 = "https://images.unsplash.com/photo-1639202293330-5f8437183fd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG9@by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    var imageUrl1 = ""
+//    let imageUrl1 = "https://images.unsplash.com/photo-1639202293330-5f8437183fd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG9@by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    
     
     private lazy var secondView : UIView = {
         let view = UIView()
@@ -44,7 +46,7 @@ class PairingSuccessVC: UIViewController {
     
     private lazy var usernameLabel : UILabel = {
         let label = UILabel()
-        let username = "johndoe"
+        let username = "anonymgirl"
         label.font = .poppinsSemiBold(size: 21)
         label.numberOfLines = 0
         label.text = "@\(username)"
@@ -56,8 +58,8 @@ class PairingSuccessVC: UIViewController {
     
     private lazy var userLabel : UILabel = {
         let label = UILabel()
-        let age = "18"
-        let jk = "Pria"
+        let age = "21"
+        let jk = "Wanita"
         label.font = .poppinsRegular(size: 16)
         label.numberOfLines = 0
         label.text = "\(age) Tahun, \(jk)"
@@ -109,6 +111,14 @@ class PairingSuccessVC: UIViewController {
         super.viewDidLoad()
         setupUI()
         // Do any additional setup after loading the view.
+        subscribeIcon()
+    }
+    
+    func subscribeIcon(){
+        ProfileIconVM.shared.icons.subscribe(onNext: { event in
+            self.imageUrl1 = GlobalVariable.url + "/images/profile/user-1.png"
+            self.profileImage.setImage(from: self.imageUrl1)
+        }).disposed(by: disposeBag)
     }
     
     private func setupNavBar() {
